@@ -10,7 +10,7 @@
           android:title="Drunker's Helper"
           android:icon="@drawable/ic_action_search"
           android:showAsAction="ifRoom|collapseActionView"
-          android:actionViewClass="android.widget.SearchView" />sdftgymk   
+          android:actionViewClass="android.widget.SearchView" />   
     
   <item android:id="@+id/menu_search"
           android:title="Drunker's Helper"
