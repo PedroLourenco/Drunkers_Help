@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Drunkers_Help</string>
+    <string name="app_name">Drunker\'s Helper</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="bt_counter"> Day Counter </string>
+	<string name="bt_resetCounter"> Reset Counter </string>
+	<string name="menu_exit">Exit</string>
+	<string name="menu_history">History</string>
+	<string name="menu_export">Export</string>
 </resources>
