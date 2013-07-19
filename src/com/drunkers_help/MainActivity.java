@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		//Gridview with beer images on main activity
 		GridView gridview = (GridView) findViewById(R.id.gridview);
 	    gridview.setAdapter(new ImageAdapter(this));
 
