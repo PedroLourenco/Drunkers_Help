@@ -8,43 +8,10 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter {
-    private Context mContext;
 
-    public ImageAdapter(Context c) {
-        mContext = c;
-    }
-
-    public int getCount() {
-        return mThumbIds.length;
-    }
-
-    public Object getItem(int position) {
-        return null;
-    }
-
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    // create a new ImageView for each item referenced by the Adapter
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
-        if (convertView == null) {  // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(110, 110));
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            imageView.setPadding(2, 2, 2, 2);
-        } else {
-            imageView = (ImageView) convertView;
-        }
-
-        imageView.setImageResource(mThumbIds[position]);
-        return imageView;
-    }
-
-    // references to our images
-    private Integer[] mThumbIds = {
-            R.drawable.amigos, R.drawable.amstel,
+	Context mContext;  
+	public Integer[] mThumbIds = {
+    		R.drawable.amigos, R.drawable.amstel,
             R.drawable.asahi_black, R.drawable.asahi,
             R.drawable.baltika, R.drawable.bavaria,
             R.drawable.becks, R.drawable.birra_moretti,
@@ -62,7 +29,48 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.sagres, R.drawable.san_miguel,
             R.drawable.stella_artois, R.drawable.strela,
             R.drawable.superbock, R.drawable.tagus
-            
-            
     };
+	 
+	 public ImageAdapter(Context c){ 
+	        mContext = c; 
+	    } 
+
+
+	 
+
+
+
+	public int getCount() {
+		return mThumbIds.length; 
+		
+	}
+
+	public Object getItem(int arg0) {
+		return mThumbIds[arg0]; 
+	}
+
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+    
+    // create a new ImageView for each item referenced by the Adapter
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ImageView imageView;
+        if (convertView == null) {  // if it's not recycled, initialize some attributes
+            imageView = new ImageView(mContext);
+            imageView.setLayoutParams(new GridView.LayoutParams(110, 110));
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            imageView.setPadding(2, 2, 2, 2);
+        } else {
+            imageView = (ImageView) convertView;
+        }
+
+        imageView.setImageResource(mThumbIds[position]);
+        return imageView;
+    }
+    
+    
+
 }

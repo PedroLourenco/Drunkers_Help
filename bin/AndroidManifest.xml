@@ -16,12 +16,18 @@
         <activity
             android:name="com.drunkers_help.MainActivity"
             android:label="Drunker's Helper" >
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity android:name="com.drunkers_help.CounterActivity"
+                  android:label="Drunker's Helper" />
+ 
+        
     </application>
 
 </manifest>

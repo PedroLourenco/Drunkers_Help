@@ -7,17 +7,18 @@
           android:actionViewClass="android.widget.SearchView" />     
   
   <item
-    android:icon="@drawable/ic_action_overflow"
-    android:showAsAction="ifRoom">
+    	android:title="@string/app_name"
+    	android:icon="@drawable/ic_action_overflow"
+    	android:showAsAction="ifRoom">
     <menu>
         <item
-            android:id="@+id/menuSortNewest"
+            android:id="@+id/menu_History"
             android:title="@string/menu_history" />
         <item
-            android:id="@+id/menuSortRating"
+            android:id="@+id/menu_export"
             android:title="@string/menu_export" />
           <item
-            android:id="@+id/menuSortRating"
+            android:id="@+id/menu_exit"
             android:title="@string/menu_exit" />
     </menu>
 </item>

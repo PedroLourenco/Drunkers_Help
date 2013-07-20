@@ -86,16 +86,18 @@ public final class R {
         public static final int white_star=0x7f02003e;
     }
     public static final class id {
-        public static final int btnCounter=0x7f080001;
-        public static final int btnResetCounter=0x7f080002;
-        public static final int gridview=0x7f080000;
-        public static final int menuExit=0x7f080006;
-        public static final int menuExport=0x7f080005;
-        public static final int menuHistory=0x7f080004;
-        public static final int menu_search=0x7f080003;
+        public static final int btnCounter=0x7f080002;
+        public static final int btnResetCounter=0x7f080003;
+        public static final int gridview=0x7f080001;
+        public static final int mImgView1=0x7f080000;
+        public static final int menu_History=0x7f080005;
+        public static final int menu_exit=0x7f080007;
+        public static final int menu_export=0x7f080006;
+        public static final int menu_search=0x7f080004;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_counter=0x7f030000;
+        public static final int activity_main=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f070000;
