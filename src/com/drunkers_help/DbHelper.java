@@ -66,6 +66,30 @@ public class DbHelper {
       return list;
    }
 
+   
+   public int selectAll1(String name) {
+	      //List<String> list = new ArrayList<String>();
+	      int result = -1;
+	      
+	      
+	      Cursor cursor = db.rawQuery("select id from " + TABLE_NAME + " where UPPER(beerName) = UPPER (?)", new String[] {name});
+	      
+	      
+	     
+	     if (cursor.moveToFirst()) {
+	         do { 
+	             result = cursor.getInt(0);
+	        	 //list.add(cursor.getString(0));
+	            //list.add(cursor.getString(1));
+	         } while (cursor.moveToNext());
+	      }
+	      if (cursor != null && !cursor.isClosed()) {
+	         cursor.close();
+	      }
+	      return result;
+	   }
+   
+   
    private static class OpenHelper extends SQLiteOpenHelper {
 
       OpenHelper(Context context) {
