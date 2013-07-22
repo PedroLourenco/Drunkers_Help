@@ -16,7 +16,7 @@ import android.widget.ImageView;
 
 public class CounterActivity extends Activity {
  
-    @Override
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
@@ -31,4 +31,5 @@ public class CounterActivity extends Activity {
         imageView.setImageResource(imageAdapter.mThumbIds[position]);
     }
  
+    
 }
