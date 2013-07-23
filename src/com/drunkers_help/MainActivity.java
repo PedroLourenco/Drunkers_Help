@@ -35,21 +35,17 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
 	private static final int FindViewById = 0;
 	/** Called when the activity is first created. */
 	GridView gridview;
-    @Override
+   
     
-    
+     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	// mSearchText = new TextView(this);
-         //mSearchText.setPadding(10, 10, 10, 10);
-         //mSearchText.setText("Action Bar Usage example from CoderzHeaven");
-         //setContentView(mSearchText);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
         
         
         this.dh = new DbHelper(this);
-        List<String> names = this.dh.selectAll();
+        List<String> names = this.dh.selectAllBeers();
         StringBuilder sb = new StringBuilder();
         sb.append("Names in database:\n");
         for (String beerName : names) {
@@ -57,9 +53,6 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
         }
 
         Log.d("EXAMPLE", "names - " + sb.toString());
-
-               
-        
         
          gridview =(GridView) findViewById(R.id.gridview);  
          gridview.setAdapter(new ImageAdapter(this)); 
@@ -97,8 +90,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
                 if (event.getDownTime() - lastPressedTime < PERIOD) {
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Press again to exit.",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Press again to exit.",Toast.LENGTH_SHORT).show();
                     lastPressedTime = event.getEventTime();
                 }
                 return true;
@@ -115,7 +107,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
  
     @Override
     public boolean    onOptionsItemSelected       (MenuItem item) {
-        Toast.makeText(this, "Selected Item: " + item.getTitle(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Selected Item: " + item.getTitle(), Toast.LENGTH_SHORT).show();
         return true;
     }
     
@@ -126,7 +118,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
     }
 	 public boolean onQueryTextSubmit (String query) {
 	        //Toast.makeText(this, "Searching for: " + query + "...", Toast.LENGTH_SHORT).show();	        	       
-	        int result = dh.selectAll1(query);	        
+	        int result = dh.selectBeerId(query);	        
 	        
 	        if(result != -1){
 	        	Intent is = new Intent(getApplicationContext(), CounterActivity.class);	      	 	
@@ -135,8 +127,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
 	        }
 	        else{
 	        	 Toast.makeText(this, "Are you drunk? ", Toast.LENGTH_SHORT).show();	        	
-	        }    	
-	       
+	        } 
 	        
 	        return true;
 	 }
