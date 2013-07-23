@@ -3,10 +3,7 @@ package com.drunkers_help;
 import java.util.List;
 
 import android.app.Activity;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -16,12 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 
@@ -40,8 +35,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
      @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
+        setContentView(R.layout.activity_main);   
         
         
         this.dh = new DbHelper(this);
@@ -54,8 +48,9 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
 
         Log.d("EXAMPLE", "names - " + sb.toString());
         
-         gridview =(GridView) findViewById(R.id.gridview);  
-         gridview.setAdapter(new ImageAdapter(this)); 
+        
+        gridview =(GridView) findViewById(R.id.gridview);  
+        gridview.setAdapter(new ImageAdapter(this)); 
            
         //When You Click Image It Show Full Size Image in New Activity
          gridview.setOnItemClickListener(new OnItemClickListener() { 

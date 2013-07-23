@@ -36,10 +36,6 @@ public class ImageAdapter extends BaseAdapter {
 	    } 
 
 
-	 
-
-
-
 	public int getCount() {
 		return mThumbIds.length; 
 		
@@ -67,6 +63,8 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
+        
+        
         imageView.setImageResource(mThumbIds[position]);
         return imageView;
     }
