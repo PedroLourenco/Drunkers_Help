@@ -11,5 +11,5 @@
 	<string name="menu_export">Export</string>
 	<string name="search_label">Customers</string>
     <string name="search_hint">Search Customers</string>
-    <string name="settings_description">List of Customers</string>
+    <string name="bt_minus">" - "</string>
 </resources>

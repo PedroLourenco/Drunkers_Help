@@ -11,8 +11,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
@@ -52,18 +54,42 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
         gridview =(GridView) findViewById(R.id.gridview);  
         gridview.setAdapter(new ImageAdapter(this)); 
            
-        //When You Click Image It Show Full Size Image in New Activity
+        //When You Click Image It Show Image in New Activity
          gridview.setOnItemClickListener(new OnItemClickListener() { 
          public void onItemClick(AdapterView<?> parent, View v, int position, long id) { 
    
         	 // Sending image id to another activity 
         	 Intent i = new Intent(getApplicationContext(), CounterActivity.class); 
-        	 // passing array index 
+        	 //passing array index 
         	 i.putExtra("id", position); 
         	 startActivity(i); 
            } 
          }); 
-    }
+    
+     
+     
+     
+         Button bt_dayCounter = (Button) findViewById(R.id.btnCounter); 
+         
+         bt_dayCounter.setOnClickListener(new OnClickListener() {
+     	    @Override
+     	    public void onClick(View v) {	       
+     	    	
+     	    	Intent i = new Intent(getApplicationContext(), DailyCounter.class); 
+     	    	startActivity(i);
+     	    	
+     	    }
+     	});
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     }
    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -75,6 +101,12 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
     }
  
         
+   
+    
+    
+    
+    
+    
     
     //Exit APP when click back key twice
     @Override
@@ -83,6 +115,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
             switch (event.getAction()) {
             case KeyEvent.ACTION_DOWN:
                 if (event.getDownTime() - lastPressedTime < PERIOD) {
+                	dh.resetCounterTable();
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Press again to exit.",Toast.LENGTH_SHORT).show();
@@ -113,7 +146,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
     }
 	 public boolean onQueryTextSubmit (String query) {
 	        //Toast.makeText(this, "Searching for: " + query + "...", Toast.LENGTH_SHORT).show();	        	       
-	        int result = dh.selectBeerId(query);	        
+	        int result = dh.getBeerId(query);	        
 	        
 	        if(result != -1){
 	        	Intent is = new Intent(getApplicationContext(), CounterActivity.class);	      	 	

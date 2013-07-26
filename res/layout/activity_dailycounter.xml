@@ -1,0 +1,28 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+   <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"        
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="30dp"
+        android:background="#dddddd" >
+        
+   		<ListView 
+      		android:id="@+id/dailyListView"
+    		android:layout_width="fill_parent" 
+    		android:layout_height="fill_parent"
+    		android:columnWidth="40dp"
+    		android:numColumns="auto_fit"
+    		android:verticalSpacing="5dp"
+    		android:horizontalSpacing="10dp"
+    		android:stretchMode="columnWidth"
+    		android:gravity="center"
+		/>  
+       
+	</RelativeLayout>
+	
+   </RelativeLayout>
