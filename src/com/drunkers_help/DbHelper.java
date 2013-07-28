@@ -211,7 +211,7 @@ public class DbHelper {
 	
 	public void deleteHistory(String beerName){
 		
-		db.delete(TABLE_BEER_HISTORY, "UPPER(beerName) = UPPER(?) and id = (select max(id) from " + TABLE_BEER_HISTORY +")" ,new String[] { beerName });			
+		 db.delete(TABLE_BEER_HISTORY, "UPPER(beerName) = UPPER(?) and id = (select max(id) from " + TABLE_BEER_HISTORY +")" ,new String[] { beerName });			
 		
 	}
 	
