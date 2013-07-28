@@ -12,7 +12,7 @@
         android:background="#dddddd" >
         
    		<ListView 
-      		android:id="@+id/dailyListView"
+      		android:id="@+id/histListView"
     		android:layout_width="fill_parent" 
     		android:layout_height="fill_parent"
     		android:columnWidth="40dp"

@@ -8,7 +8,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"        
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="40dp"
         android:background="#dddddd" >
         
    		<GridView 
@@ -26,19 +26,19 @@
 	</RelativeLayout>
 	
 	<RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="#000000" >
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentRight="true"
+	    android:background="#000000"
+	    android:gravity="center"
+	    android:orientation="horizontal" >
         
         <Button
             android:id="@+id/btnCounter"
             android:layout_width="100dp"        	
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:text="@string/bt_counter"
             android:layout_gravity="center_vertical"            
             android:layout_alignParentLeft="true"
@@ -50,7 +50,7 @@
         <Button
             android:id="@+id/btnResetCounter"
             android:layout_width="100dp"        	
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:text="@string/bt_resetCounter"
             android:layout_gravity="center_vertical"            
             android:layout_alignParentRight="true"

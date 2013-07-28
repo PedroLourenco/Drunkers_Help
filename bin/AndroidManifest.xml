@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
     <application
@@ -29,7 +29,6 @@
                   android:label="Drunker's Helper" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         
@@ -37,10 +36,17 @@
                   android:label="Drunker's Helper" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                
             </intent-filter>
         </activity>
- 
+ 		
+ 		<activity android:name="com.drunkers_help.HistoryActivity"
+                  android:label="Drunker's Helper" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                
+            </intent-filter>
+        </activity>
         
     </application>
 

@@ -29,7 +29,6 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
 	private DbHelper dh;
 	private long lastPressedTime;
 	private static final int PERIOD = 2000;
-	private static final int FindViewById = 0;
 	/** Called when the activity is first created. */
 	GridView gridview;
    
@@ -37,25 +36,13 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
      @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);   
-        
+        setContentView(R.layout.activity_main);           
         
         this.dh = new DbHelper(this);
-        List<String> names = this.dh.selectAllBeers();
-        StringBuilder sb = new StringBuilder();
-        sb.append("Names in database:\n");
-        for (String beerName : names) {
-           sb.append(beerName + "\n");
-        }
-
-        Log.d("EXAMPLE", "names - " + sb.toString());
-        
-        
+                
         gridview =(GridView) findViewById(R.id.gridview);  
         gridview.setAdapter(new ImageAdapter(this)); 
-           
-        //When You Click Image It Show Image in New Activity
-         gridview.setOnItemClickListener(new OnItemClickListener() { 
+        gridview.setOnItemClickListener(new OnItemClickListener() { 
          public void onItemClick(AdapterView<?> parent, View v, int position, long id) { 
    
         	 // Sending image id to another activity 
@@ -70,7 +57,6 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
      
      
          Button bt_dayCounter = (Button) findViewById(R.id.btnCounter); 
-         
          bt_dayCounter.setOnClickListener(new OnClickListener() {
      	    @Override
      	    public void onClick(View v) {	       
@@ -82,12 +68,16 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
      	});
      
      
-     
-     
-     
-     
-     
-     
+        Button bt_resetCounter = (Button) findViewById(R.id.btnResetCounter); 
+        bt_resetCounter.setOnClickListener(new OnClickListener() {
+     	    @Override
+     	    public void onClick(View v) {	       
+     	    	
+     	    	dh.resetCounterTable();
+     	    	Toast.makeText(getApplicationContext(), "Counter reseted!",Toast.LENGTH_SHORT).show();
+     	    	
+     	    }
+     	});
      
      }
    
@@ -101,12 +91,6 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
     }
  
         
-   
-    
-    
-    
-    
-    
     
     //Exit APP when click back key twice
     @Override
@@ -133,10 +117,16 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
         return super.onPrepareOptionsMenu(menu);
     }
  
-    @Override
-    public boolean    onOptionsItemSelected       (MenuItem item) {
-        //Toast.makeText(this, "Selected Item: " + item.getTitle(), Toast.LENGTH_SHORT).show();
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_History:
+            	Intent i = new Intent(getApplicationContext(), HistoryActivity.class); 
+     	    	startActivity(i);
+                return true;            
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
     
     // The following callbacks are called for the SearchView.OnQueryChangeListener
@@ -159,5 +149,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
 	        
 	        return true;
 	 }
+	 
+	 
 	 
 }
