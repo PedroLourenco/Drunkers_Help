@@ -20,6 +20,7 @@
     		android:verticalSpacing="5dp"
     		android:horizontalSpacing="10dp"
     		android:stretchMode="columnWidth"
+    		android:listSelector="@android:color/transparent"
     		android:gravity="center"
 		/>  
        

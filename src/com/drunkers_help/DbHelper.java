@@ -122,7 +122,7 @@ public class DbHelper {
 
 	public String selectAllBeerCounter() {
 
-		Cursor cursor = this.db.rawQuery("select counter ||':'|| beerName as _id  from " + TABLE_BEER_COUNTER + " order by beerName ASC",new String[] {});
+		Cursor cursor = this.db.rawQuery("select counter ||'-'|| beerName as _id  from " + TABLE_BEER_COUNTER + " order by beerName ASC",new String[] {});
 		String result = "Today i drunk ";
 		if (cursor.moveToFirst()) {
 
@@ -293,10 +293,11 @@ public class DbHelper {
 			populateBeersNameTb(db, "Foster");
 			populateBeersNameTb(db, "Guiness");
 			populateBeersNameTb(db, "Heineken");
+			populateBeersNameTb(db, "karlovacko");
 			populateBeersNameTb(db, "Kilkenny");
 			populateBeersNameTb(db, "Kronenbourg 1994");
 			populateBeersNameTb(db, "London Pride");
-			populateBeersNameTb(db, "Mini");
+			populateBeersNameTb(db, "Super Bock");
 			populateBeersNameTb(db, "Old Speckled Hen");
 			populateBeersNameTb(db, "Peroni Nastro");
 			populateBeersNameTb(db, "Pint");
@@ -305,7 +306,6 @@ public class DbHelper {
 			populateBeersNameTb(db, "San Miguel");
 			populateBeersNameTb(db, "Stella Artois");
 			populateBeersNameTb(db, "Strela");
-			populateBeersNameTb(db, "Superbock");
 			populateBeersNameTb(db, "Tagus");
 
 		}

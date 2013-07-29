@@ -21,14 +21,14 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.corona, R.drawable.cristal,
             R.drawable.duff, R.drawable.duvel,
             R.drawable.foster, R.drawable.guiness,
-            R.drawable.heineken, R.drawable.kilkenny, 
-            R.drawable.kronenbourg_1994,
-            R.drawable.london_pride, R.drawable.mini,
+            R.drawable.heineken,R.drawable.karlovacko, 
+            R.drawable.kilkenny, R.drawable.kronenbourg_1994,
+            R.drawable.london_pride, R.drawable.superbock,
             R.drawable.old_speckled_hen, R.drawable.peroni_nastro,
             R.drawable.pint, R.drawable.royal_dutch,
             R.drawable.sagres, R.drawable.san_miguel,
             R.drawable.stella_artois, R.drawable.strela,
-            R.drawable.superbock, R.drawable.tagus
+            R.drawable.tagus
     };
 	 
 	 public ImageAdapter(Context c){ 

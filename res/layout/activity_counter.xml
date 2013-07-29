@@ -11,24 +11,12 @@
         android:layout_marginTop="0dp"
          >
 
-        <EditText
+        <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="false"
-            android:cursorVisible="false"
-            android:enabled="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:freezesText="false"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:inputType="textNoSuggestions"
-            android:linksClickable="false"
-            android:scrollHorizontally="false"
-            android:scrollbarAlwaysDrawVerticalTrack="false"
-            android:selectAllOnFocus="false" >           
-        </EditText>
+            android:gravity="center" >           
+        </TextView>
     </RelativeLayout>
 
     
@@ -55,25 +43,13 @@
         android:layout_marginLeft="170dp"
         android:layout_marginTop="100dp">
     	
-    	<EditText
+    	<TextView
             android:id="@+id/counter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="false"
-            android:cursorVisible="false"
-            android:enabled="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:freezesText="false"
             android:gravity="center"
-            android:includeFontPadding="false"
-            android:inputType="textNoSuggestions"
-            android:linksClickable="false"
-            android:scrollHorizontally="false"
-            android:scrollbarAlwaysDrawVerticalTrack="false"
-            android:selectAllOnFocus="false"
             android:textColor="#000000">           
-        </EditText>
+        </TextView>
     
     </RelativeLayout> 
        
@@ -97,6 +73,7 @@
             android:layout_marginRight="0dp"
             android:textSize="12sp"
             android:gravity="center"
+            android:listSelector="@android:color/transparent"
             android:textColor="#dddddd" />       
              
 

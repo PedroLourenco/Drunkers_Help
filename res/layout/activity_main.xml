@@ -15,11 +15,12 @@
       		android:id="@+id/gridview"
     		android:layout_width="fill_parent" 
     		android:layout_height="fill_parent"
-    		android:columnWidth="40dp"
+    		android:columnWidth="50dp"
     		android:numColumns="auto_fit"
     		android:verticalSpacing="5dp"
     		android:horizontalSpacing="10dp"
     		android:stretchMode="columnWidth"
+    		android:listSelector="@android:color/transparent"
     		android:gravity="center"
 		/>  
        
@@ -45,6 +46,7 @@
             android:layout_marginRight="150dp"
             android:textSize="12sp"
             android:gravity="center"
+            android:listSelector="@android:color/transparent"
             android:textColor="#dddddd" />
         
         <Button
@@ -57,6 +59,7 @@
             android:layout_marginLeft="150dp"
             android:textSize="12sp"            
             android:gravity="center"
+            android:listSelector="@android:color/transparent"
             android:textColor="#dddddd" />
 
         
