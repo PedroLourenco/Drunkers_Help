@@ -15,7 +15,7 @@
       		android:id="@+id/gridview"
     		android:layout_width="fill_parent" 
     		android:layout_height="fill_parent"
-    		android:columnWidth="50dp"
+    		android:columnWidth="40dp"
     		android:numColumns="auto_fit"
     		android:verticalSpacing="5dp"
     		android:horizontalSpacing="10dp"
@@ -46,8 +46,9 @@
             android:layout_marginRight="150dp"
             android:textSize="12sp"
             android:gravity="center"
-            android:listSelector="@android:color/transparent"
-            android:textColor="#dddddd" />
+            android:textColor="#dddddd" />       
+        
+        
         
         <Button
             android:id="@+id/btnResetCounter"
@@ -59,10 +60,18 @@
             android:layout_marginLeft="150dp"
             android:textSize="12sp"            
             android:gravity="center"
-            android:listSelector="@android:color/transparent"
             android:textColor="#dddddd" />
 
-        
+         <Button
+             android:id="@+id/btnLocation"
+             android:layout_width="100dp"
+             android:layout_height="40dp"
+             android:layout_alignParentTop="true"
+             android:layout_centerHorizontal="true"
+             android:gravity="center"
+             android:text="@string/bt_Location"
+             android:textColor="#dddddd"
+             android:textSize="12sp" />
 
     </RelativeLayout>
 

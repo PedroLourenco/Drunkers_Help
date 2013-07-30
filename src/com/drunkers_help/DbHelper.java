@@ -22,11 +22,13 @@ public class DbHelper {
 	public static final String Counter = "Counter";
 	private static Context context;
 	private SQLiteDatabase db;
+	private GetCurrentLocation getCurrentLocation; 
 
 	public DbHelper(Context context) {
 		DbHelper.context = context;
 		OpenHelper openHelper = new OpenHelper(DbHelper.context);
 		this.db = openHelper.getWritableDatabase();
+		this.getCurrentLocation = new GetCurrentLocation();
 	}
 
 	public void deleteAll() {
@@ -179,7 +181,7 @@ public class DbHelper {
 		}
 		
 		insertValuesHist.put("beerName", beerName);
-		//insertValuesHist.put("city", "Marinha Grande");
+		insertValuesHist.put("city", getCurrentLocation.getCityName());
 		db.insert(TABLE_BEER_HISTORY, null, insertValuesHist);
 		return getBeerCounter(beerName);
 	}
@@ -218,8 +220,7 @@ public class DbHelper {
 	
 	public Cursor selectAllHistory() {
 		Cursor cursor = this.db.rawQuery(
-				"select beerName ||' - '||date as _id, city  from "
-						+ TABLE_BEER_HISTORY + " order by date DESC",
+				"select beerName ||' - '||date as _id, city  from "	+ TABLE_BEER_HISTORY + " order by date DESC",
 				new String[] {});
 		return cursor;
 			}	

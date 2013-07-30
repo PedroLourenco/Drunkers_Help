@@ -25,7 +25,7 @@ public class HistoryActivity extends Activity {
 		
 		Cursor listcounter = dh.selectAllHistory();
 		
-		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,	android.R.layout.simple_list_item_2, listcounter, new String[] { "_id","City" }, new int[] { android.R.id.text1,android.R.id.text2 }, 0);
+		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,	android.R.layout.simple_list_item_2, listcounter, new String[] { "_id", "City" }, new int[] { android.R.id.text1,android.R.id.text2 }, 0);
 		ListView list = (ListView) findViewById(R.id.histListView);
 		list.setAdapter(adapter);
 

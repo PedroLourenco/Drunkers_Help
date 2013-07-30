@@ -84,18 +84,23 @@ public final class R {
         public static final int white_star=0x7f02003c;
     }
     public static final class id {
-        public static final int btnCounter=0x7f09000a;
+        public static final int btnCounter=0x7f09000f;
+        public static final int btnLocation=0x7f09000a;
         public static final int btnMinus=0x7f090006;
-        public static final int btnResetCounter=0x7f09000b;
+        public static final int btnResetCounter=0x7f090010;
         public static final int counter=0x7f090005;
         public static final int dailyListView=0x7f090007;
-        public static final int gridview=0x7f090009;
-        public static final int histListView=0x7f090008;
+        public static final int editTextLocation=0x7f090008;
+        public static final int gridview=0x7f09000e;
+        public static final int histListView=0x7f09000d;
+        public static final int layButtonH=0x7f090009;
+        public static final int layloadingH=0x7f09000b;
         public static final int mImgView1=0x7f090003;
-        public static final int menu_History=0x7f09000d;
-        public static final int menu_export=0x7f09000e;
-        public static final int menu_item_share=0x7f09000c;
-        public static final int menu_search=0x7f09000f;
+        public static final int menu_History=0x7f090012;
+        public static final int menu_export=0x7f090013;
+        public static final int menu_item_share=0x7f090011;
+        public static final int menu_search=0x7f090014;
+        public static final int progressBar1=0x7f09000c;
         public static final int relativeLayout1=0x7f090000;
         public static final int relativeLayout2=0x7f090002;
         public static final int relativeLayout3=0x7f090004;
@@ -104,8 +109,9 @@ public final class R {
     public static final class layout {
         public static final int activity_counter=0x7f030000;
         public static final int activity_dailycounter=0x7f030001;
-        public static final int activity_history=0x7f030002;
-        public static final int activity_main=0x7f030003;
+        public static final int activity_getcurrentlocation=0x7f030002;
+        public static final int activity_history=0x7f030003;
+        public static final int activity_main=0x7f030004;
     }
     public static final class menu {
         public static final int actionbar_dalycounter=0x7f080000;
@@ -115,6 +121,7 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        public static final int bt_Location=0x7f06000b;
         public static final int bt_counter=0x7f060003;
         public static final int bt_minus=0x7f06000a;
         public static final int bt_resetCounter=0x7f060004;

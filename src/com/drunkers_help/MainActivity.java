@@ -1,11 +1,8 @@
 package com.drunkers_help;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,7 +23,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
     TextView mSearchText;
    
 	
-	private DbHelper dh;
+	private DbHelper dbHelper;
 	private long lastPressedTime;
 	private static final int PERIOD = 2000;
 	/** Called when the activity is first created. */
@@ -38,7 +35,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);           
         
-        this.dh = new DbHelper(this);
+        this.dbHelper = new DbHelper(this);
                 
         gridview =(GridView) findViewById(R.id.gridview);  
         gridview.setAdapter(new ImageAdapter(this)); 
@@ -73,13 +70,28 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
      	    @Override
      	    public void onClick(View v) {	       
      	    	
-     	    	dh.resetCounterTable();
+     	    	dbHelper.resetCounterTable();
      	    	Toast.makeText(getApplicationContext(), "Counter reseted!",Toast.LENGTH_SHORT).show();
+     	    	
+     	    }
+     	});
+        
+        Button bt_location = (Button) findViewById(R.id.btnLocation); 
+        bt_location.setOnClickListener(new OnClickListener() {
+     	    @Override
+     	    public void onClick(View v) {	       
+     	    	
+     	    	Intent i = new Intent(getApplicationContext(), GetCurrentLocation.class); 
+     	    	startActivity(i);
      	    	
      	    }
      	});
      
      }
+        
+                
+     
+     
    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -99,7 +111,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
             switch (event.getAction()) {
             case KeyEvent.ACTION_DOWN:
                 if (event.getDownTime() - lastPressedTime < PERIOD) {
-                	dh.resetCounterTable();
+                	dbHelper.resetCounterTable();
                     finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Press again to exit.",Toast.LENGTH_SHORT).show();
@@ -136,7 +148,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
     }
 	 public boolean onQueryTextSubmit (String query) {
 	        //Toast.makeText(this, "Searching for: " + query + "...", Toast.LENGTH_SHORT).show();	        	       
-	        int result = dh.getBeerId(query);	        
+	        int result = dbHelper.getBeerId(query);	        
 	        
 	        if(result != -1){
 	        	Intent is = new Intent(getApplicationContext(), CounterActivity.class);	      	 	
