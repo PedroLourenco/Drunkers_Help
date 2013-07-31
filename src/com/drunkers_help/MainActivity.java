@@ -45,7 +45,7 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
         	 // Sending image id to another activity 
         	 Intent i = new Intent(getApplicationContext(), CounterActivity.class); 
         	 //passing array index 
-        	 i.putExtra("id", position); 
+        	 i.putExtra("id", position);
         	 startActivity(i); 
            } 
          }); 
@@ -135,7 +135,11 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
             case R.id.menu_History:
             	Intent i = new Intent(getApplicationContext(), HistoryActivity.class); 
      	    	startActivity(i);
-                return true;            
+                return true;
+            case R.id.menu_addBeer:
+            	Intent i_addBeer = new Intent(getApplicationContext(), AddNewBeer.class); 
+     	    	startActivity(i_addBeer);
+                return true;          
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -152,7 +156,8 @@ public class MainActivity extends Activity  implements OnQueryTextListener {
 	        
 	        if(result != -1){
 	        	Intent is = new Intent(getApplicationContext(), CounterActivity.class);	      	 	
-	          	is.putExtra("id", result-1); 
+	          	is.putExtra("id", result-1);
+	          	is.putExtra("beerName", query);
 	      	 	startActivity(is);		        
 	        }
 	        else{

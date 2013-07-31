@@ -11,7 +11,7 @@ public class ImageAdapter extends BaseAdapter {
 
 	Context mContext;  
 	public Integer[] mThumbIds = {
-    		R.drawable.amigos, R.drawable.amstel,
+			R.drawable.amigos, R.drawable.amstel,
             R.drawable.asahi_black, R.drawable.asahi,
             R.drawable.baltika, R.drawable.bavaria,
             R.drawable.becks, R.drawable.birra_moretti,

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >  
+       
+  <item
+    	android:title="@string/app_name"
+    	android:id="@+id/menu_addBeer"
+    	android:icon="@drawable/ic_action_done"
+    	android:showAsAction="ifRoom">   
+</item>
+    
+
+</menu>

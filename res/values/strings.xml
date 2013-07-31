@@ -9,6 +9,7 @@
 	<string name="menu_exit">Exit</string>
 	<string name="menu_history">Report</string>
 	<string name="menu_export">Export</string>
+	<string name="menu_addBeer">Add Beer</string>	
 	<string name="search_label">Customers</string>
     <string name="search_hint">Search Customers</string>
     <string name="bt_minus">" - "</string>

@@ -10,6 +10,10 @@
     	android:icon="@drawable/ic_action_overflow"
     	android:showAsAction="ifRoom">
     <menu>
+        
+        <item
+            android:id="@+id/menu_addBeer"
+            android:title="@string/menu_addBeer" />
         <item
             android:id="@+id/menu_History"
             android:title="@string/menu_history" />

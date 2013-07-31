@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
@@ -161,11 +162,10 @@ public class DbHelper {
 	}
 
 	
-	public Integer incrementCounter(String id) {
+	public Integer incrementCounter(String beerName) {
 		
 		ContentValues insertValues = new ContentValues();
 		ContentValues insertValuesHist = new ContentValues();
-		String beerName = getBeerName(id);
 		int counter = getBeerCounter(beerName); 
 
 		if (counter == -1) {
@@ -181,16 +181,15 @@ public class DbHelper {
 		}
 		
 		insertValuesHist.put("beerName", beerName);
-		insertValuesHist.put("city", getCurrentLocation.getCityName());
+		//insertValuesHist.put("city", getCurrentLocation.getCityName());
 		db.insert(TABLE_BEER_HISTORY, null, insertValuesHist);
 		return getBeerCounter(beerName);
 	}
 
 	
-	public Integer decrementCounter(String id) {
+	public Integer decrementCounter(String beerName) {
 		
 		ContentValues insertValues = new ContentValues();
-		String beerName = getBeerName(id);
 		int counter = getBeerCounter(beerName);
 
 		if (counter > 0 && counter != -1) {
@@ -211,6 +210,9 @@ public class DbHelper {
 	}
 	
 	
+	
+	
+	
 	public void deleteHistory(String beerName){
 		
 		 db.delete(TABLE_BEER_HISTORY, "UPPER(beerName) = UPPER(?) and id = (select max(id) from " + TABLE_BEER_HISTORY +")" ,new String[] { beerName });			
@@ -224,6 +226,25 @@ public class DbHelper {
 				new String[] {});
 		return cursor;
 			}	
+	
+	
+	
+	public void addNewBeer(String beerName){
+		ContentValues insertValues = new ContentValues();
+		
+		try{
+			insertValues.put(BeerName, beerName);
+			db.insert(TABLE_BEERS_NAME, null, insertValues);
+		}
+		catch(SQLiteException exception){
+			
+			
+		}
+
+		 
+		
+	}
+	
 	
 
 	private static class OpenHelper extends SQLiteOpenHelper {

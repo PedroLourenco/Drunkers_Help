@@ -105,7 +105,7 @@ implements OnClickListener {
  /*----------Method to create an AlertBox ------------- */
  protected void alertbox(String title, String mymessage) {
   AlertDialog.Builder builder = new AlertDialog.Builder(this);
-  builder.setMessage("Your Device's GPS is Disable").setCancelable(false).setTitle("** Gps Status **") .setPositiveButton("Gps On", new DialogInterface.OnClickListener() {
+  builder.setMessage("Teh GPS is disable. Note that the location cannot be determined when the GPS is disable").setPositiveButton("Location settings", new DialogInterface.OnClickListener() {
    public void onClick(DialogInterface dialog, int id) {
    // finish the current activity
    // AlertBoxAdvance.this.finish();
@@ -114,7 +114,7 @@ implements OnClickListener {
       dialog.cancel();
    }
    })
-   .setNegativeButton("Cancel",
+   .setNegativeButton("Ignore",
    new DialogInterface.OnClickListener() {
    public void onClick(DialogInterface dialog, int id) {
     // cancel the dialog box
