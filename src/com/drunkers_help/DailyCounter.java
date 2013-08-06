@@ -8,10 +8,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
+import android.util.Log;
 
 /**
  * @author PedroLourenco
@@ -28,7 +30,7 @@ public class DailyCounter extends Activity {
 
 		this.dh = new DbHelper(this);
 		Cursor listcounter = dh.selectCounterBeers();
-		
+
 		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
 				android.R.layout.test_list_item, listcounter,
 				new String[] { "_id" }, new int[] { android.R.id.text1 }, 0);
@@ -42,7 +44,8 @@ public class DailyCounter extends Activity {
 		getMenuInflater().inflate(R.menu.actionbar_dalycounter, menu);
 		MenuItem item = menu.findItem(R.id.menu_item_share);
 		myShareActionProvider = (ShareActionProvider) item.getActionProvider();
-		myShareActionProvider.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME);
+		myShareActionProvider
+				.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME);
 		myShareActionProvider.setShareIntent(createShareIntent());
 		return true;
 	}
@@ -50,7 +53,7 @@ public class DailyCounter extends Activity {
 	private Intent createShareIntent() {
 		Intent shareIntent = new Intent(Intent.ACTION_SEND);
 		shareIntent.setType("text/plain");
-		shareIntent.putExtra(Intent.EXTRA_TEXT, dh.selectAllBeerCounter());
+		shareIntent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_msg1) + dh.selectAllBeerCounter() + getResources().getString(R.string.share_msg2));
 		return shareIntent;
 	}
 

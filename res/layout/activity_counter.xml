@@ -8,77 +8,71 @@
         android:layout_width="fill_parent"
         android:layout_height="52dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-         >
+        android:layout_marginTop="0dp" >
 
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center" >           
+            android:gravity="center"
+            android:textSize="30sp" >
         </TextView>
     </RelativeLayout>
 
-    
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="fill_parent"
         android:layout_height="250dp"
         android:layout_marginRight="140dp"
-        android:layout_marginTop="70dp">
-    
-    	<ImageView
-        	android:id="@+id/mImgView1"
-        	android:layout_width="fill_parent"
-        	android:layout_height="fill_parent"        
-        	android:layout_marginTop="0dp"
-        	android:layout_marginLeft="0dp"/>    
+        android:layout_marginTop="70dp" >
+
+        <ImageView
+            android:id="@+id/mImgView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp" />
     </RelativeLayout>
-    
-   
+
     <RelativeLayout
         android:id="@+id/relativeLayout3"
         android:layout_width="fill_parent"
         android:layout_height="252dp"
         android:layout_marginLeft="170dp"
-        android:layout_marginTop="100dp">
-    	
-    	<TextView
+        android:layout_marginTop="100dp" >
+
+        <TextView
             android:id="@+id/counter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="#000000">           
+            android:textColor="#000000"
+            android:textSize="50sp" >
         </TextView>
-    
-    </RelativeLayout> 
-       
+    </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:orientation="horizontal"
+        android:background="#000000"
         android:gravity="center"
-        android:background="#000000" >
-        
+        android:orientation="horizontal" >
+
         <Button
             android:id="@+id/btnMinus"
-            android:layout_width="fill_parent"        	
+            android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:text="@string/bt_minus"
-            android:layout_gravity="center_vertical"            
             android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
             android:layout_marginRight="0dp"
-            android:textSize="12sp"
             android:gravity="center"
             android:listSelector="@android:color/transparent"
-            android:textColor="#dddddd" />       
-             
-
+            android:text="@string/bt_minus"
+            android:textColor="#dddddd"
+            android:textSize="12sp" />
     </RelativeLayout>
-        
-        
-    
+
 </RelativeLayout>

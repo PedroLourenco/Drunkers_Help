@@ -3,6 +3,7 @@ package com.drunkers_help;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -11,7 +12,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DbHelper {
+public class DbHelper extends Activity{
 
 	private static final String DATABASE_NAME = "Beers.db";
 	private static final int DATABASE_VERSION = 1;
@@ -21,25 +22,20 @@ public class DbHelper {
 	public static final String BeerName = "BeerName";
 	public static final String Photo = "Photo";
 	public static final String Counter = "Counter";
-	private static Context context;
 	private SQLiteDatabase db;
-	private GetCurrentLocation getCurrentLocation; 
+	
 
 	public DbHelper(Context context) {
-		DbHelper.context = context;
-		OpenHelper openHelper = new OpenHelper(DbHelper.context);
+		OpenHelper openHelper = new OpenHelper(context);
 		this.db = openHelper.getWritableDatabase();
-		this.getCurrentLocation = new GetCurrentLocation();
+		
 	}
 
 	public void deleteAll() {
 		this.db.delete(TABLE_BEERS_NAME, null, null);
 	}
 
-	public void dropTableBeersName() {
-		db.execSQL("DROP TABLE IF EXISTS " + TABLE_BEERS_NAME);
-	}
-
+	
 	public List<String> selectAllBeers() {
 		List<String> list = new ArrayList<String>();
 		Cursor cursor = this.db.query(TABLE_BEERS_NAME, new String[] { "id",
@@ -126,7 +122,12 @@ public class DbHelper {
 	public String selectAllBeerCounter() {
 
 		Cursor cursor = this.db.rawQuery("select counter ||'-'|| beerName as _id  from " + TABLE_BEER_COUNTER + " order by beerName ASC",new String[] {});
-		String result = "Today i drunk ";
+		
+		String result="";
+		if ( cursor.getCount() == 0){
+			return result;
+		}
+	
 		if (cursor.moveToFirst()) {
 
 			do {
@@ -138,8 +139,8 @@ public class DbHelper {
 			cursor.close();
 		}
 
-		result = result.substring(0, result.length() - 1)
-				+ ".#DrunkersHelper for #Android";
+		result = result.substring(0, result.length() - 1);
+				
 
 		return result;
 	}
@@ -181,12 +182,12 @@ public class DbHelper {
 		}
 		
 		insertValuesHist.put("beerName", beerName);
-		//insertValuesHist.put("city", getCurrentLocation.getCityName());
+		insertValuesHist.put("city", globalconstant.cityName);
 		db.insert(TABLE_BEER_HISTORY, null, insertValuesHist);
 		return getBeerCounter(beerName);
 	}
 
-	
+		
 	public Integer decrementCounter(String beerName) {
 		
 		ContentValues insertValues = new ContentValues();
@@ -208,8 +209,6 @@ public class DbHelper {
 		
 		return counter;
 	}
-	
-	
 	
 	
 	
@@ -236,13 +235,9 @@ public class DbHelper {
 			insertValues.put(BeerName, beerName);
 			db.insert(TABLE_BEERS_NAME, null, insertValues);
 		}
-		catch(SQLiteException exception){
+		catch(SQLiteException exception){			
 			
-			
-		}
-
-		 
-		
+		}		
 	}
 	
 	
@@ -261,25 +256,6 @@ public class DbHelper {
 			return db.insert(TABLE_BEERS_NAME, null, insertValues);
 		}
 
-		/*
-		 * public long populateBeersNameTb(SQLiteDatabase db, String name, int
-		 * image ){ ContentValues insertValues = new ContentValues(); Bitmap
-		 * bitmap = BitmapFactory.decodeResource(context.getResources(), image);
-		 * 
-		 * ByteArrayOutputStream bos = new ByteArrayOutputStream();
-		 * 
-		 * bitmap.compress(CompressFormat.PNG, 0 , bos);
-		 * 
-		 * byte[] bitmapdata = bos.toByteArray();
-		 * 
-		 * insertValues.put(BeerName, name); insertValues.put(Photo,
-		 * bitmapdata);
-		 * 
-		 * return db.insert(TABLE_NAME, null, insertValues); }
-		 */
-		
-	
-		
 		
 		
 
@@ -294,42 +270,68 @@ public class DbHelper {
 			
 			db.execSQL("CREATE TABLE "	+ TABLE_BEER_HISTORY + " (id INTEGER PRIMARY KEY autoincrement, BeerName TEXT, DATE default (datetime(current_timestamp)), City TEXT)");
 
+			
+			
 			populateBeersNameTb(db, "Amigos");
 			populateBeersNameTb(db, "Amstel");
 			populateBeersNameTb(db, "Asahi Black");
 			populateBeersNameTb(db, "Asahi");
+			populateBeersNameTb(db, "Bajitnka");
+			populateBeersNameTb(db, "Banks Caribbean");			
 			populateBeersNameTb(db, "Baltika");
-			populateBeersNameTb(db, "Bavaria");
+			populateBeersNameTb(db, "Bavaria");	
 			populateBeersNameTb(db, "Becks");
 			populateBeersNameTb(db, "Birra Moretti");
 			populateBeersNameTb(db, "Bitburger");
 			populateBeersNameTb(db, "Brahama");
+			populateBeersNameTb(db, "Bochkovoe");			
+			populateBeersNameTb(db, "Bud Light Chelada");			
 			populateBeersNameTb(db, "Budweiser");
+			populateBeersNameTb(db, "Buyjiu");
 			populateBeersNameTb(db, "Carlsberg");
+			populateBeersNameTb(db, "Carta Blanca");
 			populateBeersNameTb(db, "Chang");
 			populateBeersNameTb(db, "Cobra");
+			populateBeersNameTb(db, "Coral");
 			populateBeersNameTb(db, "Corona");
 			populateBeersNameTb(db, "Cristal");
+			populateBeersNameTb(db, "Cruzcampo");
+			populateBeersNameTb(db, "Daura");
+			populateBeersNameTb(db, "Dos Equis");
 			populateBeersNameTb(db, "Duff");
 			populateBeersNameTb(db, "Duvel");
+			populateBeersNameTb(db, "Estrella");
+			populateBeersNameTb(db, "Falcon");
+			populateBeersNameTb(db, "Fino");
 			populateBeersNameTb(db, "Foster");
 			populateBeersNameTb(db, "Guiness");
 			populateBeersNameTb(db, "Heineken");
+			populateBeersNameTb(db, "Karhu");
 			populateBeersNameTb(db, "karlovacko");
 			populateBeersNameTb(db, "Kilkenny");
 			populateBeersNameTb(db, "Kronenbourg 1994");
 			populateBeersNameTb(db, "London Pride");
+			populateBeersNameTb(db, "Mahou");
+			populateBeersNameTb(db, "Mariestads Prima");
+			populateBeersNameTb(db, "Modelo Especial");
+			populateBeersNameTb(db, "Murphys");
+			populateBeersNameTb(db, "Negra Modelo");
 			populateBeersNameTb(db, "Super Bock");
+			populateBeersNameTb(db, "Skol");
 			populateBeersNameTb(db, "Old Speckled Hen");
+			populateBeersNameTb(db, "Pacifico");
+			populateBeersNameTb(db, "Palma Louca");
 			populateBeersNameTb(db, "Peroni Nastro");
 			populateBeersNameTb(db, "Pint");
 			populateBeersNameTb(db, "Royal Dutch");
 			populateBeersNameTb(db, "Sagres");
 			populateBeersNameTb(db, "San Miguel");
+			populateBeersNameTb(db, "Sol");
 			populateBeersNameTb(db, "Stella Artois");
 			populateBeersNameTb(db, "Strela");
 			populateBeersNameTb(db, "Tagus");
-
+			populateBeersNameTb(db, "Tecate");
+			populateBeersNameTb(db, "Victoria");
 		}
 
 		@Override

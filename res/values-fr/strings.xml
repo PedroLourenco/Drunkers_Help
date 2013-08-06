@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="app_name">Drunker\'s Helper</string>
+    <string name="action_settings">Settings</string>
+        
+     <!-- Buttons labels -->
+    <string name="bt_counter"> Compteur de jours </string>
+	<string name="bt_resetCounter"> Réinitialiser le compteur </string>
+	<string name="bt_minus">" - "</string>
+    <string name="bt_Location">"Location"</string>
+	
+     <!-- Action bar labels -->
+	<string name="menu_exit">Exit</string>
+	<string name="menu_history">Rapport</string>
+	<string name="menu_export">Export</string>
+	<string name="menu_addBeer">Ajouter la bière</string>
+	
+	 <!-- REVER SE É NECESSÁRIO -->	
+	<string name="search_label">Customers</string>
+    <string name="search_hint">Nom de la bière</string>
+    <string name="alert_msg">Le GPS est désactivé. Notez que l\'emplacement ne peut être déterminé lorsque le GPS est désactivé. Vous avez aussi besoin d\'une connexion réseau pour obtenir le nom de la ville.</string>
+    <string name="alert_location">Paramètres de localisation</string>
+    <string name="alert_cancel">Résilier</string>
+    
+     <string name="share_msg1">Aujourd\'hui, je ivre </string>
+    <string name="share_msg2">.#DrunkersHelper pour #Android</string>
+    
+    <!-- Content descriptions -->
+    <string name="descr_image">Image</string>
+    
+</resources>

@@ -2,15 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.drunkers_help"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
     
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">  
-	</uses-permission>
-    <uses-permission android:name="android.permission.INTERNET"/>  
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />    
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+     <uses-permission android:name="android.permission.INTERNET" /> 
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+         
+   
 
     <application
         android:allowBackup="true"
@@ -18,9 +22,12 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
        
-               
+       <service	android:name=".GPSTracker"> </service>
+       
+           
         <activity
-            android:name="com.drunkers_help.MainActivity"
+            android:name="com.drunkers_help.MainActivity"            
+            android:screenOrientation="portrait" 
             android:label="Drunker's Helper" >
             
             <intent-filter>
@@ -29,39 +36,50 @@
             </intent-filter>
         </activity>
         
-        <activity android:name="com.drunkers_help.CounterActivity"
-                  android:label="Drunker's Helper" >
+         
+        
+        <activity 
+            android:name="com.drunkers_help.CounterActivity"
+            android:screenOrientation="portrait"
+            android:label="Drunker's Helper" >
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
         
-         <activity android:name="com.drunkers_help.DailyCounter"
+         <activity 
+             android:name="com.drunkers_help.DailyCounter"
+             android:screenOrientation="portrait"
                   android:label="Drunker's Helper" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                
+                <action android:name="android.intent.action.MAIN"/>                
             </intent-filter>
         </activity>
  		
- 		<activity android:name="com.drunkers_help.HistoryActivity"
-                  android:label="Drunker's Helper" >
+ 		<activity 
+ 		    android:name="com.drunkers_help.HistoryActivity"
+ 		    android:screenOrientation="portrait"
+            android:label="Drunker's Helper" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                
+                <action android:name="android.intent.action.MAIN"/>                
             </intent-filter>
         </activity>
+       
          		
  		<activity  
-				android:name="com.drunkers_help.GetCurrentLocation"  
-				android:label="@string/app_name">  
+			android:name="com.drunkers_help.GetCurrentLocation"
+			android:screenOrientation="portrait"  
+			android:label="@string/app_name">  
 			<intent-filter>  
-				<action android:name="android.intent.action.MAIN" />  
+				<action android:name="android.intent.action.MAIN" />
 			 
 			</intent-filter>  
-		</activity>  
+		</activity>
+		  
  		<activity  
-				android:name="com.drunkers_help.AddNewBeer"  
+				android:name="com.drunkers_help.AddNewBeer"
+				android:screenOrientation="portrait"  
 				android:label="@string/app_name">  
 			<intent-filter>  
 				<action android:name="android.intent.action.MAIN" />  

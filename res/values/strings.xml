@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Drunker\'s Helper</string>
+  <string name="app_name">Drunker\'s Helper</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+        
+     <!-- Buttons labels -->
     <string name="bt_counter"> Day Counter </string>
 	<string name="bt_resetCounter"> Reset Counter </string>
+	<string name="bt_minus">" - "</string>
+    <string name="bt_Location">"Location"</string>
+	
+     <!-- Action bar labels -->
 	<string name="menu_exit">Exit</string>
 	<string name="menu_history">Report</string>
 	<string name="menu_export">Export</string>
-	<string name="menu_addBeer">Add Beer</string>	
+	<string name="menu_addBeer">Add Beer</string>
+	
+	 <!-- REVER SE É NECESSÁRIO -->	
 	<string name="search_label">Customers</string>
-    <string name="search_hint">Search Customers</string>
-    <string name="bt_minus">" - "</string>
-    <string name="bt_Location">"Location"</string>
+    <string name="search_hint">Beer Name</string>
+    
+    <!-- Content descriptions -->
+    <string name="descr_image">Image</string>
+    <string name="alert_msg">The GPS is disable. Note that the location cannot be determined when GPS is disable. You also need a network connection to get city name.</string>
+    <string name="alert_location">Location settings</string>
+    <string name="alert_cancel">Cancel</string>
+    <string name="share_msg1">Today i drunk </string>
+    <string name="share_msg2">.#DrunkersHelper for #Android</string>
     
 </resources>

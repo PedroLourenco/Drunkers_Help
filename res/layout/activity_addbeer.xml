@@ -17,8 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"            
             android:gravity="center"
-            android:textSize="20dp" 
-            android:text="Add New Beer">           
+            android:textSize="20sp" 
+            android:text="@string/search_hint">            
         </TextView>
     </RelativeLayout>
 
@@ -37,7 +37,10 @@
     	    android:layout_alignParentTop="true"
     	    android:layout_centerHorizontal="true"
     	    android:layout_marginTop="19dp"
-    	    android:ems="10" />
+    	    android:ems="10"
+    	    android:hint="Beer Name"
+    	    android:gravity="center"
+    	    android:singleLine="true" />
     
     </RelativeLayout> 
        

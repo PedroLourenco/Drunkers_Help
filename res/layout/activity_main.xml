@@ -11,18 +11,18 @@
         android:layout_marginBottom="40dp"
         android:background="#dddddd" >
         
-   		<GridView 
-      		android:id="@+id/gridview"
-    		android:layout_width="fill_parent" 
-    		android:layout_height="fill_parent"
-    		android:columnWidth="40dp"
-    		android:numColumns="auto_fit"
-    		android:verticalSpacing="5dp"
-    		android:horizontalSpacing="10dp"
-    		android:stretchMode="columnWidth"
-    		android:listSelector="@android:color/transparent"
-    		android:gravity="center"
-		/>  
+   	<GridView
+     android:id="@+id/gridview"
+     android:layout_width="fill_parent"
+     android:layout_height="fill_parent"
+     android:columnWidth="50dp"
+     android:numColumns="auto_fit"
+     android:verticalSpacing="5dp"
+     android:horizontalSpacing="15dp"
+     android:stretchMode="columnWidth"
+     android:listSelector="@android:color/transparent"
+     android:gravity="center"
+/> 
        
 	</RelativeLayout>
 	
@@ -38,41 +38,26 @@
         
         <Button
             android:id="@+id/btnCounter"
-            android:layout_width="100dp"        	
-            android:layout_height="40dp"
-            android:text="@string/bt_counter"
-            android:layout_gravity="center_vertical"            
+            android:layout_width="140dp"
+            android:layout_height="47dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginRight="150dp"
-            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:textColor="#dddddd" />       
-        
-        
+            android:text="@string/bt_counter"
+            android:textColor="#dddddd"
+            android:textSize="13sp" />
         
         <Button
             android:id="@+id/btnResetCounter"
-            android:layout_width="100dp"        	
-            android:layout_height="40dp"
-            android:text="@string/bt_resetCounter"
-            android:layout_gravity="center_vertical"            
+            android:layout_width="140dp"
+            android:layout_height="47dp"
             android:layout_alignParentRight="true"
-            android:layout_marginLeft="150dp"
-            android:textSize="12sp"            
+            android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:textColor="#dddddd" />
-
-         <Button
-             android:id="@+id/btnLocation"
-             android:layout_width="100dp"
-             android:layout_height="40dp"
-             android:layout_alignParentTop="true"
-             android:layout_centerHorizontal="true"
-             android:gravity="center"
-             android:text="@string/bt_Location"
-             android:textColor="#dddddd"
-             android:textSize="12sp" />
-
+            android:text="@string/bt_resetCounter"
+            android:textColor="#dddddd"
+            android:textSize="13sp" />
+         
     </RelativeLayout>
 
     
