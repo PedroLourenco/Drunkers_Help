@@ -159,9 +159,12 @@ public final class R {
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
-        public static final int alert_cancel=0x7f06000f;
-        public static final int alert_location=0x7f06000e;
-        public static final int alert_msg=0x7f06000d;
+        public static final int alert_cancel=0x7f060011;
+        public static final int alert_location=0x7f060010;
+        public static final int alert_msg=0x7f060014;
+        public static final int alert_msg1=0x7f06000d;
+        public static final int alert_msg2=0x7f06000e;
+        public static final int alert_msg3=0x7f06000f;
         public static final int app_name=0x7f060000;
         public static final int bt_Location=0x7f060005;
         /**  Buttons labels 
@@ -186,8 +189,8 @@ public final class R {
  REVER SE É NECESSÁRIO 
          */
         public static final int search_label=0x7f06000a;
-        public static final int share_msg1=0x7f060010;
-        public static final int share_msg2=0x7f060011;
+        public static final int share_msg1=0x7f060012;
+        public static final int share_msg2=0x7f060013;
     }
     public static final class style {
         /** 

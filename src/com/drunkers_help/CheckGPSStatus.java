@@ -4,7 +4,9 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
 import android.os.IBinder;
+import android.util.Log;
 
 /**
  * @author Pedro Lourenco
@@ -13,13 +15,6 @@ import android.os.IBinder;
 
 public class CheckGPSStatus extends Service {
 	private final Context mContext;
-
-	// flag for GPS status
-	boolean isGPSEnabled = false;
-	
-	boolean isWifiEnabled = false;
-	// Declaring a Location Manager
-	protected LocationManager locationManager;
 
 	public CheckGPSStatus(Context context) {
 
@@ -32,41 +27,39 @@ public class CheckGPSStatus extends Service {
 		return null;
 	}
 
-	/*----Method to Check GPS is enable or disable ----- */
-	public Boolean displayGpsStatus() {
-		locationManager = (LocationManager) mContext
+	/*----Method to Check locations settings status ----- */
+	public Boolean locationsStatus() {
+		LocationManager locationManager = (LocationManager) mContext
 				.getSystemService(LOCATION_SERVICE);
 
-		// getting GPS status
-		isGPSEnabled = locationManager
-				.isProviderEnabled(LocationManager.GPS_PROVIDER);
+		boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+		boolean isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-		if (isGPSEnabled) {
-			return true;
+		if (!isGPSEnabled && !isNetworkEnabled) {
+			return false;
 
 		} else {
 
-			return false;
+			return true;
 		}
 
 	}
-	
-	/*----Method to Check GPS is enable or disable ----- */
-	public Boolean networkStatus() {
-		locationManager = (LocationManager) mContext
-				.getSystemService(LOCATION_SERVICE);
 
-		// getting GPS status
-		isWifiEnabled = locationManager .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-		System.out.println("isWifiEnabled:" + isWifiEnabled);
-		
+	/*----Method to Check Data connection ----- */
+	public Boolean connectivityStatus() {
 
-		if (isWifiEnabled) {
-			return true;
+		ConnectivityManager manager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+
+		boolean is3g = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnectedOrConnecting();
+		boolean isWifi = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnectedOrConnecting();
+
+				
+		if (!is3g && !isWifi) {
+			return false;
 
 		} else {
+			return true;
 
-			return false;
 		}
 
 	}

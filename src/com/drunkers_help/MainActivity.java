@@ -49,6 +49,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 	protected AbsListView listView;
 	protected ImageLoader imageLoader = ImageLoader.getInstance();
 	DisplayImageOptions options;
+	GPSTracker mGPS ;
 
 	/** Called when the activity is first created. */
 
@@ -62,7 +63,9 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 		imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 		this.dbHelper = new DbHelper(this);
 		context = MainActivity.this;
-
+		
+		mGPS = new GPSTracker(context);
+		
 		options = new DisplayImageOptions.Builder()
 				.showStubImage(R.drawable.ic_stub)
 				.showImageForEmptyUri(R.drawable.ic_empty)
@@ -71,17 +74,45 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 
 		listView = (GridView) findViewById(R.id.gridview);
 		((GridView) listView).setAdapter(new ImageAdapter());
+		
+		/*
+		//check providers
+		if (globalconstant.count == 0) {
+			CheckGPSStatus gps = new CheckGPSStatus(this);
+
+			//Show alert if no locations settings active or no internet connection
+			if (!gps.locationsStatus() && !gps.connectivityStatus()) {
 				
-		listView.setOnItemClickListener(new OnItemClickListener() {
+					showSettingsAlert(context,R.string.alert_msg1, "Settings.ACTION_LOCATION_SOURCE_SETTINGS", R.string.alert_location);			
+				
+			}else if (gps.locationsStatus() && !gps.connectivityStatus()){
+			//show alert to enable wifi or 3g
+				showSettingsAlert(context,R.string.alert_msg2, "Settings.ACTION_WIRELESS_SETTINGS", R.string.alert_location);	
+				
+			
+			}else if (!gps.locationsStatus() && gps.connectivityStatus()){
+			//show alert to enable location settings
+				showSettingsAlert(context,R.string.alert_msg3, "Settings.ACTION_LOCATION_SOURCE_SETTINGS", R.string.alert_location);
+			
+			}
+		 
+		}
+		*/
+		
+		listView.setOnItemClickListener(new OnItemClickListener() {		
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
-
+				
+				Toast.makeText(context, "Lat:" + mGPS.getLatitude() + "Lon:" + mGPS.getLongitude(),Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, globalconstant.cityName,Toast.LENGTH_SHORT).show();
+				
 				// Sending image id to another activity
 				Intent i = new Intent(getApplicationContext(),
 						CounterActivity.class);
 				// passing array index
 				System.out.println("position: " + (position - 1));
 				i.putExtra("id", position);
+				
 				startActivity(i);
 			}
 		});
@@ -109,20 +140,9 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 		});
 		
 
-		if (globalconstant.count == 0) {
-			globalconstant.count++;
-
-			CheckGPSStatus gps = new CheckGPSStatus(this);
-
-			if (!gps.networkStatus() && !gps.displayGpsStatus() ) {
-				
-				showSettingsAlert(context);
-			}
-			else{
-				startService(new Intent(context, GPSTracker.class)); 			
-			}
-
-		}
+		
+		
+		
 	}
 
 	/**
@@ -132,20 +152,19 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 	 * @return
 	 */
 
-	public void showSettingsAlert(final Context mContext) {
+	public void showSettingsAlert(final Context mContext, int msg, final String setting, int positive) {
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
 
 		// Setting Dialog Message
 		alertDialog
-				.setMessage(R.string.alert_msg);
+				.setMessage(msg);
 
 		// On pressing Settings button
-		alertDialog.setPositiveButton(R.string.alert_location,
+		alertDialog.setPositiveButton(positive,
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						Intent intent = new Intent(
-								Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+						Intent intent = new Intent(setting);
 						mContext.startActivity(intent);
 						startService(new Intent(context, GPSTracker.class));
 					}
@@ -259,6 +278,27 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 		return true;
 	}
 
+	
+	
+	
+	
+	@Override
+	protected void onResume() {
+	    super.onResume();
+	    //startService(new Intent(context, GPSTracker.class)); 
+	}
+
+	@Override
+	protected void onPause() {
+	    super.onPause();
+	    //stopService(new Intent(context, GPSTracker.class)); 
+	}
+	
+	
+	
+	
+	
+	
 	public class ImageAdapter extends BaseAdapter {
 		@Override
 		public int getCount() {

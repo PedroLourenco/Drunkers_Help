@@ -22,7 +22,9 @@
     
     <!-- Content descriptions -->
     <string name="descr_image">Image</string>
-    <string name="alert_msg">The GPS is disable. Note that the location cannot be determined when GPS is disable. You also need a network connection to get city name.</string>
+    <string name="alert_msg1">The GPS is disable. Note that the location cannot be determined when GPS is disable. You also need a network connection to get city name.</string>
+    <string name="alert_msg2">The wifi or 3G is disable. Note that the location name cannot be determined when network is disable.</string>
+    <string name="alert_msg3">The location settings are disable. Note that the location cannot be determined when location settings are disable.</string>
     <string name="alert_location">Location settings</string>
     <string name="alert_cancel">Cancel</string>
     <string name="share_msg1">Today i drunk </string>
