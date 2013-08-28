@@ -19,12 +19,17 @@
 	 <!-- REVER SE É NECESSÁRIO -->	
 	<string name="search_label">Customers</string>
     <string name="search_hint">Nom de la bière</string>
-    <string name="alert_msg">Le GPS est désactivé. Notez que l\'emplacement ne peut être déterminé lorsque le GPS est désactivé. Vous avez aussi besoin d\'une connexion réseau pour obtenir le nom de la ville.</string>
+    <string name="alert_msg_LocationSettings_WIFI">The location settings are disable. Note that the location cannot be determined when location settings are disable. You also need a network connection to get city name.</string>
+    <string name="alert_msg_NetworkPresent">The wifi or 3G is disable. Note that the location name cannot be determined when network is disable.</string>
+    <string name="alert_msg_LocationSettings">The location settings are disable. Note that the location cannot be determined when location settings are disable.</string>
     <string name="alert_location">Paramètres de localisation</string>
     <string name="alert_cancel">Résilier</string>
+    <string name="alert_wifi_settings">Wifi settings</string>
+    <string name="alert_3G_settings">3G settings</string>
     
-     <string name="share_msg1">Aujourd\'hui, je ivre </string>
+     <string name="share_msg1">"Aujourd\'hui, je ivre "</string>
     <string name="share_msg2">.#DrunkersHelper pour #Android</string>
+    <string name="City_msg1">Can not get city name!</string>
     
     <!-- Content descriptions -->
     <string name="descr_image">Image</string>

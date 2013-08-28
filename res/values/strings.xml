@@ -22,12 +22,16 @@
     
     <!-- Content descriptions -->
     <string name="descr_image">Image</string>
-    <string name="alert_msg1">The GPS is disable. Note that the location cannot be determined when GPS is disable. You also need a network connection to get city name.</string>
-    <string name="alert_msg2">The wifi or 3G is disable. Note that the location name cannot be determined when network is disable.</string>
-    <string name="alert_msg3">The location settings are disable. Note that the location cannot be determined when location settings are disable.</string>
+    <string name="alert_msg_LocationSettings_WIFI">The location settings are disable. Note that the location can not be determined when location settings are disable. You also need a network connection to get city name.</string>
+    <string name="alert_msg_NetworkPresent">The wifi or 3G is disable. Note that the location name can not be determined when network is disable.</string>
+    <string name="alert_msg_LocationSettings">The location settings are disable. Note that the location can not be determined when location settings are disable.</string>
     <string name="alert_location">Location settings</string>
+    <string name="alert_wifi_settings">Wifi settings</string>
+    <string name="alert_3G_settings">3G settings</string>
     <string name="alert_cancel">Cancel</string>
-    <string name="share_msg1">Today i drunk </string>
+    <string name="share_msg1">"Today i drunk "</string>
     <string name="share_msg2">.#DrunkersHelper for #Android</string>
+    <string name="City_msg1">Can not get city name!</string>
+    
     
 </resources>
