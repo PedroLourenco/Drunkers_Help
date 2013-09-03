@@ -1,7 +1,5 @@
 package com.drunkers_helper.util;
 
-import android.location.Location;
-
 import com.drunkers_help.R;
 
 public final class globalconstant {
@@ -12,15 +10,13 @@ public final class globalconstant {
 
 	public static double lat, lon;
 	
-	public static Location location; 
-
 	public static String cityName = null;
 	
 	
 	public static int count = 0;
 
 	public static final String[] IMAGES = new String[] {
-			// Heavy images
+			
 			"drawable://" + R.drawable.amigos,
 			"drawable://" + R.drawable.amstel,
 			"drawable://" + R.drawable.asahi_black,

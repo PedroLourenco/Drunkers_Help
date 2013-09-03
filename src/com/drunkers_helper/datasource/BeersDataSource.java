@@ -82,6 +82,7 @@ public class BeersDataSource {
 
 	public int getBeerId(String name) {
 		int result = -1;
+		
 		Cursor cursor = db.rawQuery("select " + BeersDBHelper.COL_ID + " from " + BeersDBHelper.BEERS_TABLE
 				+ " where UPPER(" + BeersDBHelper.COL_NAME + ") = UPPER (?)", new String[] { name });
 

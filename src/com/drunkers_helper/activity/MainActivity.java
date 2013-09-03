@@ -56,14 +56,13 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 
 	private Context context;
 	private BeersDataSource beer_datasource;;
-	
-	
-	
+
+	private Location mlocation;
 	private long lastPressedTime;
 	private static final int PERIOD = 2000;
-	private static final AndroidHttpClient ANDROID_HTTP_CLIENT = AndroidHttpClient.newInstance(MyLocation.class.getName());
+	private static final AndroidHttpClient ANDROID_HTTP_CLIENT = AndroidHttpClient
+			.newInstance(MyLocation.class.getName());
 	private boolean running = false;
-	
 
 	String[] imageUrls = globalconstant.IMAGES;
 	protected AbsListView listView;
@@ -71,7 +70,6 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 	DisplayImageOptions options;
 	MyLocation myLocation = new MyLocation();
 	CheckGPSStatus gps = new CheckGPSStatus(this);
-
 
 	/** Called when the activity is first created. */
 
@@ -82,9 +80,6 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 
 		if (globalconstant.LOG)
 			Log.d(globalconstant.TAG, "APP started!");
-		
-		
-		
 
 		imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 		beer_datasource = new BeersDataSource(this);
@@ -98,34 +93,47 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 				.cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
 
 		findCurrentLocation();
-		
-		
+
 		listView = (GridView) findViewById(R.id.gridview);
 		((GridView) listView).setAdapter(new ImageAdapter());
 
 		// check providers
 		if (globalconstant.count == 0) {
 			globalconstant.count = 1;
-			 
+
 			if (!gps.locationsStatus() && !gps.connectivityStatus(context)) {
-				showSettingsAlert(context);
+
+				Intent action = new Intent(
+						Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+				showSettingsAlert(context,
+						R.string.alert_msg_LocationSettings_WIFI,
+						R.string.alert_location, action, 0, null, false);
 
 			} else if (gps.locationsStatus()
 					&& !gps.connectivityStatus(context)) {
-				showSettingsAlert1(context);
+				Intent okAction = new Intent(Settings.ACTION_WIFI_SETTINGS);
+				Intent neutralAction = new Intent(
+						Settings.ACTION_WIRELESS_SETTINGS);
+				showSettingsAlert(context, R.string.alert_msg_NetworkPresent,
+						R.string.alert_wifi_settings, okAction,
+						R.string.alert_3G_settings, neutralAction, true);
 
 			} else if (!gps.locationsStatus()
-					&& gps.connectivityStatus(context))
-				showSettingsAlert3(context);
-		
+					&& gps.connectivityStatus(context)) {
+				Intent action = new Intent(
+						Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+				showSettingsAlert(context,
+						R.string.alert_msg_LocationSettings_WIFI,
+						R.string.alert_location, action, 0, null, false);
+
+			}
+
 		}
-		
-		
 
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
-				fetchCityName(globalconstant.location); 
+				fetchCityName(mlocation);
 				// Sending image id to another activity
 				Intent i = new Intent(getApplicationContext(),
 						CounterActivity.class);
@@ -159,169 +167,86 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 		});
 
 	}
-	
-	
+
 	private void findCurrentLocation() {
-        myLocation.getLocation(this, locationResult);
-       
-    }
+		myLocation.getLocation(this, locationResult);
+
+	}
 
 	public LocationResult locationResult = new LocationResult() {
 
-        @Override
-        public void gotLocation(Location location) {
-            // TODO Auto-generated method stub
-        	if (location != null) {
-            	globalconstant.location = location;
-        		if (globalconstant.LOG)
-        			Log.v(globalconstant.TAG, location.getLatitude() + ","
-                            + location.getLongitude()); 
-        		
-        		 try{
-          		   Toast.makeText(getApplicationContext(), location.getLatitude() + ","
-                           + location.getLongitude(),
-     						Toast.LENGTH_SHORT).show();        		   
-          	   }
-          	   catch(Exception e){
-          		   
-          	   }
-        		
-               
-            }
-           if (gps.connectivityStatus(context)){        	   
-        	           	   
-           }else{
-        	   if (globalconstant.LOG)
-       			Log.v(globalconstant.TAG, getResources().getString(R.string.City_msg1));
-        	   
-        	   try{
-        		   Toast.makeText(getApplicationContext(), getResources().getString(R.string.City_msg1),
-   						Toast.LENGTH_SHORT).show();        		   
-        	   }
-        	   catch(Exception e){        		   
-        		   
-        	   }
-        	           	   
-        	}	   
-           
-            
-        }
-    };
-	
+		@Override
+		public void gotLocation(Location location) {
+			// TODO Auto-generated method stub
+			if (location != null) {
+				mlocation = location;
+				if (globalconstant.LOG)
+					Log.v(globalconstant.TAG, location.getLatitude() + ","
+							+ location.getLongitude());
 
-	/**
-	 * Show alert and get user to Location settings
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public void showSettingsAlert(final Context mContext) {
+				try {
+					Toast.makeText(
+							getApplicationContext(),
+							location.getLatitude() + ","
+									+ location.getLongitude(),
+							Toast.LENGTH_SHORT).show();
+				} catch (Exception e) {
+
+				}
+
+			}
+			if (gps.connectivityStatus(context)) {
+
+			} else {
+				if (globalconstant.LOG)
+					Log.v(globalconstant.TAG,
+							getResources().getString(R.string.City_msg1));
+
+				try {
+					if (globalconstant.count == 0)
+						Toast.makeText(getApplicationContext(),
+								getResources().getString(R.string.City_msg1),
+								Toast.LENGTH_SHORT).show();
+				} catch (Exception e) {
+
+				}
+
+			}
+
+		}
+	};
+
+	public void showSettingsAlert(final Context mContext, int message,
+			int okSeeting, final Intent okAction, int neutralSettings,
+			final Intent neutralAction, boolean neutralButton) {
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
 
 		// Setting Dialog Message
-		alertDialog.setMessage(R.string.alert_msg_LocationSettings_WIFI);
+		alertDialog.setMessage(message);
 
 		// On pressing Settings button
-		alertDialog.setPositiveButton(R.string.alert_location,
+		alertDialog.setPositiveButton(okSeeting,
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						Intent intent = new Intent(
-								Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+						Intent intent = new Intent(okAction);
 						mContext.startActivity(intent);
-						findCurrentLocation();
-						
-					}
-				});
-
-		// on pressing cancel button
-		alertDialog.setNegativeButton(R.string.alert_cancel,
-				new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// globalconstant.userGetCityName = false;
-						dialog.cancel();
-					}
-				});
-		// Showing Alert Message
-		alertDialog.show();
-	}
-
-	/**
-	 * Show alert and get user to Location settings
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public void showSettingsAlert1(final Context mContext) {
-		AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
-
-		// Setting Dialog Message
-		alertDialog.setMessage(R.string.alert_msg_NetworkPresent);
-
-		// On pressing Settings button
-		alertDialog.setPositiveButton(R.string.alert_wifi_settings,
-				new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						Intent intent = new Intent(
-								Settings.ACTION_WIFI_SETTINGS);
-						mContext.startActivity(intent);
-						
 
 					}
 				});
-		
-		// On pressing Settings button
-		alertDialog.setNeutralButton(R.string.alert_3G_settings,
+
+		if (neutralButton) {
+			// On pressing Settings button
+			alertDialog.setNeutralButton(neutralSettings,
 					new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								Intent intent = new Intent(
-										Settings.ACTION_WIRELESS_SETTINGS);
-								mContext.startActivity(intent);
-								
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							Intent intent = new Intent(neutralAction);
+							mContext.startActivity(intent);
 
-							}
-						});
-
-		// on pressing cancel button
-		alertDialog.setNegativeButton(R.string.alert_cancel,
-				new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.cancel();
-					}
-				});
-		// Showing Alert Message
-		alertDialog.show();
-	}
-
-	/**
-	 * Show alert and get user to Location settings
-	 * 
-	 * @param context
-	 * @return
-	 */
-	public void showSettingsAlert3(final Context mContext) {
-		AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
-
-		// Setting Dialog Message
-		alertDialog.setMessage(R.string.alert_msg_LocationSettings_WIFI);
-
-		// On pressing Settings button
-		alertDialog.setPositiveButton(R.string.alert_location,
-				new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						Intent intent = new Intent(
-								Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-						mContext.startActivity(intent);
-						findCurrentLocation();
-						
-						
-					}
-				});
+						}
+					});
+		}
 
 		// on pressing cancel button
 		alertDialog.setNegativeButton(R.string.alert_cancel,
@@ -434,13 +359,11 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		// startService(new Intent(context, GPSTracker.class));
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		// stopService(new Intent(context, GPSTracker.class));
 	}
 
 	public class ImageAdapter extends BaseAdapter {
@@ -474,119 +397,113 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 			return imageView;
 		}
 	}
-	
-	
+
 	/** Get city name */
-	public void fetchCityName(final Location location)
-	{
-	    if (running)
-	        return;
+	public void fetchCityName(final Location location) {
+		if (running)
+			return;
 
-	    new AsyncTask<Void, Void, String>()
-	    {
-	        protected void onPreExecute()
-	        {
-	            running = true;
-	        };
+		new AsyncTask<Void, Void, String>() {
+			protected void onPreExecute() {
+				running = true;
+			};
 
-	        @Override
-	        protected String doInBackground(Void... params)
-	        {
-	            String googleMapUrl = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + location.getLatitude() + ","
-	                    + location.getLongitude() + "&sensor=false&language=fr";
+			@Override
+			protected String doInBackground(Void... params) {
+				try {
+					String googleMapUrl = "http://maps.googleapis.com/maps/api/geocode/json?latlng="
+							+ location.getLatitude()
+							+ ","
+							+ location.getLongitude()
+							+ "&sensor=false&language=fr";
 
-	            try
-	            {
-	                JSONObject googleMapResponse = new JSONObject(ANDROID_HTTP_CLIENT.execute(new HttpGet(googleMapUrl),
-	                        new BasicResponseHandler()));
+					JSONObject googleMapResponse = new JSONObject(
+							ANDROID_HTTP_CLIENT.execute(new HttpGet(
+									googleMapUrl), new BasicResponseHandler()));
 
-	                // many nested loops.. not great -> use expression instead
-	                // loop among all results
-	                JSONArray results = (JSONArray) googleMapResponse.get("results");
-	                for (int i = 0; i < results.length(); i++)
-	                {
-	                    // loop among all addresses within this result
-	                    JSONObject result = results.getJSONObject(i);
-	                    if (result.has("address_components"))
-	                    {
-	                        JSONArray addressComponents = result.getJSONArray("address_components");
-	                        // loop among all address component to find a 'locality' or 'sublocality'
-	                        for (int j = 0; j < addressComponents.length(); j++)
-	                        {
-	                            JSONObject addressComponent = addressComponents.getJSONObject(j);
-	                            if (result.has("types"))
-	                            {
-	                                JSONArray types = addressComponent.getJSONArray("types");
+					// many nested loops.. not great -> use expression instead
+					// loop among all results
+					JSONArray results = (JSONArray) googleMapResponse
+							.get("results");
+					for (int i = 0; i < results.length(); i++) {
+						// loop among all addresses within this result
+						JSONObject result = results.getJSONObject(i);
+						if (result.has("address_components")) {
+							JSONArray addressComponents = result
+									.getJSONArray("address_components");
+							// loop among all address component to find a
+							// 'locality' or 'sublocality'
+							for (int j = 0; j < addressComponents.length(); j++) {
+								JSONObject addressComponent = addressComponents
+										.getJSONObject(j);
+								if (result.has("types")) {
+									JSONArray types = addressComponent
+											.getJSONArray("types");
 
-	                                // search for locality and sublocality
-	                                String cityName = null;
+									// search for locality and sublocality
+									String cityName = null;
 
-	                                for (int k = 0; k < types.length(); k++)
-	                                {
-	                                    if ("locality".equals(types.getString(k)) && cityName == null)
-	                                    {
-	                                        if (addressComponent.has("long_name"))
-	                                        {
-	                                            cityName = addressComponent.getString("long_name");
-	                                        }
-	                                        else if (addressComponent.has("short_name"))
-	                                        {
-	                                            cityName = addressComponent.getString("short_name");
-	                                        }
-	                                    }
-	                                    if ("sublocality".equals(types.getString(k)))
-	                                    {
-	                                        if (addressComponent.has("long_name"))
-	                                        {
-	                                            cityName = addressComponent.getString("long_name");
-	                                        }
-	                                        else if (addressComponent.has("short_name"))
-	                                        {
-	                                            cityName = addressComponent.getString("short_name");
-	                                        }
-	                                    }
-	                                }
-	                                if (cityName != null)
-	                                {
-	                                    return cityName;
-	                                }
-	                            }
-	                        }
-	                    }
-	                }
-	            }
-	            catch (Exception ignored)
-	            {
-	                ignored.printStackTrace();
-	            }
-	            return null;
-	        }
+									for (int k = 0; k < types.length(); k++) {
+										if ("locality".equals(types
+												.getString(k))
+												&& cityName == null) {
+											if (addressComponent
+													.has("long_name")) {
+												cityName = addressComponent
+														.getString("long_name");
+											} else if (addressComponent
+													.has("short_name")) {
+												cityName = addressComponent
+														.getString("short_name");
+											}
+										}
+										if ("sublocality".equals(types
+												.getString(k))) {
+											if (addressComponent
+													.has("long_name")) {
+												cityName = addressComponent
+														.getString("long_name");
+											} else if (addressComponent
+													.has("short_name")) {
+												cityName = addressComponent
+														.getString("short_name");
+											}
+										}
+									}
+									if (cityName != null) {
+										return cityName;
+									}
+								}
+							}
+						}
+					}
+				} catch (Exception ignored) {
+					ignored.printStackTrace();
+				}
+				return null;
+			}
 
+			protected void onPostExecute(String cityName) {
+				running = false;
+				if (cityName != null) {
+					globalconstant.cityName = cityName;
 
+					if (!cityName.equals(globalconstant.cityName)) {
 
-	        protected void onPostExecute(String cityName)
-	        {
-	            running = false;
-	            if (cityName != null)
-	            {
-	                globalconstant.cityName = cityName;
+						Toast.makeText(context, globalconstant.cityName,
+								Toast.LENGTH_SHORT).show();
+						// Do something with cityName
+						if (globalconstant.LOG)
+							Log.d(globalconstant.TAG, globalconstant.cityName);
+					}
+				} else {
 
-	                if(!cityName.equals(globalconstant.cityName)){
+					Toast.makeText(context, "Cannot get city name!",
+							Toast.LENGTH_SHORT).show();
+				}
 
-	                	Toast.makeText(context, globalconstant.cityName ,Toast.LENGTH_SHORT).show();
-	                	// Do something with cityName
-	                	Log.i("GeocoderHelper", globalconstant.cityName);
-	                }
-	            }
-	            else{
-
-	            	Toast.makeText(context,"Cannot get city name!" ,Toast.LENGTH_SHORT).show();
-	            }           	
-
-	        };
-	    }.execute();
+			};
+		}.execute();
 	}
-	
-
 
 }
