@@ -127,7 +127,6 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 						R.string.alert_location, action, 0, null, false);
 
 			}
-
 		}
 
 		listView.setOnItemClickListener(new OnItemClickListener() {
