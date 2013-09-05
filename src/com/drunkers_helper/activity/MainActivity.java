@@ -123,7 +123,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 				Intent action = new Intent(
 						Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 				showSettingsAlert(context,
-						R.string.alert_msg_LocationSettings_WIFI,
+						R.string.alert_msg_LocationSettings,
 						R.string.alert_location, action, 0, null, false);
 
 			}

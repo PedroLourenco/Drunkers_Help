@@ -33,17 +33,13 @@ public class BeersDataSource {
 	
 
 	public BeersDataSource(Context context) {
-		
-		if (globalconstant.LOG)
-			Log.d(globalconstant.TAG, "Contrutor");
 		beer_db_helper = new BeersDBHelper(context);	
 	}
 
 	
 	
 	public void open() throws SQLException {
-		if (globalconstant.LOG)
-			Log.d(globalconstant.TAG, "open()");
+		
 		db = beer_db_helper.getWritableDatabase();
 	}
 
@@ -187,7 +183,7 @@ public class BeersDataSource {
 		if (cursor.moveToFirst()) {
 
 			do {
-				result += cursor.getString(0).toString() + ",";
+				result += cursor.getString(0).toString() + ", ";
 
 			} while (cursor.moveToNext());
 		}
@@ -242,7 +238,8 @@ public class BeersDataSource {
 		ContentValues insertValues = new ContentValues();
 		ContentValues insertValuesHist = new ContentValues();
 		int counter = getBeerCounter(beerName); 
-
+		
+		
 		if (counter == -1) {
 			insertValues.put(BeersDBHelper.COL_NAME, beerName);
 			insertValues.put(BeersDBHelper.COL_COUNTER, 1);
@@ -271,14 +268,18 @@ public class BeersDataSource {
 		
 		ContentValues insertValues = new ContentValues();
 		int counter = getBeerCounter(beerName);
+		
+		if (globalconstant.LOG)
+			Log.d(globalconstant.TAG, "counter: " + counter);
 
-		if (counter > 0 && counter != -1) {
+		if (counter > 1 && counter != -1) {
 			insertValues.put(BeersDBHelper.COL_COUNTER, counter - 1);
 			db.update(BeersDBHelper.BEER_COUNTER_TABLE, insertValues,
 					"UPPER(" + BeersDBHelper.COL_NAME + ") = UPPER(?)", new String[] { beerName });
 			counter = counter - 1;
 			deleteHistory(beerName);
-		} else if (counter == 0) {
+		} else if (counter == 1) {
+			counter = 0;
 			deleteCounterName(beerName);
 			deleteHistory(beerName);
 			

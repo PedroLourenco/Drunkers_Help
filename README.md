@@ -1,5 +1,5 @@
 Drunker's Helper
-=============
+================
 
 ## Overview
 An Android application to count beers, track location and share with your best friends.

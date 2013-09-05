@@ -35,17 +35,18 @@ public class CheckGPSStatus extends Service {
 		LocationManager locationManager = (LocationManager) mContext
 				.getSystemService(LOCATION_SERVICE);
 
-		// boolean isGPSEnabled =
-		// locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-		boolean isNetworkEnabled = locationManager
-				.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+		boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+		boolean isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-		if (!isNetworkEnabled) {
-			Log.v(globalconstant.TAG, "locationStatus: FALSE");
+		if (!isNetworkEnabled && !isGPSEnabled) {
+			
+			if (globalconstant.LOG)
+				Log.v(globalconstant.TAG, "locationStatus: FALSE");
 			return false;
 
 		} else {
-			Log.v(globalconstant.TAG, "locationStatus: TRUE");
+			if (globalconstant.LOG)
+				Log.v(globalconstant.TAG, "locationStatus: TRUE");
 			return true;
 		}
 
@@ -66,7 +67,8 @@ public class CheckGPSStatus extends Service {
 				}
 			}
 		} catch (Exception ex) {
-			Log.e("Network Avail Error", ex.getMessage());
+			if (globalconstant.LOG)
+				Log.e("Network Avail Error", ex.getMessage());
 		}
 		// check for wifi also
 		if (!isNetworkAvailable) {

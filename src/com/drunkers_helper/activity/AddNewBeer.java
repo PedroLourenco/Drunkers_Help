@@ -41,7 +41,7 @@ public class AddNewBeer extends Activity {
 			EditText new_beer = (EditText) findViewById(R.id.newBeer);
 
 			if (new_beer.getText().toString().isEmpty()) {
-				Toast.makeText(getApplicationContext(), "Beer name is empty!",
+				Toast.makeText(getApplicationContext(), getResources().getString(R.string.add_beer),
 						Toast.LENGTH_SHORT).show();
 			} else {
 				beer_datasource.addNewBeer(new_beer.getText().toString());

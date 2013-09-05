@@ -32,6 +32,7 @@
     <string name="share_msg1">"Today i drunk "</string>
     <string name="share_msg2">.#DrunkersHelper for #Android</string>
     <string name="City_msg1">Can not get city name!</string>
+    <string name="add_beer">Beer name is empty!</string>
     
     
 </resources>

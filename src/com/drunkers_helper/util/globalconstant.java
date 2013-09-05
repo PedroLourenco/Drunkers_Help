@@ -10,7 +10,7 @@ public final class globalconstant {
 
 	public static double lat, lon;
 	
-	public static String cityName = null;
+	public static String cityName = null; 
 	
 	
 	public static int count = 0;

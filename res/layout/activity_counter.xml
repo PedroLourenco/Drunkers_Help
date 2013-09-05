@@ -53,7 +53,7 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
@@ -67,9 +67,11 @@
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="0dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:gravity="center"
             android:listSelector="@android:color/transparent"
+            android:background="@drawable/button1"
             android:text="@string/bt_minus"
             android:textColor="#dddddd"
             android:textSize="12sp" />
