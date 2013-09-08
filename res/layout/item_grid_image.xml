@@ -4,4 +4,4 @@
     android:layout_width="fill_parent"
     android:layout_height="120dip"
     android:adjustViewBounds="true"
-    android:scaleType="fitCenter" />
+    android:scaleType="fitCenter"  />

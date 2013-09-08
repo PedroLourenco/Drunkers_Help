@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent" 
+    android:background="#dddddd">
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -22,9 +23,10 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="fill_parent"
-        android:layout_height="250dp"
+        android:layout_height="fill_parent"
         android:layout_marginRight="140dp"
-        android:layout_marginTop="70dp" >
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="70dp" >
 
         <ImageView
             android:id="@+id/mImgView1"
@@ -37,43 +39,46 @@
     <RelativeLayout
         android:id="@+id/relativeLayout3"
         android:layout_width="fill_parent"
-        android:layout_height="252dp"
+        android:layout_height="232dp"
         android:layout_marginLeft="170dp"
-        android:layout_marginTop="100dp" >
+        
+        android:layout_marginTop="80dp" >
 
         <TextView
             android:id="@+id/counter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="25dp"
             android:gravity="center"
             android:textColor="#000000"
-            android:textSize="50sp" >
-        </TextView>
+            android:textSize="50sp" />
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:background="#569eff"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:background="#000000"
+        
         android:gravity="center"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btnMinus"
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:gravity="center"
+            android:layout_width="130dp"
+            android:layout_height="37dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="160dp"
+            android:background="@drawable/button"
             android:listSelector="@android:color/transparent"
-            android:background="@drawable/button1"
             android:text="@string/bt_minus"
             android:textColor="#dddddd"
+            android:textStyle="bold"
             android:textSize="12sp" />
     </RelativeLayout>
 

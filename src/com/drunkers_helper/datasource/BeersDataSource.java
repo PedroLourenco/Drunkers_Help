@@ -191,7 +191,7 @@ public class BeersDataSource {
 			cursor.close();
 		}
 
-		result = result.substring(0, result.length() - 1);
+		result = result.substring(0, result.length() - 2);
 				
 
 		return result;

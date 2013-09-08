@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
 
@@ -32,11 +33,16 @@ public class DailyCounter extends Activity {
 		beer_datasource = new BeersDataSource(this);
 		beer_datasource.open();
 		Cursor listcounter = beer_datasource.selectCounterBeers();
-
-		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-				android.R.layout.test_list_item, listcounter,
-				new String[] { "_id" }, new int[] { android.R.id.text1 }, 0);
+		
+				//Adapter adapter = new rAdapter(this,	android.R.layout.test_list_item, listcounter);
 		ListView list = (ListView) findViewById(R.id.dailyListView);
+				
+		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+				R.layout.list_view, listcounter,
+				new String[] { "_id" }, new int[] { android.R.id.text1 }, 0);
+		
+		
+		
 		list.setAdapter(adapter);
 
 	}

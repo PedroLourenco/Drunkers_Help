@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="#dddddd" >
 
     <RelativeLayout
         android:id="@+id/relativeLayout12"
@@ -38,7 +39,7 @@
     	    android:layout_centerHorizontal="true"
     	    android:layout_marginTop="19dp"
     	    android:ems="10"
-    	    android:hint="Beer Name"
+    	    android:hint="@string/search_hint"
     	    android:gravity="center"
     	    android:singleLine="true" />
     

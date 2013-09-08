@@ -32,7 +32,7 @@
 	    android:layout_alignParentBottom="true"
 	    android:layout_alignParentLeft="true"
 	    android:layout_alignParentRight="true"
-	    android:background="#000000"
+	    android:background="#569eff"
 	    android:gravity="center"
 	    android:orientation="horizontal" >
 
@@ -40,14 +40,13 @@
             android:id="@+id/btnCounter"
             android:layout_width="130dp"
             android:layout_height="37dp"
-            android:layout_alignBaseline="@+id/btnResetCounter"
-            android:layout_alignBottom="@+id/btnResetCounter"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="15dp"
             android:background="@drawable/button"
             android:gravity="center"
             android:text="@string/bt_counter"
             android:textColor="#dddddd"
+            android:textStyle="bold"
             android:textSize="13sp" />
 
         <Button
@@ -55,12 +54,12 @@
             android:layout_width="130dp"
             android:layout_height="37dp"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:background="@drawable/button"
             android:gravity="center"
             android:text="@string/bt_resetCounter"
             android:textColor="#dddddd"
+            android:textStyle="bold"
             android:textSize="13sp" />
          
     </RelativeLayout>

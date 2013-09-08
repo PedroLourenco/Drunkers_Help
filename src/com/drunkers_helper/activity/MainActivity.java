@@ -160,7 +160,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 			public void onClick(View v) {
 
 				beer_datasource.resetCounterTable();
-				Toast.makeText(getApplicationContext(), "Counter reseted!",
+				Toast.makeText(getApplicationContext(), getResources().getString(R.string.counter_reseted_msg),
 						Toast.LENGTH_SHORT).show();
 			}
 		});
@@ -271,7 +271,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 		inflater.inflate(R.menu.main, menu);
 		SearchView searchView = (SearchView) menu.findItem(R.id.menu_search)
 				.getActionView();
-		searchView.setQueryHint("Beer Name");
+		searchView.setQueryHint(getResources().getString(R.string.search_hint));
 		searchView.setOnQueryTextListener(this);
 		return true;
 	}
@@ -299,7 +299,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 				} else {
 
 					Toast.makeText(getApplicationContext(),
-							"Press again to exit.", Toast.LENGTH_SHORT).show();
+							getResources().getString(R.string.exit_msg), Toast.LENGTH_SHORT).show();
 					lastPressedTime = event.getEventTime();
 				}
 				return true;
@@ -349,7 +349,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 			is.putExtra("beerName", query);
 			startActivity(is);
 		} else {
-			Toast.makeText(this, "Are you drunk? ", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, getResources().getString(R.string.search_not_find), Toast.LENGTH_SHORT).show();
 		}
 
 		return true;
@@ -497,7 +497,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 					}
 				} else {
 
-					Toast.makeText(context, "Cannot get city name!",
+					Toast.makeText(context, getResources().getString(R.string.City_msg1),
 							Toast.LENGTH_SHORT).show();
 				}
 

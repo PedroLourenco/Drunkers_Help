@@ -30,6 +30,10 @@
      <string name="share_msg1">"Aujourd\'hui, je ivre "</string>
     <string name="share_msg2">.#DrunkersHelper pour #Android</string>
     <string name="City_msg1">Can not get city name!</string>
+    <string name="add_beer">Beer name is empty!</string>
+    <string name="search_not_find">Are you drunk!!</string>
+    <string name="exit_msg">Press again to exit.</string>
+    <string name="counter_reseted_msg">Counter reseted!</string>
     
     <!-- Content descriptions -->
     <string name="descr_image">Image</string>
