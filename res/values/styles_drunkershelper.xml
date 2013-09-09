@@ -19,7 +19,7 @@
 
 <resources>
 
-    <style name="Theme.Drunkershelper" parent="@android:style/Theme.Holo">
+    <style name="Theme.Drunkershelper" parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_drunkershelper</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Drunkershelper</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Drunkershelper</item>
@@ -30,10 +30,12 @@
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_drunkershelper</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Drunkershelper</item>
         
-        
+                <!-- Light.DarkActionBar specific -->
+        <item name="android:actionBarWidgetTheme">@style/Theme.Drunkershelper.Widget</item>
+
     </style>
 
-    <style name="ActionBar.Solid.Drunkershelper" parent="@android:style/Widget.Holo.ActionBar.Solid">
+    <style name="ActionBar.Solid.Drunkershelper" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/ab_solid_drunkershelper</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_drunkershelper</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_drunkershelper</item>

@@ -221,7 +221,7 @@ public class BeersDataSource {
 	 */
 	public Cursor selectCounterBeers() {
 		Cursor cursor = this.db.rawQuery(
-				"select " + BeersDBHelper.COL_NAME + " ||' - '|| " + BeersDBHelper.COL_COUNTER + " as _id  from "
+				"select '* '||" + BeersDBHelper.COL_NAME + " ||': '|| " + BeersDBHelper.COL_COUNTER + " as _id  from "
 						+ BeersDBHelper.BEER_COUNTER_TABLE + " order by " + BeersDBHelper.COL_NAME + " ASC",
 				new String[] {});
 		return cursor;

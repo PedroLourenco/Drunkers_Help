@@ -147,10 +147,21 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 		bt_dayCounter.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				
+				String msg = beer_datasource.selectAllBeerCounter();
+				
+				if(!msg.isEmpty()){
 
-				Intent i = new Intent(getApplicationContext(),
-						DailyCounter.class);
+				Intent i = new Intent(getApplicationContext(),DailyCounter.class);
+				i.putExtra("message", msg);
 				startActivity(i);
+				
+				}
+				
+				else{
+					
+					Toast.makeText(getApplicationContext(), "Start drinking like a man!", Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
 

@@ -17,9 +17,6 @@
         <item
             android:id="@+id/menu_History"
             android:title="@string/menu_history" />
-        <item
-            android:id="@+id/menu_export"
-            android:title="@string/menu_export" />
           
     </menu>
 </item>
