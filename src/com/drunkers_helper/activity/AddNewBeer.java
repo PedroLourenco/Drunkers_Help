@@ -34,7 +34,7 @@ public class AddNewBeer extends Activity {
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
-		   // Handle item selection
+		 // Handle item selection
 		switch (item.getItemId()) {
 		case R.id.menu_addBeer:
 

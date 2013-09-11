@@ -35,6 +35,7 @@
     <string name="search_not_find">Estás bebado!!</string>
     <string name="exit_msg">Pressiona mais uma vez para sair.</string>
     <string name="counter_reseted_msg">Contador apagado!</string>
+    <string name="counter_msg">Começa a beber como um Homem!</string>
     
     
 </resources>

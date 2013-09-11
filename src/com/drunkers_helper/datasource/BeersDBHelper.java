@@ -55,14 +55,16 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		
 		db.execSQL("CREATE TABLE "	+ BEER_HISTORY_TABLE + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " LONGTEXT NOT NULL," +  COL_DATE + " DEFAULT (datetime('now','localtime')), " + COL_LOCATION + " LONGTEXT" + ");"); 
 				
-	
+	 
 		populateBeersNameTb(db, "Amigos");
 		populateBeersNameTb(db, "Amstel");
 		populateBeersNameTb(db, "Asahi Black");
-		populateBeersNameTb(db, "Asahi");
-		populateBeersNameTb(db, "Bajitnka");
-		populateBeersNameTb(db, "Banks Caribbean");			
+		populateBeersNameTb(db, "Asahi");					
 		populateBeersNameTb(db, "Baltika");
+		populateBeersNameTb(db, "Baltika 3");
+		populateBeersNameTb(db, "Baltika 4");
+		populateBeersNameTb(db, "Baltika 7");
+		populateBeersNameTb(db, "Banks Caribbean");
 		populateBeersNameTb(db, "Bavaria");	
 		populateBeersNameTb(db, "Becks");
 		populateBeersNameTb(db, "Birra Moretti");

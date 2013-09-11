@@ -160,7 +160,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 				
 				else{
 					
-					Toast.makeText(getApplicationContext(), "Start drinking like a man!", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), getResources().getString(R.string.counter_msg), Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
@@ -195,11 +195,10 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 							+ location.getLongitude());
 
 				try {
-					Toast.makeText(
-							getApplicationContext(),
-							location.getLatitude() + ","
-									+ location.getLongitude(),
-							Toast.LENGTH_SHORT).show();
+					
+					if(gps.connectivityStatus(context)){
+						Toast.makeText(getApplicationContext(),	location.getLatitude() + "," + location.getLongitude(),	Toast.LENGTH_SHORT).show();
+					}
 				} catch (Exception e) {
 
 				}

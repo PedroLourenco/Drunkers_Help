@@ -34,6 +34,7 @@
     <string name="search_not_find">Are you drunk!!</string>
     <string name="exit_msg">Press again to exit.</string>
     <string name="counter_reseted_msg">Counter reseted!</string>
+    <string name="counter_msg">Start drinking like a Man!</string>
     
     <!-- Content descriptions -->
     <string name="descr_image">Image</string>
