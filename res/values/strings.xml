@@ -13,18 +13,13 @@
      <!-- Action bar labels -->
 	<string name="menu_exit">Exit</string>
 	<string name="menu_history">Report</string>
-	<string name="menu_export">Export</string>
 	<string name="menu_addBeer">Add Beer</string>
-	
-	 <!-- REVER SE É NECESSÁRIO -->	
-	<string name="search_label">Customers</string>
     <string name="search_hint">Beer Name</string>
     
     <!-- Content descriptions -->
-    <string name="descr_image">Image</string>
-    <string name="alert_msg_LocationSettings_WIFI">The location settings are disable. Note that the location can not be determined when location settings are disable. You also need a network connection to get city name.</string>
-    <string name="alert_msg_NetworkPresent">The wifi or 3G is disable. Note that the location name can not be determined when network is disable.</string>
-    <string name="alert_msg_LocationSettings">The location settings are disable. Note that the location can not be determined when location settings are disable.</string>
+    <string name="alert_msg_LocationSettings_WIFI">The location settings are disabled. Note that the location can not be determined when these settings are disabled. You also need a network connection to get city name.</string>
+    <string name="alert_msg_NetworkPresent">The wifi or 3G is disable. Note that the location name can not be determined when network is disabled.</string>
+    <string name="alert_msg_LocationSettings">The location settings are disabled. Note that the location can not be determined when these settings are disabled.</string>
     <string name="alert_location">Location settings</string>
     <string name="alert_wifi_settings">Wifi settings</string>
     <string name="alert_3G_settings">3G settings</string>

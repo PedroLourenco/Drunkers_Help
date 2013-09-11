@@ -507,6 +507,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 					}
 				} else {
 
+						if(gps.connectivityStatus(context))
 					Toast.makeText(context, getResources().getString(R.string.City_msg1),
 							Toast.LENGTH_SHORT).show();
 				}

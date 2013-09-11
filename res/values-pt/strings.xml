@@ -15,12 +15,10 @@
 	<string name="menu_history">Histórico</string>
 	<string name="menu_addBeer">Nova cerveja</string>
 	
-	 <!-- REVER SE É NECESSÁRIO -->	
-	<string name="search_label">Customers</string>
+	 <!-- REVER SE É NECESSÁRIO -->
     <string name="search_hint">Nome da cerveja</string>
     
     <!-- Content descriptions -->
-    <string name="descr_image">Image</string>
     <string name="alert_msg_LocationSettings_WIFI">Os serviços de localização estão desativados. Não é possível calcular a localização com os serviços desativados. É necessário também ligação á internet para calcular a localidade.</string>
     <string name="alert_msg_NetworkPresent">A ligação wireless ou 3G está desativada. A localidade não pode ser calculada sem ligação á internet.</string>
     <string name="alert_msg_LocationSettings">Os serviços de localização estão desativados. Não é possível calcular a localização com os serviços desativados.</string>
