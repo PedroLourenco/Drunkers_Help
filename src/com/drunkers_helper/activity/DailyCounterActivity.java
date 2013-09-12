@@ -3,28 +3,24 @@
  */
 package com.drunkers_helper.activity;
 
-import com.drunkers_help.R;
-import com.drunkers_helper.datasource.BeersDataSource;
-import com.drunkers_helper.util.globalconstant;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
-import android.widget.Toast;
+
+import com.drunkers_help.R;
+import com.drunkers_helper.datasource.BeersDataSource;
 
 /**
  * @author PedroLourenco
  * 
  */
-public class DailyCounter extends Activity {
+public class DailyCounterActivity extends Activity {
 
 	private BeersDataSource beer_datasource;
 	private ShareActionProvider myShareActionProvider;

@@ -19,4 +19,6 @@
 
 <resources>
     <color name="pressed_drunkershelper">#CC33B5E5</color>
+    <color name="cinza_dark">#43423e</color>
+    <color name="cinza_light">#161614</color>
 </resources>

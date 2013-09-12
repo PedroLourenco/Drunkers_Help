@@ -19,7 +19,7 @@ import android.widget.Toast;
  * @author mejaime
  * 
  */
-public class AddNewBeer extends Activity {
+public class AddBeerActivity extends Activity {
 
 	private BeersDataSource beer_datasource;
 

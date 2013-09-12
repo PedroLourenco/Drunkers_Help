@@ -14,8 +14,9 @@
 	<string name="menu_exit">Sair</string>
 	<string name="menu_history">Histórico</string>
 	<string name="menu_addBeer">Nova cerveja</string>
+	<string name="menu_about">About</string>
 	
-	 <!-- REVER SE É NECESSÁRIO -->
+	
     <string name="search_hint">Nome da cerveja</string>
     
     <!-- Content descriptions -->

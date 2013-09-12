@@ -56,8 +56,10 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		db.execSQL("CREATE TABLE "	+ BEER_HISTORY_TABLE + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " LONGTEXT NOT NULL," +  COL_DATE + " DEFAULT (datetime('now','localtime')), " + COL_LOCATION + " LONGTEXT" + ");"); 
 				
 	 
+		populateBeersNameTb(db, "Aguila");
 		populateBeersNameTb(db, "Amigos");
 		populateBeersNameTb(db, "Amstel");
+		populateBeersNameTb(db, "Antares Kolsch");
 		populateBeersNameTb(db, "Asahi Black");
 		populateBeersNameTb(db, "Asahi");					
 		populateBeersNameTb(db, "Baltika");
@@ -91,6 +93,7 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		populateBeersNameTb(db, "Fino");
 		populateBeersNameTb(db, "Foster");
 		populateBeersNameTb(db, "Guiness");
+		populateBeersNameTb(db, "Heady Topper");
 		populateBeersNameTb(db, "Heineken");
 		populateBeersNameTb(db, "Karhu");
 		populateBeersNameTb(db, "karlovacko");
@@ -99,6 +102,7 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		populateBeersNameTb(db, "London Pride");
 		populateBeersNameTb(db, "Mahou");
 		populateBeersNameTb(db, "Mariestads Prima");
+		populateBeersNameTb(db, "Medalla");
 		populateBeersNameTb(db, "Modelo Especial");
 		populateBeersNameTb(db, "Murphys");
 		populateBeersNameTb(db, "Negra Modelo");
@@ -109,6 +113,9 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		populateBeersNameTb(db, "Palma Louca");
 		populateBeersNameTb(db, "Peroni Nastro");
 		populateBeersNameTb(db, "Pint");
+		populateBeersNameTb(db, "Presidente");
+		populateBeersNameTb(db, "Polar");
+		populateBeersNameTb(db, "Quilmes");
 		populateBeersNameTb(db, "Royal Dutch");
 		populateBeersNameTb(db, "Sagres");
 		populateBeersNameTb(db, "San Miguel");

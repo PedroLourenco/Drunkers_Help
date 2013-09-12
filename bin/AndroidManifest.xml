@@ -48,7 +48,7 @@
         </activity>
         
          <activity 
-             android:name="com.drunkers_helper.activity.DailyCounter"
+             android:name="com.drunkers_helper.activity.DailyCounterActivity"
              android:screenOrientation="portrait"
              android:label="Drunker's Helper" >
             
@@ -68,12 +68,19 @@
 		</activity>
 		  
  		<activity  
-				android:name="com.drunkers_helper.activity.AddNewBeer"
+				android:name="com.drunkers_helper.activity.AddBeerActivity"
 				android:screenOrientation="portrait"  
 				android:label="@string/app_name">  
 			
 		</activity>  
  		
+ 		
+ 		<activity  
+				android:name="com.drunkers_helper.activity.AboutActivity"
+				android:screenOrientation="portrait"  
+				android:label="@string/app_name">  
+			
+		</activity>  
         
     </application>
 

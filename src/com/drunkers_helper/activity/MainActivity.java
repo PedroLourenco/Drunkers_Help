@@ -152,7 +152,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 				
 				if(!msg.isEmpty()){
 
-				Intent i = new Intent(getApplicationContext(),DailyCounter.class);
+				Intent i = new Intent(getApplicationContext(),DailyCounterActivity.class);
 				i.putExtra("message", msg);
 				startActivity(i);
 				
@@ -331,11 +331,17 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 					HistoryActivity.class);
 			startActivity(i);
 			return true;
+			
 		case R.id.menu_addBeer:
 			Intent i_addBeer = new Intent(getApplicationContext(),
-					AddNewBeer.class);
+					AddBeerActivity.class);
 			startActivity(i_addBeer);
 			return true;
+		
+		case R.id.menu_About:
+			Intent i_about = new Intent(getApplicationContext(), AboutActivity.class);
+			startActivity(i_about);
+			return true;	
 		default:
 			return super.onOptionsItemSelected(item);
 		}
