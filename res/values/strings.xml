@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <string name="app_name">Drunker\'s Helper</string>
+    <string name="app_name">Drunker\'s Helper</string>
     <string name="action_settings">Settings</string>
-        
-     <!-- Buttons labels -->
+
+    <!-- Buttons labels -->
     <string name="bt_counter"> Day Counter </string>
-	<string name="bt_resetCounter"> Reset Counter </string>
-	<string name="bt_minus">" - "</string>
+    <string name="bt_resetCounter"> Reset Counter </string>
+    <string name="bt_minus">" - "</string>
     <string name="bt_Location">"Location"</string>
-	
-     <!-- Action bar labels -->
-	<string name="menu_exit">Exit</string>
-	<string name="menu_history">Report</string>
-	<string name="menu_addBeer">Add Beer</string>
-	<string name="menu_about">About</string>
-	
+
+    <!-- Action bar labels -->
+    <string name="menu_exit">Exit</string>
+    <string name="menu_history">Report</string>
+    <string name="menu_addBeer">Add Beer</string>
+    <string name="menu_about">About</string>
     <string name="search_hint">Beer Name</string>
-    
-     <!-- Content descriptions -->
+
+    <!-- Content descriptions -->
     <string name="alert_msg_LocationSettings_WIFI">The location settings are disabled. Note that the location can not be determined when these settings are disabled. You also need a network connection to get city name.</string>
     <string name="alert_msg_NetworkPresent">The wifi or 3G is disable. Note that the location name can not be determined when network is disabled.</string>
     <string name="alert_msg_LocationSettings">The location settings are disabled. Note that the location can not be determined when these settings are disabled.</string>
@@ -41,7 +40,5 @@
     <string name="web_link">www.drunkershelper.com</string>
     <string name="email">pdrolourenco@gmail.com</string>
     <string name="msg_email">"Contact: "</string>
-    
-    
-    
+
 </resources>

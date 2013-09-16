@@ -54,25 +54,29 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 	
 		
 		db.execSQL("CREATE TABLE "	+ BEER_HISTORY_TABLE + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " LONGTEXT NOT NULL," +  COL_DATE + " DEFAULT (datetime('now','localtime')), " + COL_LOCATION + " LONGTEXT" + ");"); 
-				
+		
 	 
 		populateBeersNameTb(db, "Aguila");
 		populateBeersNameTb(db, "Amigos");
 		populateBeersNameTb(db, "Amstel");
 		populateBeersNameTb(db, "Antares Kolsch");
 		populateBeersNameTb(db, "Asahi Black");
-		populateBeersNameTb(db, "Asahi");					
+		populateBeersNameTb(db, "Asahi");
 		populateBeersNameTb(db, "Baltika");
 		populateBeersNameTb(db, "Baltika 3");
 		populateBeersNameTb(db, "Baltika 4");
 		populateBeersNameTb(db, "Baltika 7");
+		populateBeersNameTb(db, "Bamberg");
 		populateBeersNameTb(db, "Banks Caribbean");
 		populateBeersNameTb(db, "Bavaria");	
 		populateBeersNameTb(db, "Becks");
 		populateBeersNameTb(db, "Birra Moretti");
 		populateBeersNameTb(db, "Bitburger");
 		populateBeersNameTb(db, "Brahama");
-		populateBeersNameTb(db, "Bochkovoe");			
+		populateBeersNameTb(db, "Brouklyn");
+		populateBeersNameTb(db, "Bud Light");
+		populateBeersNameTb(db, "Bochkovoe");
+		populateBeersNameTb(db, "Bourbon County");
 		populateBeersNameTb(db, "Bud Light Chelada");			
 		populateBeersNameTb(db, "Budweiser");
 		populateBeersNameTb(db, "Buyjiu");
@@ -84,17 +88,27 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		populateBeersNameTb(db, "Corona");
 		populateBeersNameTb(db, "Cristal");
 		populateBeersNameTb(db, "Cruzcampo");
+		populateBeersNameTb(db, "Dama");
 		populateBeersNameTb(db, "Daura");
 		populateBeersNameTb(db, "Dos Equis");
 		populateBeersNameTb(db, "Duff");
 		populateBeersNameTb(db, "Duvel");
+		populateBeersNameTb(db, "Elland Porter");
+		populateBeersNameTb(db, "ESB");
 		populateBeersNameTb(db, "Estrella");
 		populateBeersNameTb(db, "Falcon");
 		populateBeersNameTb(db, "Fino");
 		populateBeersNameTb(db, "Foster");
+		populateBeersNameTb(db, "Founders KBS");
+		populateBeersNameTb(db, "Franklins Conqueror");
+		
 		populateBeersNameTb(db, "Guiness");
+		populateBeersNameTb(db, "Half Cycle Ipa");	
+		populateBeersNameTb(db, "Harvest");
+		
 		populateBeersNameTb(db, "Heady Topper");
 		populateBeersNameTb(db, "Heineken");
+		populateBeersNameTb(db, "Imperial Russian Stoutt");
 		populateBeersNameTb(db, "Karhu");
 		populateBeersNameTb(db, "karlovacko");
 		populateBeersNameTb(db, "Kilkenny");
@@ -110,9 +124,16 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		populateBeersNameTb(db, "Skol");
 		populateBeersNameTb(db, "Old Speckled Hen");
 		populateBeersNameTb(db, "Pacifico");
+		populateBeersNameTb(db, "Pale Ale");
 		populateBeersNameTb(db, "Palma Louca");
+		populateBeersNameTb(db, "Parabola");
+		
 		populateBeersNameTb(db, "Peroni Nastro");
 		populateBeersNameTb(db, "Pint");
+		populateBeersNameTb(db, "Pliny The Elder");
+		
+		populateBeersNameTb(db, "Pliny The Younger");
+
 		populateBeersNameTb(db, "Presidente");
 		populateBeersNameTb(db, "Polar");
 		populateBeersNameTb(db, "Quilmes");
