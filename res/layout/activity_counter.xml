@@ -40,7 +40,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="0dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/fino" />
+                android:contentDescription="@string/icon"/>
         </LinearLayout>
 
         <LinearLayout
@@ -79,7 +79,7 @@
             android:listSelector="@android:color/transparent"
             android:text="@string/bt_minus"
             android:textColor="#ffffff"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
     </RelativeLayout>
 

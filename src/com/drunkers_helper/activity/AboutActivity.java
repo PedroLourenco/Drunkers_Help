@@ -54,8 +54,25 @@ public class AboutActivity extends Activity{
 				startActivity(intent);
 			}
 		});
+		
+		TextView browser =  (TextView) findViewById(R.id.web_link);
+		browser.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
 
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.web_link)));
+				startActivity(browserIntent);
+				browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // this will make such that when user returns to your app, your app is displayed, instead of the email app.
+				startActivity(browserIntent);
+			}
+		});
+	
+		
+		
+	
 	}
+	
+	
 	
 	
 	

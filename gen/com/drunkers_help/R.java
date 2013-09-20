@@ -93,91 +93,72 @@ public final class R {
         public static final int harvest=0x7f020040;
         public static final int heady_topper=0x7f020041;
         public static final int heineken=0x7f020042;
-        public static final int ic_action_attach=0x7f020043;
-        public static final int ic_action_call=0x7f020044;
-        public static final int ic_action_copy=0x7f020045;
-        public static final int ic_action_cut=0x7f020046;
-        public static final int ic_action_delete=0x7f020047;
-        public static final int ic_action_done=0x7f020048;
-        public static final int ic_action_edit=0x7f020049;
-        public static final int ic_action_locate=0x7f02004a;
-        public static final int ic_action_mail=0x7f02004b;
-        public static final int ic_action_mail_add=0x7f02004c;
-        public static final int ic_action_microphone=0x7f02004d;
-        public static final int ic_action_overflow=0x7f02004e;
-        public static final int ic_action_paste=0x7f02004f;
-        public static final int ic_action_photo=0x7f020050;
-        public static final int ic_action_refresh=0x7f020051;
-        public static final int ic_action_search=0x7f020052;
-        public static final int ic_action_select_all=0x7f020053;
-        public static final int ic_action_send=0x7f020054;
-        public static final int ic_action_share=0x7f020055;
-        public static final int ic_action_star=0x7f020056;
-        public static final int ic_action_user=0x7f020057;
-        public static final int ic_action_user_add=0x7f020058;
-        public static final int ic_action_video=0x7f020059;
-        public static final int ic_empty=0x7f02005a;
-        public static final int ic_error=0x7f02005b;
-        public static final int ic_launcher=0x7f02005c;
-        public static final int ic_stub=0x7f02005d;
-        public static final int imperial_russian_stoutt=0x7f02005e;
-        public static final int karhu=0x7f02005f;
-        public static final int karlovacko=0x7f020060;
-        public static final int kilkenny=0x7f020061;
-        public static final int kronenbourg_1994=0x7f020062;
-        public static final int lapikulta=0x7f020063;
-        public static final int list_focused_drunkershelper=0x7f020064;
-        public static final int london_pride=0x7f020065;
-        public static final int mahou=0x7f020066;
-        public static final int mariestadsprima=0x7f020067;
-        public static final int medalla=0x7f020068;
-        public static final int menu_dropdown_panel_drunkershelper=0x7f020069;
-        public static final int modeloespecial=0x7f02006a;
-        public static final int murphys=0x7f02006b;
-        public static final int negramodelo=0x7f02006c;
-        public static final int old_speckled_hen=0x7f02006d;
-        public static final int pacifico=0x7f02006e;
-        public static final int pale_ale=0x7f02006f;
-        public static final int palma_louca=0x7f020070;
-        public static final int parabola=0x7f020071;
-        public static final int peroni_nastro=0x7f020072;
-        public static final int pint=0x7f020073;
-        public static final int pliny_the_elder=0x7f020074;
-        public static final int pliny_the_younger=0x7f020075;
-        public static final int polar=0x7f020076;
-        public static final int presidente=0x7f020077;
-        public static final int pressed_background_drunkershelper=0x7f020078;
-        public static final int progress_bg_drunkershelper=0x7f020079;
-        public static final int progress_horizontal_drunkershelper=0x7f02007a;
-        public static final int progress_primary_drunkershelper=0x7f02007b;
-        public static final int progress_secondary_drunkershelper=0x7f02007c;
-        public static final int quilmes=0x7f02007d;
-        public static final int royal_dutch=0x7f02007e;
-        public static final int sagres=0x7f02007f;
-        public static final int san_miguel=0x7f020080;
-        public static final int selectable_background_drunkershelper=0x7f020081;
-        public static final int skol=0x7f020082;
-        public static final int sol=0x7f020083;
-        public static final int spinner_ab_default_drunkershelper=0x7f020084;
-        public static final int spinner_ab_disabled_drunkershelper=0x7f020085;
-        public static final int spinner_ab_focused_drunkershelper=0x7f020086;
-        public static final int spinner_ab_pressed_drunkershelper=0x7f020087;
-        public static final int spinner_background_ab_drunkershelper=0x7f020088;
-        public static final int stella_artois=0x7f020089;
-        public static final int strela=0x7f02008a;
-        public static final int superbock=0x7f02008b;
-        public static final int tab_indicator_ab_drunkershelper=0x7f02008c;
-        public static final int tab_selected_drunkershelper=0x7f02008d;
-        public static final int tab_selected_focused_drunkershelper=0x7f02008e;
-        public static final int tab_selected_pressed_drunkershelper=0x7f02008f;
-        public static final int tab_unselected_drunkershelper=0x7f020090;
-        public static final int tab_unselected_focused_drunkershelper=0x7f020091;
-        public static final int tab_unselected_pressed_drunkershelper=0x7f020092;
-        public static final int tagus=0x7f020093;
-        public static final int tecate=0x7f020094;
-        public static final int victoria=0x7f020095;
-        public static final int viictoria=0x7f020096;
-        public static final int white_star=0x7f020097;
+        public static final int ic_action_done=0x7f020043;
+        public static final int ic_action_overflow=0x7f020044;
+        public static final int ic_action_search=0x7f020045;
+        public static final int ic_action_share=0x7f020046;
+        public static final int ic_empty=0x7f020047;
+        public static final int ic_error=0x7f020048;
+        public static final int ic_launcher=0x7f020049;
+        public static final int ic_stub=0x7f02004a;
+        public static final int imperial_russian_stoutt=0x7f02004b;
+        public static final int karhu=0x7f02004c;
+        public static final int karlovacko=0x7f02004d;
+        public static final int kilkenny=0x7f02004e;
+        public static final int kronenbourg_1994=0x7f02004f;
+        public static final int lapikulta=0x7f020050;
+        public static final int list_focused_drunkershelper=0x7f020051;
+        public static final int london_pride=0x7f020052;
+        public static final int mahou=0x7f020053;
+        public static final int mariestadsprima=0x7f020054;
+        public static final int medalla=0x7f020055;
+        public static final int menu_dropdown_panel_drunkershelper=0x7f020056;
+        public static final int modeloespecial=0x7f020057;
+        public static final int murphys=0x7f020058;
+        public static final int negramodelo=0x7f020059;
+        public static final int old_speckled_hen=0x7f02005a;
+        public static final int pacifico=0x7f02005b;
+        public static final int pale_ale=0x7f02005c;
+        public static final int palma_louca=0x7f02005d;
+        public static final int parabola=0x7f02005e;
+        public static final int peroni_nastro=0x7f02005f;
+        public static final int pint=0x7f020060;
+        public static final int pliny_the_elder=0x7f020061;
+        public static final int pliny_the_younger=0x7f020062;
+        public static final int polar=0x7f020063;
+        public static final int presidente=0x7f020064;
+        public static final int pressed_background_drunkershelper=0x7f020065;
+        public static final int progress_bg_drunkershelper=0x7f020066;
+        public static final int progress_horizontal_drunkershelper=0x7f020067;
+        public static final int progress_primary_drunkershelper=0x7f020068;
+        public static final int progress_secondary_drunkershelper=0x7f020069;
+        public static final int quilmes=0x7f02006a;
+        public static final int royal_dutch=0x7f02006b;
+        public static final int sagres=0x7f02006c;
+        public static final int san_miguel=0x7f02006d;
+        public static final int selectable_background_drunkershelper=0x7f02006e;
+        public static final int skol=0x7f02006f;
+        public static final int sol=0x7f020070;
+        public static final int spinner_ab_default_drunkershelper=0x7f020071;
+        public static final int spinner_ab_disabled_drunkershelper=0x7f020072;
+        public static final int spinner_ab_focused_drunkershelper=0x7f020073;
+        public static final int spinner_ab_pressed_drunkershelper=0x7f020074;
+        public static final int spinner_background_ab_drunkershelper=0x7f020075;
+        public static final int stella_artois=0x7f020076;
+        public static final int strela=0x7f020077;
+        public static final int superbock=0x7f020078;
+        public static final int tab_indicator_ab_drunkershelper=0x7f020079;
+        public static final int tab_selected_drunkershelper=0x7f02007a;
+        public static final int tab_selected_focused_drunkershelper=0x7f02007b;
+        public static final int tab_selected_pressed_drunkershelper=0x7f02007c;
+        public static final int tab_unselected_drunkershelper=0x7f02007d;
+        public static final int tab_unselected_focused_drunkershelper=0x7f02007e;
+        public static final int tab_unselected_pressed_drunkershelper=0x7f02007f;
+        public static final int tagus=0x7f020080;
+        public static final int tecate=0x7f020081;
+        public static final int victoria=0x7f020082;
+        public static final int viictoria=0x7f020083;
+        public static final int white_star=0x7f020084;
     }
     public static final class id {
         public static final int btnCounter=0x7f090013;
@@ -192,12 +173,11 @@ public final class R {
         public static final int image=0x7f090015;
         public static final int imageView1=0x7f090000;
         public static final int mImgView1=0x7f09000d;
-        public static final int menu_About=0x7f09001b;
+        public static final int menu_About=0x7f09001a;
         public static final int menu_History=0x7f090017;
-        public static final int menu_addBeer=0x7f090019;
-        public static final int menu_export=0x7f090018;
+        public static final int menu_addBeer=0x7f090018;
         public static final int menu_item_share=0x7f090016;
-        public static final int menu_search=0x7f09001a;
+        public static final int menu_search=0x7f090019;
         public static final int msg_about=0x7f090001;
         public static final int msg_bugfix=0x7f090004;
         public static final int newBeer=0x7f09000b;
@@ -234,7 +214,6 @@ public final class R {
         public static final int alert_location=0x7f06000e;
         public static final int alert_msg_LocationSettings=0x7f06000d;
         /**  Content descriptions 
- Content descriptions 
          */
         public static final int alert_msg_LocationSettings_WIFI=0x7f06000b;
         public static final int alert_msg_NetworkPresent=0x7f06000c;
@@ -242,34 +221,25 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int bt_Location=0x7f060005;
         /**  Buttons labels 
- Buttons labels 
- Buttons labels 
          */
         public static final int bt_counter=0x7f060002;
         public static final int bt_minus=0x7f060004;
         public static final int bt_resetCounter=0x7f060003;
         public static final int counter_msg=0x7f060019;
         public static final int counter_reseted_msg=0x7f060018;
-        /**  Content descriptions 
-         */
-        public static final int descr_image=0x7f060022;
         public static final int email=0x7f06001f;
         public static final int exit_msg=0x7f060017;
+        public static final int icon=0x7f060021;
         public static final int menu_about=0x7f060009;
         public static final int menu_addBeer=0x7f060008;
         /**  Action bar labels 
- Action bar labels 
- Action bar labels 
          */
         public static final int menu_exit=0x7f060006;
-        public static final int menu_export=0x7f060021;
         public static final int menu_history=0x7f060007;
         public static final int msg_about=0x7f06001a;
         public static final int msg_bug_fix=0x7f06001c;
         public static final int msg_current_version=0x7f06001d;
         public static final int msg_email=0x7f060020;
-        /**  REVER SE É NECESSÁRIO 
-         */
         public static final int search_hint=0x7f06000a;
         public static final int search_not_find=0x7f060016;
         public static final int share_msg1=0x7f060012;
