@@ -5,7 +5,7 @@ import com.drunkers_help.R;
 public final class globalconstant {
 	
 	//log variables
-	public static final boolean LOG = true;
+	public static final boolean LOG = false;
     public static String TAG = "Drunker's Helper";
 
 	public static double lat, lon;
