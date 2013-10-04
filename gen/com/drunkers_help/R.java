@@ -214,6 +214,7 @@ public final class R {
         public static final int alert_location=0x7f06000e;
         public static final int alert_msg_LocationSettings=0x7f06000d;
         /**  Content descriptions 
+ Content descriptions 
          */
         public static final int alert_msg_LocationSettings_WIFI=0x7f06000b;
         public static final int alert_msg_NetworkPresent=0x7f06000c;
@@ -221,6 +222,7 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int bt_Location=0x7f060005;
         /**  Buttons labels 
+ Buttons labels 
          */
         public static final int bt_counter=0x7f060002;
         public static final int bt_minus=0x7f060004;
@@ -233,6 +235,7 @@ public final class R {
         public static final int menu_about=0x7f060009;
         public static final int menu_addBeer=0x7f060008;
         /**  Action bar labels 
+ Action bar labels 
          */
         public static final int menu_exit=0x7f060006;
         public static final int menu_history=0x7f060007;
