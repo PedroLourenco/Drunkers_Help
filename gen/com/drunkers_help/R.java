@@ -161,33 +161,35 @@ public final class R {
         public static final int white_star=0x7f020084;
     }
     public static final class id {
-        public static final int btnCounter=0x7f090013;
-        public static final int btnMinus=0x7f09000f;
-        public static final int btnResetCounter=0x7f090014;
-        public static final int counter=0x7f09000e;
-        public static final int current_version=0x7f090005;
-        public static final int dailyListView=0x7f090010;
-        public static final int email=0x7f090007;
-        public static final int gridview=0x7f090012;
-        public static final int histListView=0x7f090011;
-        public static final int image=0x7f090015;
+        public static final int btnCounter=0x7f090015;
+        public static final int btnMinus=0x7f090011;
+        public static final int btnResetCounter=0x7f090016;
+        public static final int counter=0x7f090010;
+        public static final int current_version=0x7f090007;
+        public static final int dailyListView=0x7f090012;
+        public static final int email=0x7f090009;
+        public static final int gridview=0x7f090014;
+        public static final int histListView=0x7f090013;
+        public static final int image=0x7f090017;
         public static final int imageView1=0x7f090000;
-        public static final int mImgView1=0x7f09000d;
-        public static final int menu_About=0x7f09001a;
-        public static final int menu_History=0x7f090017;
-        public static final int menu_addBeer=0x7f090018;
-        public static final int menu_item_share=0x7f090016;
-        public static final int menu_search=0x7f090019;
+        public static final int mImgView1=0x7f09000f;
+        public static final int menu_About=0x7f09001c;
+        public static final int menu_History=0x7f090019;
+        public static final int menu_addBeer=0x7f09001a;
+        public static final int menu_item_share=0x7f090018;
+        public static final int menu_search=0x7f09001b;
         public static final int msg_about=0x7f090001;
-        public static final int msg_bugfix=0x7f090004;
-        public static final int newBeer=0x7f09000b;
-        public static final int relativeLayout1=0x7f09000c;
-        public static final int relativeLayout12=0x7f090008;
-        public static final int relativeLayout33=0x7f09000a;
+        public static final int msg_bugfix=0x7f090006;
+        public static final int msg_bugfix1=0x7f090004;
+        public static final int newBeer=0x7f09000d;
+        public static final int relativeLayout1=0x7f09000e;
+        public static final int relativeLayout12=0x7f09000a;
+        public static final int relativeLayout33=0x7f09000c;
         public static final int scrollView1=0x7f090002;
-        public static final int title=0x7f090009;
-        public static final int txt_version=0x7f090003;
-        public static final int web_link=0x7f090006;
+        public static final int title=0x7f09000b;
+        public static final int txt_version=0x7f090005;
+        public static final int txt_version1=0x7f090003;
+        public static final int web_link=0x7f090008;
     }
     public static final class layout {
         public static final int activity_about=0x7f030000;
@@ -229,9 +231,9 @@ public final class R {
         public static final int bt_resetCounter=0x7f060003;
         public static final int counter_msg=0x7f060019;
         public static final int counter_reseted_msg=0x7f060018;
-        public static final int email=0x7f06001f;
+        public static final int email=0x7f060021;
         public static final int exit_msg=0x7f060017;
-        public static final int icon=0x7f060021;
+        public static final int icon=0x7f060023;
         public static final int menu_about=0x7f060009;
         public static final int menu_addBeer=0x7f060008;
         /**  Action bar labels 
@@ -241,14 +243,16 @@ public final class R {
         public static final int menu_history=0x7f060007;
         public static final int msg_about=0x7f06001a;
         public static final int msg_bug_fix=0x7f06001c;
-        public static final int msg_current_version=0x7f06001d;
-        public static final int msg_email=0x7f060020;
+        public static final int msg_bug_fix1=0x7f06001e;
+        public static final int msg_current_version=0x7f06001f;
+        public static final int msg_email=0x7f060022;
         public static final int search_hint=0x7f06000a;
         public static final int search_not_find=0x7f060016;
         public static final int share_msg1=0x7f060012;
         public static final int share_msg2=0x7f060013;
         public static final int version=0x7f06001b;
-        public static final int web_link=0x7f06001e;
+        public static final int version1=0x7f06001d;
+        public static final int web_link=0x7f060020;
     }
     public static final class style {
         public static final int ActionBar_Solid_Drunkershelper=0x7f070003;
