@@ -38,8 +38,8 @@
     <string name="msg_bug_fix">Version initiale.</string>
     <string name="version1">Version 1.1.0 (Octobre, 2013)</string>
     <string name="msg_bug_fix1">Ajout de la traduction française</string>
-    <string name="version1">Version 1.1.1 (Octobre, 2013)</string>
-    <string name="msg_bug_fix1">Correction de bugs</string>
+    <string name="version2">Version 1.1.1 (Octobre, 2013)</string>
+    <string name="msg_bug_fix2">Correction de bugs</string>
     <string name="msg_current_version">Drunker\'s Helper  1.1.1</string>
     <string name="web_link">http://drunkers-helper.herokuapp.com/</string>
     <string name="email">pdrolourenco@gmail.com</string>

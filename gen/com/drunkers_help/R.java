@@ -231,9 +231,9 @@ public final class R {
         public static final int bt_resetCounter=0x7f060003;
         public static final int counter_msg=0x7f060019;
         public static final int counter_reseted_msg=0x7f060018;
-        public static final int email=0x7f060021;
+        public static final int email=0x7f060023;
         public static final int exit_msg=0x7f060017;
-        public static final int icon=0x7f060023;
+        public static final int icon=0x7f060025;
         public static final int menu_about=0x7f060009;
         public static final int menu_addBeer=0x7f060008;
         /**  Action bar labels 
@@ -244,15 +244,17 @@ public final class R {
         public static final int msg_about=0x7f06001a;
         public static final int msg_bug_fix=0x7f06001c;
         public static final int msg_bug_fix1=0x7f06001e;
-        public static final int msg_current_version=0x7f06001f;
-        public static final int msg_email=0x7f060022;
+        public static final int msg_bug_fix2=0x7f060020;
+        public static final int msg_current_version=0x7f060021;
+        public static final int msg_email=0x7f060024;
         public static final int search_hint=0x7f06000a;
         public static final int search_not_find=0x7f060016;
         public static final int share_msg1=0x7f060012;
         public static final int share_msg2=0x7f060013;
         public static final int version=0x7f06001b;
         public static final int version1=0x7f06001d;
-        public static final int web_link=0x7f060020;
+        public static final int version2=0x7f06001f;
+        public static final int web_link=0x7f060022;
     }
     public static final class style {
         public static final int ActionBar_Solid_Drunkershelper=0x7f070003;
