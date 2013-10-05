@@ -25,7 +25,7 @@
     <string name="alert_wifi_settings">Wifi settings</string>
     <string name="alert_3G_settings">3G settings</string>
     <string name="alert_cancel">Cancel</string>
-    <string name="share_msg1">"Today i drunk "</string>
+    <string name="share_msg1">"Today i drank "</string>
     <string name="share_msg2">.#DrunkersHelper for #Android</string>
     <string name="City_msg1">Can not get city name!</string>
     <string name="add_beer">Beer name is empty!</string>
