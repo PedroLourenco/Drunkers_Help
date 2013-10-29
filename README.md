@@ -1,5 +1,6 @@
-![Logo](https://github.com/PedroLourenco/Drunkers_Help/blob/master/res/drawable/ic_launcher.png)Drunker's Helper
-================
+
+![Logo](https://github.com/PedroLourenco/Drunkers_Help/blob/Release1.1.0/res/drawable/ic_launcher.png)Drunker's Helper
+
 
 ## Overview
 An Android application to count beers, track location and share with your best friends.
