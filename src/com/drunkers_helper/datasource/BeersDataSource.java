@@ -254,6 +254,9 @@ public class BeersDataSource {
 		
 		insertValuesHist.put(BeersDBHelper.COL_NAME, beerName);
 		insertValuesHist.put(BeersDBHelper.COL_LOCATION, globalconstant.cityName);
+		insertValuesHist.put(BeersDBHelper.COL_LAT, globalconstant.lat);
+		insertValuesHist.put(BeersDBHelper.COL_LONG, globalconstant.lon);
+		
 		db.insert(BeersDBHelper.BEER_HISTORY_TABLE, null, insertValuesHist);
 		return getBeerCounter(beerName);
 	}

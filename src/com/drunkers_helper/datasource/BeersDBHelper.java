@@ -9,7 +9,7 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 	
 	
 	//Data Base version
-	public static final int DATABASE_VERSION = 1;
+	public static final int DATABASE_VERSION = 2;
 			
 		public static final String DATABASE_NAME = "DrunkersHelper.db";
 		
@@ -24,6 +24,8 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		public static final String COL_COUNTER = "Counter";
 		public static final String COL_LOCATION = "Location";
 		public static final String COL_DATE = "Date";
+		public static final String COL_LAT = "Lat";
+		public static final String COL_LONG = "Long";
 
 		
 		public BeersDBHelper(Context context) {
@@ -100,12 +102,10 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		populateBeersNameTb(db, "Fino");
 		populateBeersNameTb(db, "Foster");
 		populateBeersNameTb(db, "Founders KBS");
-		populateBeersNameTb(db, "Franklins Conqueror");
-		
+		populateBeersNameTb(db, "Franklins Conqueror");		
 		populateBeersNameTb(db, "Guiness");
 		populateBeersNameTb(db, "Half Cycle Ipa");	
-		populateBeersNameTb(db, "Harvest");
-		
+		populateBeersNameTb(db, "Harvest");		
 		populateBeersNameTb(db, "Heady Topper");
 		populateBeersNameTb(db, "Heineken");
 		populateBeersNameTb(db, "Imperial Russian Stoutt");
@@ -126,14 +126,11 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 		populateBeersNameTb(db, "Pacifico");
 		populateBeersNameTb(db, "Pale Ale");
 		populateBeersNameTb(db, "Palma Louca");
-		populateBeersNameTb(db, "Parabola");
-		
+		populateBeersNameTb(db, "Parabola");		
 		populateBeersNameTb(db, "Peroni Nastro");
 		populateBeersNameTb(db, "Pint");
-		populateBeersNameTb(db, "Pliny The Elder");
-		
+		populateBeersNameTb(db, "Pliny The Elder");		
 		populateBeersNameTb(db, "Pliny The Younger");
-
 		populateBeersNameTb(db, "Presidente");
 		populateBeersNameTb(db, "Polar");
 		populateBeersNameTb(db, "Quilmes");
@@ -153,6 +150,11 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
+		
+		
+		//Release_1.2.0 - Add columns to save Latitide and Logitude to table BEER_HISTORY_TABLE 
+		db.execSQL("ALTER TABLE "	+ BEER_HISTORY_TABLE + " ADD COLUMN " + COL_LAT + " LONGTEXT " + ";");
+		db.execSQL("ALTER TABLE "	+ BEER_HISTORY_TABLE + " ADD COLUMN " + COL_LONG + " LONGTEXT " + ";");
 		
 	}
 

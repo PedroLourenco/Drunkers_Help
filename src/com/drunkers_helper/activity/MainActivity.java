@@ -190,6 +190,8 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 			// TODO Auto-generated method stub
 			if (location != null) {
 				mlocation = location;
+				globalconstant.lat = location.getLatitude();
+				globalconstant.lon = location.getLongitude();
 				if (globalconstant.LOG)
 					Log.v(globalconstant.TAG, location.getLatitude() + ","
 							+ location.getLongitude());
