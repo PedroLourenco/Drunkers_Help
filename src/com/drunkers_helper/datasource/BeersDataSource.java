@@ -28,6 +28,7 @@ public class BeersDataSource {
 	
 	private String[] Column_Counter = { BeersDBHelper.COL_COUNTER };
 	private String[] Column_Name = { BeersDBHelper.COL_NAME };
+	private String[] Column_LAT = { BeersDBHelper.COL_LAT };
 	
 	
 	
@@ -36,8 +37,7 @@ public class BeersDataSource {
 		beer_db_helper = new BeersDBHelper(context);	
 	}
 
-	
-	
+		
 	public void open() throws SQLException {
 		
 		db = beer_db_helper.getWritableDatabase();
@@ -257,6 +257,7 @@ public class BeersDataSource {
 		insertValuesHist.put(BeersDBHelper.COL_LAT, globalconstant.lat);
 		insertValuesHist.put(BeersDBHelper.COL_LONG, globalconstant.lon);
 		
+		
 		db.insert(BeersDBHelper.BEER_HISTORY_TABLE, null, insertValuesHist);
 		return getBeerCounter(beerName);
 	}
@@ -327,7 +328,264 @@ public class BeersDataSource {
 	}
 	
 	
+	
+	
+	/**
+	 * Get Top Ten
+	 * @param beerName	Beer name 
+	 * @return			Number of beers if not exist return 0
+	 */
+	public Cursor getTopTenBeerss() {
+		Cursor cursor = this.db.rawQuery(
+				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " group by " + BeersDBHelper.COL_NAME + " order by _id DESC LIMIT 10",
+				 new String[] {});
+		
+		
+		return cursor;
+	}
+	
+	
+	/**
+	 * Get Last Day beers
+	 * @param beerName	Beer name 
+	 * @return			Number of beers if not exist return 0
+	 */
+	public Cursor getLastDayBeers() {
+		
+	String where= "DATE('now', '-1' days)";
+		
+		Cursor cursor = this.db.rawQuery(
+				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " between DATE('now') and ? group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
+				 new String[] {where});
+		
+		return cursor;
+	}
+	
+	
+	/**
+	 * Get Last Day beers total
+	 * @param beerName	Beer name 
+	 * @return			Number of beers if not exist return 0
+	 */
+	public String getLastDayBeersTotal() {
+		
+	String where= "DATE('now', '-1' days)";
+		
+		Cursor cursor = this.db.rawQuery(
+				"select " + " count(*)  from "
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " between ? " + " and DATE('now', 'locatime')",
+				 new String[] {where});
+		
+		String result="";
+		if (cursor.moveToFirst()) {
 
+			do {
+				result = cursor.getString(0).toString();
+
+			} while (cursor.moveToNext());
+		}
+	
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * Get Last Week beers
+	 * @param beerName	Beer name 
+	 * @return			Number of beers if not exist return 0
+	 */
+	public Cursor getLastWeekBeers() {
+		
+		String where= "DATE('now', '-7' days)";
+		
+		Cursor cursor = this.db.rawQuery(
+				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ? group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
+				 new String[] {where});
+		
+		return cursor;
+	}
+	
+	
+	/**
+	 * Get Last Week beers total
+	 * @param beerName	Beer name 
+	 * @return			Number of beers if not exist return 0
+	 */
+	public String getLastWeekBeersTotal() {
+		
+String where= "DATE('now', '-7' days)";
+		
+		Cursor cursor = this.db.rawQuery(
+				"select " +  "count(*)  from "
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ?",
+				 new String[] {where});
+		
+		String result="";
+		if (cursor.moveToFirst()) {
+
+			do {
+				result = cursor.getString(0).toString();
+
+			} while (cursor.moveToNext());
+		}
+	
+		return result;
+				
+	}
+	
+	
+	
+	/**
+	 * Get Last Month beers
+	 * @param beerName	Beer name 
+	 * @return			Number of beers if not exist return 0
+	 */
+	public Cursor getLastMonthBeers() {
+		
+		String where= "DATE('now', '-30' days)";
+		
+		Cursor cursor = this.db.rawQuery(
+				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ? group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
+				 new String[] {where});
+		
+		
+		
+		return cursor;
+	}
+	
+	
+	/**
+	 * Get Last Month beers total
+	 * @param beerName	Beer name 
+	 * @return			Number of beers if not exist return 0
+	 */
+	public String getLastMonthBeersTotal() {
+		
+		String where= "DATE('now', '-30' days)";
+		
+		Cursor cursor = this.db.rawQuery(
+				"select " +  "count(*)  from "
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ?",
+				 new String[] {where});
+		
+		String result="";
+		if (cursor.moveToFirst()) {
+
+			do {
+				result = cursor.getString(0).toString();
+
+			} while (cursor.moveToNext());
+		}
+	
+		return result;
+	}
+	
+	
+	/**
+	 * Get Last Year beers
+	 * @param beerName	Beer name 
+	 * @return			Number of beers if not exist return 0
+	 */
+	public Cursor getLastYearBeers() {
+		
+		String where= "DATE('now', '-360' days)";
+		
+		Cursor cursor = this.db.rawQuery(
+				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ? group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
+				 new String[] {where});
+		
+		return cursor;
+	}
+	
+	
+	/**
+	 * Get Last Month beers total
+	 * @param beerName	Beer name 
+	 * @return			Number of beers if not exist return 0
+	 */
+	public String getLastYearBeersTotal() {
+		
+		String where= "DATE('now', '-360' days)";
+		
+		Cursor cursor = this.db.rawQuery(
+				"select " +  "count(*)  from "
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ?",
+				 new String[] {where});
+		
+		String result="";
+		if (cursor.moveToFirst()) {
+
+			do {
+				result = cursor.getString(0).toString();
+
+			} while (cursor.moveToNext());
+		}
+	
+		return result;
+	}
+	
+	
+	
+	/**
+	 * Find resgiters without city name on table Beer History
+	 * 
+	 * @return  Cursor with all afected registers
+	 */
+	 
+	public Cursor getRegistersWithoutLocation(){
+		
+		System.out.println("BDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBD");
+		
+		Cursor cursor = this.db.rawQuery("select " + BeersDBHelper.COL_COUNTER + " ||'-'|| " + BeersDBHelper.COL_NAME + " as _id  from " + BeersDBHelper.BEER_COUNTER_TABLE + " order by " + BeersDBHelper.COL_NAME + " ASC",new String[] {});
+		
+		
+		
+		String result="";
+		if ( cursor.getCount() == 0){
+			
+		}
+	
+		if (cursor.moveToFirst()) {
+
+			do {
+				result += cursor.getString(0).toString() + ", ";
+
+			} while (cursor.moveToNext());
+		}
+		if (cursor != null && !cursor.isClosed()) {
+			cursor.close();
+		}
+
+		result = result.substring(0, result.length() - 2);
+				
+		 System.out.println("ffffffffffffffffff:" + result);
+		
+		
+		return cursor;		
+		
+	}
+	
+	
+	
+	public void setLocationOnTableBeerHistory(String colunmId, String cityName){
+		
+		ContentValues insertValues = new ContentValues();
+		
+		insertValues.put(BeersDBHelper.COL_LOCATION, cityName);
+		db.update(BeersDBHelper.BEER_HISTORY_TABLE, insertValues,  BeersDBHelper.COL_ID + " = ?", new String[] { colunmId });
+		
+	}
 	
 
 }

@@ -21,4 +21,11 @@
     <color name="pressed_drunkershelper">#CC33B5E5</color>
     <color name="cinza_dark">#43423e</color>
     <color name="cinza_light">#161614</color>
+    
+    
+       
+      <!-- sliding menu -->
+    <color name="purple_light">#a276eb</color> 
+    <color name="purple_middle">#8658ce</color>
+    <color name="purple_dark">#6a3ab2</color>
 </resources>

@@ -81,6 +81,13 @@
 				android:label="@string/app_name">  
 			
 		</activity>  
+		
+ 		<activity  
+				android:name="com.drunkers_helper.activity.StatisticActivity"
+				android:screenOrientation="portrait"  
+				android:label="@string/app_name">  
+			
+		</activity>  
         
     </application>
 

@@ -15,7 +15,10 @@ import android.location.Location;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -40,8 +43,13 @@ import com.drunkers_help.R;
 import com.drunkers_helper.datasource.BeersDataSource;
 import com.drunkers_helper.location.MyLocation;
 import com.drunkers_helper.location.MyLocation.LocationResult;
+import com.drunkers_helper.util.BaseActivity;
 import com.drunkers_helper.util.CheckGPSStatus;
+import com.drunkers_helper.util.ProccessAssyncTask;
+import com.drunkers_helper.util.SampleListFragment;
 import com.drunkers_helper.util.globalconstant;
+
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -51,12 +59,12 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
  * 
  */
 
-public class MainActivity extends Activity implements OnQueryTextListener {
+public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	TextView mSearchText;
-
+	private Fragment mContent;
 	private Context context;
 	private BeersDataSource beer_datasource;;
-
+	protected ListFragment mFrag;
 	private Location mlocation;
 	private long lastPressedTime;
 	private static final int PERIOD = 2000;
@@ -71,6 +79,19 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 	MyLocation myLocation = new MyLocation();
 	CheckGPSStatus gps = new CheckGPSStatus(this);
 
+	
+
+	public MainActivity(int titleRes) {
+		super(titleRes);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public MainActivity() {
+		super(R.string.app_name);
+		
+	}
+	
+	
 	/** Called when the activity is first created. */
 
 	@Override
@@ -92,6 +113,17 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 				.showImageOnFail(R.drawable.ic_error).cacheInMemory(true)
 				.cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
 
+		
+
+        getSlidingMenu().setMode(SlidingMenu.LEFT);
+        getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+
+  getSupportFragmentManager()
+  .beginTransaction()
+  .replace(R.id.menu_frame, new SampleListFragment())
+  .commit();
+		
+		
 		findCurrentLocation();
 
 		listView = (GridView) findViewById(R.id.gridview);
@@ -175,6 +207,14 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 						Toast.LENGTH_SHORT).show();
 			}
 		});
+		
+		
+		
+		//if(gps.connectivityStatus(context)){
+			
+	//		 new ProccessAssyncTask(context);			
+			
+//		}
 
 	}
 
@@ -325,6 +365,7 @@ public class MainActivity extends Activity implements OnQueryTextListener {
 		return super.onPrepareOptionsMenu(menu);
 	}
 
+		
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
 		switch (item.getItemId()) {
