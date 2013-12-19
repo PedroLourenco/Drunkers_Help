@@ -1,5 +1,9 @@
 		package com.drunkers_helper.util;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.json.JSONArray;
@@ -7,30 +11,41 @@ import org.json.JSONObject;
 
 
 
+
+
+
+
+
+
 import android.content.Context;
 import android.database.Cursor;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
+import android.os.Bundle;
 
 import com.drunkers_helper.datasource.BeersDataSource;
 import com.drunkers_helper.location.MyLocation;
 
-public class ProccessAssyncTask {
+public class ProccessAssyncTask extends AsyncTask<Void,Void,Bundle> {
 	
 	
 	private BeersDataSource beer_datasource;
 	private static final AndroidHttpClient ANDROID_HTTP_CLIENT = AndroidHttpClient.newInstance(MyLocation.class.getName());
 	CheckGPSStatus gps;
+	Map<String,String> mcoordenadas = new HashMap<String,String>();
 	
 	
-	public ProccessAssyncTask(Context context){
+	public ProccessAssyncTask(Map<String, String>  coordenadas){
 		
-		beer_datasource = new BeersDataSource(context);
+		
+		mcoordenadas.putAll(coordenadas);
+		
+		
 		
 		System.out.println("TESTETETEETE1111!!!!");
-		
-		//Starting the task.
-	   new PostTask().execute("");		
+		onPreExecute();
+		doInBackground();
+			
 		
 	}
 	
@@ -38,22 +53,31 @@ public class ProccessAssyncTask {
 
 	private String getCityName(String latitude, String longitude){
 		String cityName = null;
+		System.out.println("getCityName: ---------------------------");
 		
+		String latitudes = "41.188832";
+		String longitudes = "-8.5948463";
 		try {
 			String googleMapUrl = "http://maps.googleapis.com/maps/api/geocode/json?latlng="
-					+ latitude
+					+ latitudes
 					+ ","
-					+ longitude
+					+ longitudes
 					+ "&sensor=false&language=fr";
+			
+			System.out.println("CITY NAME: ---------------------------67");
 
 			JSONObject googleMapResponse = new JSONObject(
 					ANDROID_HTTP_CLIENT.execute(new HttpGet(
 							googleMapUrl), new BasicResponseHandler()));
+			
+			System.out.println("CITY NAME: ---------------------------71");
 
 			// many nested loops.. not great -> use expression instead
 			// loop among all results
 			JSONArray results = (JSONArray) googleMapResponse
 					.get("results");
+			
+			System.out.println("CITY NAME: ---------------------------78");
 			for (int i = 0; i < results.length(); i++) {
 				// loop among all addresses within this result
 				JSONObject result = results.getJSONObject(i);
@@ -99,6 +123,8 @@ public class ProccessAssyncTask {
 								}
 							}
 							if (cityName != null) {
+								
+								System.out.println("CITY NAME: ---------------------------"+ cityName);
 								return cityName;
 							}
 						}
@@ -106,6 +132,8 @@ public class ProccessAssyncTask {
 				}
 			}
 		} catch (Exception ignored) {
+			System.out.println("getCityName: -------------ignored--------------" + ignored.getMessage());
+			
 			ignored.printStackTrace();
 		}
 		return null;
@@ -117,7 +145,7 @@ public class ProccessAssyncTask {
 	
 	
 	 // The definition of our task class
-	 private class PostTask extends AsyncTask<String, Integer, String> {
+	/* private class PostTask extends AsyncTask<String, Integer, String> {
 		   
 			   
 	   @Override
@@ -169,6 +197,39 @@ public class ProccessAssyncTask {
 	      super.onPostExecute(result);
 	     
 	   }
+	}
+
+*/
+	@Override
+	   protected void onPreExecute() {
+	      super.onPreExecute();
+	      System.out.println("onPreExecute------------------------------!!!!");
+	      
+	      
+	   }
+
+	@Override
+	protected Bundle doInBackground(Void... arg0) {
+		
+		 System.out.println("doInBackground------------------------------!!!!");
+		Iterator it = mcoordenadas.entrySet().iterator();
+	    while (it.hasNext()) {
+	        Map.Entry pairs = (Map.Entry)it.next();
+	        System.out.println(pairs.getKey().toString() + "----> " + pairs.getValue().toString());
+	        it.remove(); // avoids a ConcurrentModificationException
+	   
+	        getCityName(pairs.getKey().toString(), pairs.getValue().toString());
+	    
+	    
+	    }
+		
+		
+		
+		
+		
+		
+		//
+		return null;
 	}
 
 }

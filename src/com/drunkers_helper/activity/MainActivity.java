@@ -1,5 +1,7 @@
 package com.drunkers_helper.activity;
 
+import java.util.Map;
+
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.json.JSONArray;
@@ -10,6 +12,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.http.AndroidHttpClient;
@@ -48,7 +51,6 @@ import com.drunkers_helper.util.CheckGPSStatus;
 import com.drunkers_helper.util.ProccessAssyncTask;
 import com.drunkers_helper.util.SampleListFragment;
 import com.drunkers_helper.util.globalconstant;
-
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -113,10 +115,8 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 				.showImageOnFail(R.drawable.ic_error).cacheInMemory(true)
 				.cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
 
-		
-
-        getSlidingMenu().setMode(SlidingMenu.LEFT);
-        getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		        
+        setSlidingActionBarEnabled(false);
 
   getSupportFragmentManager()
   .beginTransaction()
@@ -210,11 +210,14 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 		
 		
 		
-		//if(gps.connectivityStatus(context)){
+		if(gps.connectivityStatus(context)){
 			
-	//		 new ProccessAssyncTask(context);			
+			Map cc = beer_datasource.getRegistersWithoutLocation();
 			
-//		}
+			ProccessAssyncTask p = new ProccessAssyncTask(cc);
+						
+			
+		}
 
 	}
 

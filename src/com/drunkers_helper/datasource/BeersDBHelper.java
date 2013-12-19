@@ -55,7 +55,7 @@ public class BeersDBHelper extends SQLiteOpenHelper {
 				+ BEER_COUNTER_TABLE + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " LONGTEXT NOT NULL UNIQUE," + COL_COUNTER + " INTEGER NOT NULL " + ");");
 	
 		
-		db.execSQL("CREATE TABLE "	+ BEER_HISTORY_TABLE + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " LONGTEXT NOT NULL," +  COL_DATE + " DEFAULT (datetime('now','-7 days')), " + COL_LOCATION + " LONGTEXT, " +  COL_LAT + " LONGTEXT, " +  COL_LONG + " LONGTEXT " + ");"); 
+		db.execSQL("CREATE TABLE "	+ BEER_HISTORY_TABLE + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " LONGTEXT NOT NULL," +  COL_DATE + " DEFAULT (datetime('now','localtime')), " + COL_LOCATION + " LONGTEXT, " +  COL_LAT + " LONGTEXT, " +  COL_LONG + " LONGTEXT " + ");"); 
 		
 	 
 		populateBeersNameTb(db, "Aguila");

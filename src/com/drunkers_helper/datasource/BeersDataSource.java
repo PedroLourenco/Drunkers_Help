@@ -1,7 +1,10 @@
 package com.drunkers_helper.datasource;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import com.drunkers_helper.datasource.BeersDBHelper;
 
@@ -258,6 +261,7 @@ public class BeersDataSource {
 		insertValuesHist.put(BeersDBHelper.COL_LONG, globalconstant.lon);
 		
 		
+		
 		db.insert(BeersDBHelper.BEER_HISTORY_TABLE, null, insertValuesHist);
 		return getBeerCounter(beerName);
 	}
@@ -353,12 +357,10 @@ public class BeersDataSource {
 	 */
 	public Cursor getLastDayBeers() {
 		
-	String where= "DATE('now', '-1' days)";
-		
 		Cursor cursor = this.db.rawQuery(
 				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " between DATE('now') and ? group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
-				 new String[] {where});
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " between DATE('now', '-1 days') and DATE('now', 'localtime') group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
+				 new String[] {});
 		
 		return cursor;
 	}
@@ -371,18 +373,16 @@ public class BeersDataSource {
 	 */
 	public String getLastDayBeersTotal() {
 		
-	String where= "DATE('now', '-1' days)";
-		
 		Cursor cursor = this.db.rawQuery(
 				"select " + " count(*)  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " between ? " + " and DATE('now', 'locatime')",
-				 new String[] {where});
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " between DATE('now', '-1 days') and DATE('now')",
+				 new String[] {});
 		
 		String result="";
 		if (cursor.moveToFirst()) {
 
 			do {
-				result = cursor.getString(0).toString();
+				result = cursor.getString(0).toString();				
 
 			} while (cursor.moveToNext());
 		}
@@ -543,11 +543,10 @@ String where= "DATE('now', '-7' days)";
 	 * @return  Cursor with all afected registers
 	 */
 	 
-	public Cursor getRegistersWithoutLocation(){
+	public Map<String, String> getRegistersWithoutLocation(){
 		
-		System.out.println("BDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBDBD");
-		
-		Cursor cursor = this.db.rawQuery("select " + BeersDBHelper.COL_COUNTER + " ||'-'|| " + BeersDBHelper.COL_NAME + " as _id  from " + BeersDBHelper.BEER_COUNTER_TABLE + " order by " + BeersDBHelper.COL_NAME + " ASC",new String[] {});
+		Map<String,String> coordenadas = new HashMap<String,String>();
+		Cursor cursor = this.db.rawQuery("select " + BeersDBHelper.COL_LAT + ", " + BeersDBHelper.COL_LONG + " from " + BeersDBHelper.BEER_HISTORY_TABLE + " where " + BeersDBHelper.COL_LOCATION + " is null",new String[] {});
 		
 		
 		
@@ -559,20 +558,23 @@ String where= "DATE('now', '-7' days)";
 		if (cursor.moveToFirst()) {
 
 			do {
-				result += cursor.getString(0).toString() + ", ";
+				
+				coordenadas.put(cursor.getString(0).toString(), cursor.getString(1).toString());
+				
+				result += cursor.getString(0).toString() +"|";
+				System.out.println("RESULT: " + result);
 
 			} while (cursor.moveToNext());
 		}
-		if (cursor != null && !cursor.isClosed()) {
-			cursor.close();
-		}
-
-		result = result.substring(0, result.length() - 2);
-				
-		 System.out.println("ffffffffffffffffff:" + result);
 		
 		
-		return cursor;		
+		Iterator it = coordenadas.entrySet().iterator();
+	    while (it.hasNext()) {
+	        Map.Entry pairs = (Map.Entry)it.next();
+	        System.out.println(pairs.getKey() + " = " + pairs.getValue());
+	        //it.remove(); // avoids a ConcurrentModificationException
+	    }
+		return coordenadas;		
 		
 	}
 	
