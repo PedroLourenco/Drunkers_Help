@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,12 +25,16 @@ public class SampleListFragment extends ListFragment {
 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		    SampleAdapter adapter = new SampleAdapter(getActivity());
-		    adapter.add(new SampleItem("Top Ten",R.drawable.top_10));
-		    adapter.add(new SampleItem("Last Day",R.drawable.cup));
-		    adapter.add(new SampleItem("Last Week",R.drawable.cup));
-		    adapter.add(new SampleItem("Last Month",R.drawable.cup));
-		    adapter.add(new SampleItem("Last Year",R.drawable.cup));
+		
+		Spanned spannedContent = Html.fromHtml(getResources().getString(R.string.last_week));
+		
+		
+		SampleAdapter adapter = new SampleAdapter(getActivity());
+		    adapter.add(new SampleItem(getResources().getString(R.string.top_ten) ,R.drawable.top_10));
+		    adapter.add(new SampleItem(getResources().getString(R.string.last_day),R.drawable.cup));
+		    adapter.add(new SampleItem(spannedContent.toString(),R.drawable.cup));
+		    adapter.add(new SampleItem(getResources().getString(R.string.last_month),R.drawable.cup));
+		    adapter.add(new SampleItem(getResources().getString(R.string.last_year),R.drawable.cup));
 		    setListAdapter(adapter);
 
 		}

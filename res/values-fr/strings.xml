@@ -33,6 +33,15 @@
     <string name="exit_msg">Appuyez encore pour sortier.</string>
     <string name="counter_reseted_msg">Compte remit à zero</string>
     <string name="counter_msg">Commencez à boire comme un Homme!</string>
+    <string name="top_ten">Top Dix</string>
+    <string name="last_week">Semain Passée</string>
+    <string name="last_month">Mois Dernier</string>
+    <string name="last_year">Année Dernière</string>
+    <string name="last_day">Dernier Jour</string>
+    
+    
+    
+    
     <string name="msg_about">Gardez une trace de votre consommation de bière!</string>
     <string name="version">Version 1.0.0 (Septembre, 2013)</string>
     <string name="msg_bug_fix">Version initiale.</string>

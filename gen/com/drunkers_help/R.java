@@ -1212,61 +1212,63 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040018;
         public static final int abs__title=0x7f040020;
         public static final int abs__up=0x7f04000b;
-        public static final int btnCounter=0x7f04004e;
-        public static final int btnMinus=0x7f04004a;
-        public static final int btnResetCounter=0x7f04004f;
-        public static final int counter=0x7f040049;
-        public static final int current_version=0x7f040040;
-        public static final int dailyListView=0x7f04004b;
-        public static final int dailyListView2=0x7f040051;
+        public static final int btnCounter=0x7f040050;
+        public static final int btnMinus=0x7f04004c;
+        public static final int btnResetCounter=0x7f040051;
+        public static final int counter=0x7f04004b;
+        public static final int current_version=0x7f04003a;
+        public static final int dailyListView=0x7f04004d;
+        public static final int dailyListView2=0x7f040053;
         public static final int disableHome=0x7f040009;
         public static final int edit_query=0x7f04002b;
-        public static final int email=0x7f040042;
+        public static final int email=0x7f040044;
         public static final int fullscreen=0x7f040013;
-        public static final int gridview=0x7f04004d;
-        public static final int histListView=0x7f04004c;
+        public static final int gridview=0x7f04004f;
+        public static final int histListView=0x7f04004e;
         public static final int homeAsUp=0x7f040006;
-        public static final int image=0x7f040052;
+        public static final int image=0x7f040054;
         public static final int imageView1=0x7f040037;
         public static final int left=0x7f040010;
         public static final int listMode=0x7f040002;
-        public static final int mImgView1=0x7f040048;
+        public static final int mImgView1=0x7f04004a;
         public static final int margin=0x7f040012;
-        public static final int menu_About=0x7f04005e;
-        public static final int menu_History=0x7f04005b;
-        public static final int menu_addBeer=0x7f04005c;
-        public static final int menu_frame=0x7f040056;
-        public static final int menu_item_share=0x7f04005a;
-        public static final int menu_search=0x7f04005d;
+        public static final int menu_About=0x7f040060;
+        public static final int menu_History=0x7f04005d;
+        public static final int menu_addBeer=0x7f04005e;
+        public static final int menu_frame=0x7f040058;
+        public static final int menu_item_share=0x7f04005c;
+        public static final int menu_search=0x7f04005f;
         public static final int msg_about=0x7f040038;
-        public static final int msg_bugfix=0x7f04003f;
-        public static final int msg_bugfix1=0x7f04003d;
-        public static final int msg_bugfix2=0x7f04003b;
-        public static final int newBeer=0x7f040046;
+        public static final int msg_bugfix=0x7f040042;
+        public static final int msg_bugfix1=0x7f040040;
+        public static final int msg_bugfix2=0x7f04003e;
+        public static final int msg_bugfix3=0x7f04003c;
+        public static final int newBeer=0x7f040048;
         public static final int normal=0x7f040001;
-        public static final int relativeLayout1=0x7f040047;
-        public static final int relativeLayout12=0x7f040043;
-        public static final int relativeLayout33=0x7f040045;
+        public static final int relativeLayout1=0x7f040049;
+        public static final int relativeLayout12=0x7f040045;
+        public static final int relativeLayout33=0x7f040047;
         public static final int right=0x7f040011;
-        public static final int row_icon=0x7f040057;
-        public static final int row_title=0x7f040058;
+        public static final int row_icon=0x7f040059;
+        public static final int row_title=0x7f04005a;
         public static final int scrollView1=0x7f040039;
         public static final int selected_view=0x7f040014;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
-        public static final int slidingmenumain=0x7f040059;
+        public static final int slidingmenumain=0x7f04005b;
         public static final int tabMode=0x7f040003;
-        public static final int text1=0x7f040053;
-        public static final int text12=0x7f040050;
-        public static final int text2=0x7f040054;
-        public static final int title=0x7f040044;
-        public static final int txtHeader=0x7f040055;
-        public static final int txt_version=0x7f04003e;
-        public static final int txt_version1=0x7f04003c;
-        public static final int txt_version2=0x7f04003a;
+        public static final int text1=0x7f040055;
+        public static final int text12=0x7f040052;
+        public static final int text2=0x7f040056;
+        public static final int title=0x7f040046;
+        public static final int txtHeader=0x7f040057;
+        public static final int txt_version=0x7f040041;
+        public static final int txt_version1=0x7f04003f;
+        public static final int txt_version2=0x7f04003d;
+        public static final int txt_version3=0x7f04003b;
         public static final int useLogo=0x7f040004;
-        public static final int web_link=0x7f040041;
+        public static final int web_link=0x7f040043;
         public static final int wrap_content=0x7f040000;
     }
     public static final class integer {
@@ -1324,42 +1326,55 @@ containing a value of this type.
     public static final class string {
         public static final int City_msg1=0x7f090021;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
+ Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abs__action_bar_home_description=0x7f090000;
         /**  Content description for the action bar "up" affordance. [CHAR LIMIT=NONE] 
+ Content description for the action bar "up" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abs__action_bar_up_description=0x7f090001;
         /**  Content description for the action menu overflow button. [CHAR LIMIT=NONE] 
+ Content description for the action menu overflow button. [CHAR LIMIT=NONE] 
          */
         public static final int abs__action_menu_overflow_description=0x7f090002;
         /**  Label for the "Done" button on the far left of action mode toolbars. 
+ Label for the "Done" button on the far left of action mode toolbars. 
          */
         public static final int abs__action_mode_done=0x7f090003;
         /**  Title for a button to expand the list of activities in ActivityChooserView [CHAR LIMIT=25] 
+ Title for a button to expand the list of activities in ActivityChooserView [CHAR LIMIT=25] 
          */
         public static final int abs__activity_chooser_view_see_all=0x7f090004;
         /**  Description of the shwoing of a popup window with activities to choose from. [CHAR LIMIT=NONE] 
+ Description of the shwoing of a popup window with activities to choose from. [CHAR LIMIT=NONE] 
          */
         public static final int abs__activitychooserview_choose_application=0x7f090005;
         /**  SearchView accessibility description for clear button [CHAR LIMIT=NONE] 
+ SearchView accessibility description for clear button [CHAR LIMIT=NONE] 
          */
         public static final int abs__searchview_description_clear=0x7f09000a;
         /**  SearchView accessibility description for search text field [CHAR LIMIT=NONE] 
+ SearchView accessibility description for search text field [CHAR LIMIT=NONE] 
          */
         public static final int abs__searchview_description_query=0x7f090009;
         /**  SearchView accessibility description for search button [CHAR LIMIT=NONE] 
+ SearchView accessibility description for search button [CHAR LIMIT=NONE] 
          */
         public static final int abs__searchview_description_search=0x7f090008;
         /**  SearchView accessibility description for submit button [CHAR LIMIT=NONE] 
+ SearchView accessibility description for submit button [CHAR LIMIT=NONE] 
          */
         public static final int abs__searchview_description_submit=0x7f09000b;
         /**  SearchView accessibility description for voice button [CHAR LIMIT=NONE] 
+ SearchView accessibility description for voice button [CHAR LIMIT=NONE] 
          */
         public static final int abs__searchview_description_voice=0x7f09000c;
         /**  Description of the choose target button in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
+ Description of the choose target button in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with=0x7f090006;
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
+ Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090007;
         public static final int action_settings=0x7f09000e;
@@ -1384,9 +1399,13 @@ containing a value of this type.
         public static final int bt_resetCounter=0x7f090010;
         public static final int counter_msg=0x7f090026;
         public static final int counter_reseted_msg=0x7f090025;
-        public static final int email=0x7f090030;
+        public static final int email=0x7f090037;
         public static final int exit_msg=0x7f090024;
-        public static final int icon=0x7f090032;
+        public static final int icon=0x7f090039;
+        public static final int last_day=0x7f09002c;
+        public static final int last_month=0x7f09002a;
+        public static final int last_week=0x7f090029;
+        public static final int last_year=0x7f09002b;
         public static final int menu_about=0x7f090016;
         public static final int menu_addBeer=0x7f090015;
         /**  Action bar labels 
@@ -1395,19 +1414,24 @@ containing a value of this type.
         public static final int menu_exit=0x7f090013;
         public static final int menu_history=0x7f090014;
         public static final int msg_about=0x7f090027;
-        public static final int msg_bug_fix=0x7f090029;
-        public static final int msg_bug_fix1=0x7f09002b;
-        public static final int msg_bug_fix2=0x7f09002d;
-        public static final int msg_current_version=0x7f09002e;
-        public static final int msg_email=0x7f090031;
+        public static final int msg_bug_fix=0x7f09002e;
+        public static final int msg_bug_fix1=0x7f090030;
+        public static final int msg_bug_fix2=0x7f090032;
+        public static final int msg_bug_fix3=0x7f090034;
+        public static final int msg_current_version=0x7f090035;
+        public static final int msg_email=0x7f090038;
         public static final int search_hint=0x7f090017;
         public static final int search_not_find=0x7f090023;
         public static final int share_msg1=0x7f09001f;
         public static final int share_msg2=0x7f090020;
-        public static final int version=0x7f090028;
-        public static final int version1=0x7f09002a;
-        public static final int version2=0x7f09002c;
-        public static final int web_link=0x7f09002f;
+        public static final int top_ten=0x7f090028;
+        /**  About activity 
+         */
+        public static final int version=0x7f09002d;
+        public static final int version1=0x7f09002f;
+        public static final int version2=0x7f090031;
+        public static final int version3=0x7f090033;
+        public static final int web_link=0x7f090036;
     }
     public static final class style {
         public static final int ActionBar_Solid_Drunkershelper=0x7f0a005c;

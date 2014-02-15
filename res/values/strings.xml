@@ -34,12 +34,24 @@
     <string name="counter_reseted_msg">Counter was reset!</string>
     <string name="counter_msg">Start drinking like a Man!</string>
     <string name="msg_about">Keep track of your beer consumption!</string>
+    <string name="top_ten">Top Ten</string>
+    <string name="last_week">Last Week</string>
+    <string name="last_month">Last Month</string>
+    <string name="last_year">Last Year</string>
+    <string name="last_day">Last Day</string>
+    
+    
+    <!-- About activity -->
     <string name="version"><b>Version 1.0.0 (September, 2013)</b> </string>
     <string name="msg_bug_fix">Initial Version.</string>
     <string name="version1"><b>Version 1.1.0 (October, 2013)</b></string>
     <string name="msg_bug_fix1">Add French Translation</string>
     <string name="version2"><b>Version 1.1.1 (October, 2013)</b></string>
-    <string name="msg_bug_fix2">Fix bugs</string>
+    <string name="msg_bug_fix2">Bug fixes</string>
+    
+     <string name="version3"><b>Version 1.2.0 (February, 2014)</b></string>
+    <string name="msg_bug_fix3">New features, swipe right menu on initial screen</string>
+    
     <string name="msg_current_version">Drunker\'s Helper  1.1.1</string>
     <string name="web_link">http://drunkers-helper.herokuapp.com/</string>
     <string name="email">pdrolourenco@gmail.com</string>

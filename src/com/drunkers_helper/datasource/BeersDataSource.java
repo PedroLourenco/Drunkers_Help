@@ -359,7 +359,7 @@ public class BeersDataSource {
 		
 		Cursor cursor = this.db.rawQuery(
 				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " between DATE('now', '-1 days') and DATE('now', 'localtime') group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " BETWEEN datetime('now', 'start of day') AND datetime('now', 'localtime') group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
 				 new String[] {});
 		
 		return cursor;
@@ -375,7 +375,7 @@ public class BeersDataSource {
 		
 		Cursor cursor = this.db.rawQuery(
 				"select " + " count(*)  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " between DATE('now', '-1 days') and DATE('now')",
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " BETWEEN datetime('now', 'start of day') AND datetime('now', 'localtime')",
 				 new String[] {});
 		
 		String result="";
@@ -404,12 +404,10 @@ public class BeersDataSource {
 	 */
 	public Cursor getLastWeekBeers() {
 		
-		String where= "DATE('now', '-7' days)";
-		
 		Cursor cursor = this.db.rawQuery(
 				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ? group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
-				 new String[] {where});
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " BETWEEN datetime('now', '-6 days') and datetime('now', 'localtime') group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
+				 new String[] {});
 		
 		return cursor;
 	}
@@ -422,12 +420,11 @@ public class BeersDataSource {
 	 */
 	public String getLastWeekBeersTotal() {
 		
-String where= "DATE('now', '-7' days)";
 		
 		Cursor cursor = this.db.rawQuery(
 				"select " +  "count(*)  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ?",
-				 new String[] {where});
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " BETWEEN datetime('now', '-6 days') and datetime('now', 'localtime')",
+				 new String[] {});
 		
 		String result="";
 		if (cursor.moveToFirst()) {
@@ -455,8 +452,8 @@ String where= "DATE('now', '-7' days)";
 		
 		Cursor cursor = this.db.rawQuery(
 				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ? group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
-				 new String[] {where});
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " BETWEEN datetime('now', 'start of month') AND datetime('now', 'localtime') group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
+				 new String[] {});
 		
 		
 		
@@ -475,8 +472,8 @@ String where= "DATE('now', '-7' days)";
 		
 		Cursor cursor = this.db.rawQuery(
 				"select " +  "count(*)  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ?",
-				 new String[] {where});
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " BETWEEN datetime('now', 'start of month') AND datetime('now', 'localtime')",
+				 new String[] {});
 		
 		String result="";
 		if (cursor.moveToFirst()) {
@@ -498,12 +495,10 @@ String where= "DATE('now', '-7' days)";
 	 */
 	public Cursor getLastYearBeers() {
 		
-		String where= "DATE('now', '-360' days)";
-		
 		Cursor cursor = this.db.rawQuery(
 				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ? group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
-				 new String[] {where});
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " BETWEEN datetime('now', 'start of year') AND datetime('now', 'localtime') group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
+				 new String[] {});
 		
 		return cursor;
 	}
@@ -516,12 +511,10 @@ String where= "DATE('now', '-7' days)";
 	 */
 	public String getLastYearBeersTotal() {
 		
-		String where= "DATE('now', '-360' days)";
-		
 		Cursor cursor = this.db.rawQuery(
 				"select " +  "count(*)  from "
-						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + "<= ?",
-				 new String[] {where});
+						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " BETWEEN datetime('now', 'start of year') AND datetime('now', 'localtime')",
+				 new String[] {});
 		
 		String result="";
 		if (cursor.moveToFirst()) {

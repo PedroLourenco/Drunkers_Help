@@ -57,7 +57,7 @@ public class DailyCounterActivity extends Activity {
 
 	private Intent createShareIntent() {
 
-		// get intent data
+		//get intent data
 		Intent i = getIntent();
 		String msg = i.getExtras().getString("message");
 
@@ -69,5 +69,6 @@ public class DailyCounterActivity extends Activity {
 		return shareIntent;
 
 	}
-
+	
+		
 }

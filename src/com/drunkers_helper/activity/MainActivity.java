@@ -209,16 +209,7 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 		});
 		
 		
-		
-		if(gps.connectivityStatus(context)){
-			
-			Map cc = beer_datasource.getRegistersWithoutLocation();
-			
-			ProccessAssyncTask p = new ProccessAssyncTask(cc);
-						
-			
-		}
-
+	
 	}
 
 	private void findCurrentLocation() {
