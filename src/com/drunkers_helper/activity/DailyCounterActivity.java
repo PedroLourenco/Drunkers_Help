@@ -3,11 +3,23 @@
  */
 package com.drunkers_helper.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.LabeledIntent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.provider.Settings.System;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -15,6 +27,7 @@ import android.widget.ShareActionProvider;
 
 import com.drunkers_help.R;
 import com.drunkers_helper.datasource.BeersDataSource;
+import com.drunkers_helper.util.globalconstant;
 
 /**
  * @author PedroLourenco
@@ -57,18 +70,18 @@ public class DailyCounterActivity extends Activity {
 
 	private Intent createShareIntent() {
 
-		//get intent data
-		Intent i = getIntent();
-		String msg = i.getExtras().getString("message");
+		// get intent data
+				Intent i = getIntent();
+				String msg = i.getExtras().getString("message");
 
-		Intent shareIntent = new Intent(Intent.ACTION_SEND);
-		shareIntent.setType("text/plain");
-		shareIntent.putExtra(Intent.EXTRA_TEXT,
-				getResources().getString(R.string.share_msg1) + msg
-						+ getResources().getString(R.string.share_msg2));
-		return shareIntent;
+				Intent shareIntent = new Intent(Intent.ACTION_SEND);
+				shareIntent.setType("text/plain");
+				shareIntent.putExtra(Intent.EXTRA_TEXT,
+						getResources().getString(R.string.share_msg1) + msg
+								+ getResources().getString(R.string.share_msg2));
+				return shareIntent;
 
-	}
+			}
 	
 		
 }

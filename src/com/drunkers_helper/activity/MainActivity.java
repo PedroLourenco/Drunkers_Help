@@ -1,26 +1,20 @@
 package com.drunkers_helper.activity;
 
-import java.util.Map;
-
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.Settings;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -48,10 +42,8 @@ import com.drunkers_helper.location.MyLocation;
 import com.drunkers_helper.location.MyLocation.LocationResult;
 import com.drunkers_helper.util.BaseActivity;
 import com.drunkers_helper.util.CheckGPSStatus;
-import com.drunkers_helper.util.ProccessAssyncTask;
 import com.drunkers_helper.util.SampleListFragment;
 import com.drunkers_helper.util.globalconstant;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -63,7 +55,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	TextView mSearchText;
-	private Fragment mContent;
+	//private Fragment mContent;
 	private Context context;
 	private BeersDataSource beer_datasource;;
 	protected ListFragment mFrag;
