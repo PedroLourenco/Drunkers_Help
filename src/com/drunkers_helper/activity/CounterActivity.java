@@ -22,8 +22,7 @@ public class CounterActivity extends Activity {
 
 	private Integer counterValue = 0;
 	private TextView counter;
-	private BeersDataSource beer_datasource;
-	
+	private BeersDataSource beer_datasource;	
 	private String beerName;
 	private ImageView beerImage;
 
@@ -42,7 +41,6 @@ public class CounterActivity extends Activity {
 		Integer aux_position = i.getExtras().getInt("id");
 
 		try {
-
 			beerImage = (ImageView) findViewById(R.id.mImgView1);
 			beerImage.setImageResource(globalconstant.mThumbIds[aux_position]);
 			Integer position = aux_position + 1;
@@ -77,7 +75,5 @@ public class CounterActivity extends Activity {
 			}
 
 		});
-
 	}
-
 }

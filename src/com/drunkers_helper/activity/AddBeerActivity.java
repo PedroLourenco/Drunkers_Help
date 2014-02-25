@@ -30,7 +30,6 @@ public class AddBeerActivity extends Activity {
 
 		beer_datasource = new BeersDataSource(this);
 		beer_datasource.open();
-
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -41,13 +40,10 @@ public class AddBeerActivity extends Activity {
 			EditText new_beer = (EditText) findViewById(R.id.newBeer);
 
 			if (new_beer.getText().toString().isEmpty()) {
-				Toast.makeText(getApplicationContext(), getResources().getString(R.string.add_beer),
-						Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), getResources().getString(R.string.add_beer),Toast.LENGTH_SHORT).show();
 			} else {
 				beer_datasource.addNewBeer(new_beer.getText().toString());
-
-				Intent i_main = new Intent(getApplicationContext(),
-						MainActivity.class);
+				Intent i_main = new Intent(getApplicationContext(),	MainActivity.class);
 				// clear all the activities on top of home
 				i_main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(i_main);
@@ -67,5 +63,4 @@ public class AddBeerActivity extends Activity {
 
 		return true;
 	}
-
 }

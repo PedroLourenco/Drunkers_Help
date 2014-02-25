@@ -1,6 +1,4 @@
 package com.drunkers_helper.activity;
-import java.io.IOException;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -9,9 +7,7 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ShareActionProvider;
 import android.widget.TextView;
-
 import com.drunkers_help.R;
 import com.drunkers_helper.datasource.BeersDataSource;
 import com.drunkers_helper.util.globalconstant;

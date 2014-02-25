@@ -19,8 +19,7 @@ public class AboutActivity extends Activity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_about);
-		
+		setContentView(R.layout.activity_about);		
 		
 		SpannableStringBuilder builder = new SpannableStringBuilder();
 
@@ -34,8 +33,7 @@ public class AboutActivity extends Activity{
 		whiteSpannable.setSpan(new ForegroundColorSpan(Color.LTGRAY), 0, msg.length(), 0);
 		builder.append(whiteSpannable);
 
-		TextView email =  (TextView) findViewById(R.id.email);
-		
+		TextView email =  (TextView) findViewById(R.id.email);		
 		email.setText(builder, BufferType.SPANNABLE);
 		
 		email.setOnClickListener(new OnClickListener() {
@@ -62,15 +60,5 @@ public class AboutActivity extends Activity{
 			}
 		});
 	
-		
-		
-	
-	}
-	
-	
-	
-	
-	
+	}		
 }
-	
-
