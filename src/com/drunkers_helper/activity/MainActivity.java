@@ -54,8 +54,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
  */
 
 public class MainActivity extends BaseActivity implements OnQueryTextListener {
+	
 	TextView mSearchText;
-	//private Fragment mContent;
 	private Context context;
 	private BeersDataSource beer_datasource;;
 	protected ListFragment mFrag;
@@ -65,7 +65,6 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	private static final AndroidHttpClient ANDROID_HTTP_CLIENT = AndroidHttpClient
 			.newInstance(MyLocation.class.getName());
 	private boolean running = false;
-
 	String[] imageUrls = globalconstant.IMAGES;
 	protected AbsListView listView;
 	protected ImageLoader imageLoader = ImageLoader.getInstance();
@@ -96,12 +95,12 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 		if (globalconstant.LOG)
 			Log.d(globalconstant.TAG, "APP started!");
 
-		imageLoader.init(ImageLoaderConfiguration.createDefault(this));
-		beer_datasource = new BeersDataSource(this);
-		beer_datasource.open();
-		context = MainActivity.this;
+			imageLoader.init(ImageLoaderConfiguration.createDefault(this));
+			beer_datasource = new BeersDataSource(this);
+			beer_datasource.open();
+			context = MainActivity.this;
 
-		options = new DisplayImageOptions.Builder()
+			options = new DisplayImageOptions.Builder()
 				.showStubImage(R.drawable.ic_stub)
 				.showImageForEmptyUri(R.drawable.ic_empty)
 				.showImageOnFail(R.drawable.ic_error).cacheInMemory(true)

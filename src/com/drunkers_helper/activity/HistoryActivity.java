@@ -36,7 +36,5 @@ public class HistoryActivity extends Activity {
 						android.R.id.text2 }, 0);
 		ListView list = (ListView) findViewById(R.id.histListView);
 		list.setAdapter(adapter);
-
 	}
-
 }
