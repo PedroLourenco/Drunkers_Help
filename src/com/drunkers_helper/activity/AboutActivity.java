@@ -38,11 +38,6 @@ public class AboutActivity extends Activity{
 		
 		email.setText(builder, BufferType.SPANNABLE);
 		
-		
-		
-		
-		
-		
 		email.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
