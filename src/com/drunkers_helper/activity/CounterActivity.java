@@ -2,7 +2,7 @@ package com.drunkers_helper.activity;
 
 import com.drunkers_help.R;
 import com.drunkers_helper.datasource.BeersDataSource;
-import com.drunkers_helper.util.globalconstant;
+import com.drunkers_helper.util.Globalconstant;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -42,7 +42,7 @@ public class CounterActivity extends Activity {
 
 		try {
 			beerImage = (ImageView) findViewById(R.id.mImgView1);
-			beerImage.setImageResource(globalconstant.mThumbIds[aux_position]);
+			beerImage.setImageResource(Globalconstant.mThumbIds[aux_position]);
 			Integer position = aux_position + 1;
 			beerName = beer_datasource.getBeerName(position.toString());
 

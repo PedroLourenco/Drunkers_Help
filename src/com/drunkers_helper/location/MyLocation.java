@@ -1,108 +1,219 @@
 package com.drunkers_helper.location;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
+import com.drunkers_helper.util.Globalconstant;
+
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 public class MyLocation {
-    Timer timer1;
-    LocationManager lm;
-    LocationResult locationResult;
-    boolean gps_enabled=false;
-    boolean network_enabled=false;
-    
 
-    public boolean getLocation(Context context, LocationResult result)
-    {
-        //I use LocationResult callback class to pass location value from MyLocation to user code.
-        locationResult=result;
-        if(lm==null)
-            lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+	private static final long ONE_MIN = 1000 * 60;
+	private static final long TWO_MIN = ONE_MIN * 2;
+	private static final long FIVE_MIN = ONE_MIN * 5;
+	private static final long MEASURE_TIME = 1000 * 30;
+	private static final long POLLING_FREQ = 1000 * 10;
+	private static final float MIN_ACCURACY = 25.0f;
+	private static final float MIN_LAST_READ_ACCURACY = 500.0f;
+	private static final float MIN_DISTANCE = 10.0f;
+	
 
-        //exceptions will be thrown if provider is not permitted.
-        try{gps_enabled=lm.isProviderEnabled(LocationManager.GPS_PROVIDER);}catch(Exception ex){}
-        try{network_enabled=lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);}catch(Exception ex){}
+	// Views for display location information
+	private TextView mAccuracyView;
+	private TextView mTimeView;
+	private TextView mLatView;
+	private TextView mLngView;
 
-        //don't start listeners if no provider is enabled
-        if(!gps_enabled && !network_enabled)
-            return false;
+	
 
-        if(gps_enabled)
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListenerGps);
-        if(network_enabled)
-            lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListenerNetwork);
-        timer1=new Timer();
-        timer1.schedule(new GetLastLocation(), 60000);
-        return true;
-    }
+	// Current best location estimate
+	private Location mBestReading;
 
-    LocationListener locationListenerGps = new LocationListener() {
-        public void onLocationChanged(Location location) {
-            timer1.cancel();
-            locationResult.gotLocation(location);
-            lm.removeUpdates(this);
-            lm.removeUpdates(locationListenerNetwork);
-        }
-        public void onProviderDisabled(String provider) {}
-        public void onProviderEnabled(String provider) {}
-        public void onStatusChanged(String provider, int status, Bundle extras) {}
-    };
+	// Reference to the LocationManager and LocationListener
+	private LocationManager mLocationManager;
+	private LocationListener mLocationListener;
 
-    LocationListener locationListenerNetwork = new LocationListener() {
-        public void onLocationChanged(Location location) {
-            timer1.cancel();
-            locationResult.gotLocation(location);
-            lm.removeUpdates(this);
-            lm.removeUpdates(locationListenerGps);
-        }
-        public void onProviderDisabled(String provider) {}
-        public void onProviderEnabled(String provider) {}
-        public void onStatusChanged(String provider, int status, Bundle extras) {}
-    };
+	///private final String TAG = "LocationGetLocationActivity";
 
-    class GetLastLocation extends TimerTask {
-        @Override
-        public void run() {
-             lm.removeUpdates(locationListenerGps);
-             lm.removeUpdates(locationListenerNetwork);
-
-             Location net_loc=null, gps_loc=null;
-             if(gps_enabled)
-                 gps_loc=lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-             if(network_enabled)
-                 net_loc=lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-
-             //if there are both values use the latest one
-             if(gps_loc!=null && net_loc!=null){
-                 if(gps_loc.getTime()>net_loc.getTime())
-                     locationResult.gotLocation(gps_loc);
-                 else
-                     locationResult.gotLocation(net_loc);
-                 return;
-             }
-
-             if(gps_loc!=null){
-                 locationResult.gotLocation(gps_loc);
-                 return;
-             }
-             if(net_loc!=null){
-                 locationResult.gotLocation(net_loc);
-                 return;
-             }
-             locationResult.gotLocation(null);
-        }
-    }
-
-    public static abstract class LocationResult{
-        public abstract void gotLocation(Location location);
-    }
 	
 
 	
+	public void startLocation(Context context) {
+
+		Log.i(Globalconstant.TAG, "MyLocationd!");
+		// Acquire reference to the LocationManager
+		if (null != (mLocationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE))){
+			Log.i(Globalconstant.TAG, "MyLocationd!--------------------------------");
+
+		// Get best last location measurement
+		mBestReading = bestLastKnownLocation(MIN_LAST_READ_ACCURACY, FIVE_MIN);
+		Log.i(Globalconstant.TAG, "MyLocationd!--------------------------------");
+		// Display last reading information
+		if (null != mBestReading) {
+			Log.i(Globalconstant.TAG, "MyLocationd!--------------------------------1");
+			getLocation(mBestReading);
+			Log.i(Globalconstant.TAG, "MyLocationd!--------------------------------2");
+
+		} else {
+
+			
+			Log.i(Globalconstant.TAG, "No Initial Reading Available");
+
+		}
+
+		mLocationListener = new LocationListener() {
+
+			// Called back when location changes
+
+			public void onLocationChanged(Location location) {
+
+				
+				// Determine whether new location is better than current best
+				// estimate
+
+				if (null == mBestReading
+						|| location.getAccuracy() < mBestReading.getAccuracy()) {
+
+					// Update best estimate
+					mBestReading = location;
+
+					// Update display
+					getLocation(location);
+
+					if (mBestReading.getAccuracy() < MIN_ACCURACY)
+						mLocationManager.removeUpdates(mLocationListener);
+
+				}
+			}
+
+			public void onStatusChanged(String provider, int status,
+					Bundle extras) {
+				// NA
+			}
+
+			public void onProviderEnabled(String provider) {
+				// NA
+			}
+
+			public void onProviderDisabled(String provider) {
+				// NA
+			}
+		};
+		}
+	}
+
 	
+	public void onResume() {
+		
+
+		// Determine whether initial reading is
+		// "good enough"
+
+		if (mBestReading.getAccuracy() > MIN_LAST_READ_ACCURACY
+				|| mBestReading.getTime() < System.currentTimeMillis()
+						- TWO_MIN) {
+
+			// Register for network location updates
+			mLocationManager.requestLocationUpdates(
+					LocationManager.NETWORK_PROVIDER, POLLING_FREQ, MIN_DISTANCE,
+					mLocationListener);
+
+			// Register for GPS location updates
+			mLocationManager.requestLocationUpdates(
+					LocationManager.GPS_PROVIDER, POLLING_FREQ, MIN_DISTANCE,
+					mLocationListener);
+
+			// Schedule a runnable to unregister location listeners
+
+			Executors.newScheduledThreadPool(1).schedule(new Runnable() {
+
+				@Override
+				public void run() {
+
+					Log.i(Globalconstant.TAG, "location updates cancelled");
+
+					mLocationManager.removeUpdates(mLocationListener);
+
+				}
+			}, MEASURE_TIME, TimeUnit.MILLISECONDS);
+		}
+	}
+
+	// Unregister location listeners
+
+	
+	public void onPause() {
+		
+		mLocationManager.removeUpdates(mLocationListener);
+
+	}
+
+	// Get the last known location from all providers
+	// return best reading is as accurate as minAccuracy and
+	// was taken no longer then minTime milliseconds ago
+
+	private Location bestLastKnownLocation(float minAccuracy, long minTime) {
+
+		Location bestResult = null;
+		float bestAccuracy = Float.MAX_VALUE;
+		long bestTime = Long.MIN_VALUE;
+
+		Log.i(Globalconstant.TAG, "bestLastKnownLocation!--------------------------------");
+		
+		List<String> matchingProviders = mLocationManager.getAllProviders();
+
+		for (String provider : matchingProviders) {
+
+			Location location = mLocationManager.getLastKnownLocation(provider);
+
+			if (location != null) {
+				Log.i(Globalconstant.TAG, "bestLastKnownLocation!--------------------------------");
+				float accuracy = location.getAccuracy();
+				long time = location.getTime();
+
+				if (accuracy < bestAccuracy) {
+
+					bestResult = location;
+					bestAccuracy = accuracy;
+					bestTime = time;
+
+				}
+			}
+		}
+
+		// Return best reading or null
+		if (bestAccuracy > minAccuracy || bestTime < minTime) {
+			return null;
+		} else {
+			return bestResult;
+		}
+	}
+
+	// Update display
+	private void getLocation(Location location) {
+
+		Log.i(Globalconstant.TAG, "getLocation!--------------------------------1");
+		Globalconstant.latitude = location.getLatitude();
+		Globalconstant.longitude = location.getLongitude();
+		
+		Log.i(Globalconstant.TAG, "getLocation!--------------------------------2");
+
+	}
+
+	
+	
+
 }

@@ -11,7 +11,7 @@ import com.drunkers_helper.datasource.BeersDBHelper;
 
 
 
-import com.drunkers_helper.util.globalconstant;
+import com.drunkers_helper.util.Globalconstant;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -104,8 +104,8 @@ public class BeersDataSource {
 	public String getBeerName(String id) {
 		String result = "-1";
 		
-		if (globalconstant.LOG)
-			Log.d(globalconstant.TAG, "Beer ID: " + id);
+		if (Globalconstant.LOG)
+			Log.d(Globalconstant.TAG, "Beer ID: " + id);
 		
 		
 		Cursor cursor  = db.query(BeersDBHelper.BEERS_TABLE, Column_Name, 
@@ -256,9 +256,9 @@ public class BeersDataSource {
 		}
 		
 		insertValuesHist.put(BeersDBHelper.COL_NAME, beerName);
-		insertValuesHist.put(BeersDBHelper.COL_LOCATION, globalconstant.cityName);
-		insertValuesHist.put(BeersDBHelper.COL_LAT, globalconstant.lat);
-		insertValuesHist.put(BeersDBHelper.COL_LONG, globalconstant.lon);
+		insertValuesHist.put(BeersDBHelper.COL_LOCATION, Globalconstant.cityName);
+		insertValuesHist.put(BeersDBHelper.COL_LAT, Globalconstant.latitude);
+		insertValuesHist.put(BeersDBHelper.COL_LONG, Globalconstant.longitude);
 		
 		
 		
@@ -277,8 +277,8 @@ public class BeersDataSource {
 		ContentValues insertValues = new ContentValues();
 		int counter = getBeerCounter(beerName);
 		
-		if (globalconstant.LOG)
-			Log.d(globalconstant.TAG, "counter: " + counter);
+		if (Globalconstant.LOG)
+			Log.d(Globalconstant.TAG, "counter: " + counter);
 
 		if (counter > 1 && counter != -1) {
 			insertValues.put(BeersDBHelper.COL_COUNTER, counter - 1);

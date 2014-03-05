@@ -40,13 +40,13 @@ public class CheckGPSStatus extends Service {
 
 		if (!isNetworkEnabled && !isGPSEnabled) {
 			
-			if (globalconstant.LOG)
-				Log.v(globalconstant.TAG, "locationStatus: FALSE");
+			if (Globalconstant.LOG)
+				Log.v(Globalconstant.TAG, "locationStatus: FALSE");
 			return false;
 
 		} else {
-			if (globalconstant.LOG)
-				Log.v(globalconstant.TAG, "locationStatus: TRUE");
+			if (Globalconstant.LOG)
+				Log.v(Globalconstant.TAG, "locationStatus: TRUE");
 			return true;
 		}
 
@@ -67,7 +67,7 @@ public class CheckGPSStatus extends Service {
 				}
 			}
 		} catch (Exception ex) {
-			if (globalconstant.LOG)
+			if (Globalconstant.LOG)
 				Log.e("Network Avail Error", ex.getMessage());
 		}
 		// check for wifi also

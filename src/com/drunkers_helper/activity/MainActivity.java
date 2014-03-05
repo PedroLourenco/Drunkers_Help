@@ -39,11 +39,10 @@ import android.widget.Toast;
 import com.drunkers_help.R;
 import com.drunkers_helper.datasource.BeersDataSource;
 import com.drunkers_helper.location.MyLocation;
-import com.drunkers_helper.location.MyLocation.LocationResult;
 import com.drunkers_helper.util.BaseActivity;
 import com.drunkers_helper.util.CheckGPSStatus;
 import com.drunkers_helper.util.SampleListFragment;
-import com.drunkers_helper.util.globalconstant;
+import com.drunkers_helper.util.Globalconstant;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -55,21 +54,22 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	
+	
+	
 	TextView mSearchText;
 	private Context context;
 	private BeersDataSource beer_datasource;;
 	protected ListFragment mFrag;
 	private Location mlocation;
+	MyLocation myLocation = new MyLocation();
 	private long lastPressedTime;
 	private static final int PERIOD = 2000;
-	private static final AndroidHttpClient ANDROID_HTTP_CLIENT = AndroidHttpClient
-			.newInstance(MyLocation.class.getName());
+	private static final AndroidHttpClient ANDROID_HTTP_CLIENT = AndroidHttpClient.newInstance(MyLocation.class.getName());
 	private boolean running = false;
-	String[] imageUrls = globalconstant.IMAGES;
+	String[] imageUrls = Globalconstant.IMAGES;
 	protected AbsListView listView;
 	protected ImageLoader imageLoader = ImageLoader.getInstance();
 	DisplayImageOptions options;
-	MyLocation myLocation = new MyLocation();
 	CheckGPSStatus gps = new CheckGPSStatus(this);
 
 	
@@ -92,8 +92,8 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		if (globalconstant.LOG)
-			Log.d(globalconstant.TAG, "APP started!");
+		if (Globalconstant.LOG)
+			Log.d(Globalconstant.TAG, "APP started!");
 
 			imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 			beer_datasource = new BeersDataSource(this);
@@ -115,14 +115,14 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
   .commit();
 		
 		
-		findCurrentLocation();
+		
 
 		listView = (GridView) findViewById(R.id.gridview);
 		((GridView) listView).setAdapter(new ImageAdapter());
 
 		// check providers
-		if (globalconstant.count == 0) {
-			globalconstant.count = 1;
+		if (Globalconstant.count == 0) {
+			Globalconstant.count = 1;
 
 			if (!gps.locationsStatus() && !gps.connectivityStatus(context)) {
 
@@ -155,7 +155,8 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
-				fetchCityName(mlocation);
+				
+				new GetCityTask().execute(Globalconstant.latitude,Globalconstant.longitude);
 				// Sending image id to another activity
 				Intent i = new Intent(getApplicationContext(),
 						CounterActivity.class);
@@ -199,58 +200,11 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 			}
 		});
 		
-		
+		//findCurrentLocation();
 	
 	}
 
-	private void findCurrentLocation() {
-		myLocation.getLocation(this, locationResult);
-
-	}
-
-	public LocationResult locationResult = new LocationResult() {
-
-		@Override
-		public void gotLocation(Location location) {
-			// TODO Auto-generated method stub
-			if (location != null) {
-				mlocation = location;
-				globalconstant.lat = location.getLatitude();
-				globalconstant.lon = location.getLongitude();
-				if (globalconstant.LOG)
-					Log.v(globalconstant.TAG, location.getLatitude() + ","
-							+ location.getLongitude());
-
-				try {
-					
-					if(gps.connectivityStatus(context)){
-						Toast.makeText(getApplicationContext(),	location.getLatitude() + "," + location.getLongitude(),	Toast.LENGTH_SHORT).show();
-					}
-				} catch (Exception e) {
-
-				}
-
-			}
-			if (gps.connectivityStatus(context)) {
-
-			} else {
-				if (globalconstant.LOG)
-					Log.v(globalconstant.TAG,
-							getResources().getString(R.string.City_msg1));
-
-				try {
-					if (globalconstant.count == 0)
-						Toast.makeText(getApplicationContext(),
-								getResources().getString(R.string.City_msg1),
-								Toast.LENGTH_SHORT).show();
-				} catch (Exception e) {
-
-				}
-
-			}
-
-		}
-	};
+	
 
 	public void showSettingsAlert(final Context mContext, int message,
 			int okSeeting, final Intent okAction, int neutralSettings,
@@ -328,9 +282,8 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 			case KeyEvent.ACTION_DOWN:
 				if (event.getDownTime() - lastPressedTime < PERIOD) {
 					beer_datasource.resetCounterTable();
-					stopService(new Intent(context, MyLocation.class));
-					globalconstant.cityName = null;
-					globalconstant.count = 0;
+					Globalconstant.cityName = null;
+					Globalconstant.count = 0;
 					finish();
 
 				} else {
@@ -351,6 +304,7 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	}
 
 		
+	//ActionBar Menu Options 
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
 		switch (item.getItemId()) {
@@ -382,6 +336,8 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 		return true;
 	}
 
+	
+	//Search 
 	public boolean onQueryTextSubmit(String query) {
 
 		int result = beer_datasource.getBeerId(query);
@@ -402,6 +358,19 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	@Override
 	protected void onResume() {
 		super.onResume();
+	}
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		
+		if (Globalconstant.LOG)
+			Log.v(Globalconstant.TAG,"On Start!");
+		myLocation.startLocation(context);
+		if (Globalconstant.LOG)
+			Log.v(Globalconstant.TAG,"LAT: " + Globalconstant.latitude + "LONG: " + Globalconstant.longitude);
+		
+		
 	}
 
 	@Override
@@ -442,6 +411,135 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	}
 
 	/** Get city name */
+	
+
+	class GetCityTask extends AsyncTask<Double, Integer, String>{
+
+		@Override
+		protected void onPreExecute() {
+			
+			if(running){
+				if (Globalconstant.LOG)
+					Log.d(Globalconstant.TAG, "AsyncTask is running");
+				return;
+			}
+				
+			
+			
+			running = true;
+		}
+
+		@Override
+		protected String doInBackground(Double... locations) {
+			
+			try {
+				String googleMapUrl = "http://maps.googleapis.com/maps/api/geocode/json?latlng="
+						+ locations[0]
+						+ ","
+						+ locations[1]
+						+ "&sensor=false&language=fr";
+
+				JSONObject googleMapResponse = new JSONObject(
+						ANDROID_HTTP_CLIENT.execute(new HttpGet(
+								googleMapUrl), new BasicResponseHandler()));
+
+				// many nested loops.. not great -> use expression instead
+				// loop among all results
+				JSONArray results = (JSONArray) googleMapResponse
+						.get("results");
+				for (int i = 0; i < results.length(); i++) {
+					// loop among all addresses within this result
+					JSONObject result = results.getJSONObject(i);
+					if (result.has("address_components")) {
+						JSONArray addressComponents = result
+								.getJSONArray("address_components");
+						// loop among all address component to find a
+						// 'locality' or 'sublocality'
+						for (int j = 0; j < addressComponents.length(); j++) {
+							JSONObject addressComponent = addressComponents
+									.getJSONObject(j);
+							if (result.has("types")) {
+								JSONArray types = addressComponent
+										.getJSONArray("types");
+
+								// search for locality and sublocality
+								String cityName = null;
+
+								for (int k = 0; k < types.length(); k++) {
+									if ("locality".equals(types
+											.getString(k))
+											&& cityName == null) {
+										if (addressComponent
+												.has("long_name")) {
+											cityName = addressComponent
+													.getString("long_name");
+										} else if (addressComponent
+												.has("short_name")) {
+											cityName = addressComponent
+													.getString("short_name");
+										}
+									}
+									if ("sublocality".equals(types
+											.getString(k))) {
+										if (addressComponent
+												.has("long_name")) {
+											cityName = addressComponent
+													.getString("long_name");
+										} else if (addressComponent
+												.has("short_name")) {
+											cityName = addressComponent
+													.getString("short_name");
+										}
+									}
+								}
+								if (cityName != null) {
+									return cityName;
+								}
+							}
+						}
+					}
+				}
+			} catch (Exception ignored) {
+				ignored.printStackTrace();
+			}
+			
+			
+			
+			
+			
+			return null;
+		}
+		
+		@Override
+		
+		protected void onPostExecute(String cityName) {
+			running = false;
+			if (cityName != null) {
+				Globalconstant.cityName = cityName;
+
+				if (!cityName.equals(Globalconstant.cityName)) {
+
+					Toast.makeText(context, Globalconstant.cityName,
+							Toast.LENGTH_SHORT).show();
+					// Do something with cityName
+					if (Globalconstant.LOG)
+						Log.d(Globalconstant.TAG, Globalconstant.cityName);
+				}
+			} else {
+
+					if(gps.connectivityStatus(context))
+				Toast.makeText(context, getResources().getString(R.string.City_msg1),
+						Toast.LENGTH_SHORT).show();
+			}
+
+		};
+		
+	}
+	
+	
+	/*
+	
+	
 	public void fetchCityName(final Location location) {
 		if (running)
 			return;
@@ -549,5 +647,5 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 			};
 		}.execute();
 	}
-
+*/
 }

@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.drunkers_help.R;
 import com.drunkers_helper.datasource.BeersDataSource;
-import com.drunkers_helper.util.globalconstant;
+import com.drunkers_helper.util.Globalconstant;
 
 /**
  * @author PedroLourenco
@@ -69,7 +69,7 @@ public class StatisticActivity extends Activity {
 		
 		
 		}catch(Exception e){
-			if (globalconstant.LOG)
+			if (Globalconstant.LOG)
 				Log.d(TAG, "No Records!");
 			
 		}
