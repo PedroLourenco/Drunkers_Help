@@ -1,23 +1,16 @@
 package com.drunkers_helper.location;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
-import com.drunkers_helper.util.Globalconstant;
-
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
+
+import com.drunkers_helper.util.Globalconstant;
 
 public class MyLocation {
 
@@ -31,13 +24,6 @@ public class MyLocation {
 	private static final float MIN_DISTANCE = 10.0f;
 	
 
-	// Views for display location information
-	private TextView mAccuracyView;
-	private TextView mTimeView;
-	private TextView mLatView;
-	private TextView mLngView;
-
-	
 
 	// Current best location estimate
 	private Location mBestReading;
@@ -46,31 +32,27 @@ public class MyLocation {
 	private LocationManager mLocationManager;
 	private LocationListener mLocationListener;
 
-	///private final String TAG = "LocationGetLocationActivity";
-
-	
 
 	
 	public void startLocation(Context context) {
 
-		Log.i(Globalconstant.TAG, "MyLocationd!");
+		if (Globalconstant.LOG)
+			Log.i(Globalconstant.TAG, "MyLocationd!");
+		
 		// Acquire reference to the LocationManager
 		if (null != (mLocationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE))){
-			Log.i(Globalconstant.TAG, "MyLocationd!--------------------------------");
-
+			
 		// Get best last location measurement
 		mBestReading = bestLastKnownLocation(MIN_LAST_READ_ACCURACY, FIVE_MIN);
-		Log.i(Globalconstant.TAG, "MyLocationd!--------------------------------");
+		
 		// Display last reading information
-		if (null != mBestReading) {
-			Log.i(Globalconstant.TAG, "MyLocationd!--------------------------------1");
+		if (null != mBestReading) {			
 			getLocation(mBestReading);
-			Log.i(Globalconstant.TAG, "MyLocationd!--------------------------------2");
-
-		} else {
-
 			
-			Log.i(Globalconstant.TAG, "No Initial Reading Available");
+		} else {
+			
+			if (Globalconstant.LOG)
+				Log.i(Globalconstant.TAG, "No Initial Reading Available");
 
 		}
 
@@ -90,7 +72,7 @@ public class MyLocation {
 					// Update best estimate
 					mBestReading = location;
 
-					// Update display
+					// Update location
 					getLocation(location);
 
 					if (mBestReading.getAccuracy() < MIN_ACCURACY)
@@ -118,6 +100,8 @@ public class MyLocation {
 	
 	public void onResume() {
 		
+		if (Globalconstant.LOG)
+			Log.i(Globalconstant.TAG, "onResume update location");
 
 		// Determine whether initial reading is
 		// "good enough"
@@ -143,6 +127,7 @@ public class MyLocation {
 				@Override
 				public void run() {
 
+					if (Globalconstant.LOG)
 					Log.i(Globalconstant.TAG, "location updates cancelled");
 
 					mLocationManager.removeUpdates(mLocationListener);
@@ -157,6 +142,8 @@ public class MyLocation {
 	
 	public void onPause() {
 		
+		if (Globalconstant.LOG)
+			Log.i(Globalconstant.TAG, "On Pause remove updates");
 		mLocationManager.removeUpdates(mLocationListener);
 
 	}
@@ -171,16 +158,15 @@ public class MyLocation {
 		float bestAccuracy = Float.MAX_VALUE;
 		long bestTime = Long.MIN_VALUE;
 
-		Log.i(Globalconstant.TAG, "bestLastKnownLocation!--------------------------------");
-		
 		List<String> matchingProviders = mLocationManager.getAllProviders();
 
 		for (String provider : matchingProviders) {
 
 			Location location = mLocationManager.getLastKnownLocation(provider);
-
+			mLocationManager.getProvider(provider);
+						
 			if (location != null) {
-				Log.i(Globalconstant.TAG, "bestLastKnownLocation!--------------------------------");
+				
 				float accuracy = location.getAccuracy();
 				long time = location.getTime();
 
@@ -202,15 +188,11 @@ public class MyLocation {
 		}
 	}
 
-	// Update display
+	// Update locations 
 	private void getLocation(Location location) {
 
-		Log.i(Globalconstant.TAG, "getLocation!--------------------------------1");
 		Globalconstant.latitude = location.getLatitude();
 		Globalconstant.longitude = location.getLongitude();
-		
-		Log.i(Globalconstant.TAG, "getLocation!--------------------------------2");
-
 	}
 
 	
