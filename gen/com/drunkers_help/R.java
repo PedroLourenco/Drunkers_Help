@@ -1317,7 +1317,7 @@ containing a value of this type.
         public static final int main=0x7f0b0003;
     }
     public static final class string {
-        public static final int City_msg1=0x7f090021;
+        public static final int City_msg1=0x7f090022;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
@@ -1371,53 +1371,54 @@ containing a value of this type.
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090007;
         public static final int action_settings=0x7f09000e;
-        public static final int add_beer=0x7f090022;
-        public static final int alert_3G_settings=0x7f09001d;
-        public static final int alert_cancel=0x7f09001e;
-        public static final int alert_location=0x7f09001b;
-        public static final int alert_msg_LocationSettings=0x7f09001a;
+        public static final int add_beer=0x7f090023;
+        public static final int alert_3G_settings=0x7f09001e;
+        public static final int alert_cancel=0x7f09001f;
+        public static final int alert_location=0x7f09001c;
+        public static final int alert_msg_LocationSettings=0x7f09001b;
         /**  Content descriptions 
  Content descriptions 
          */
-        public static final int alert_msg_LocationSettings_WIFI=0x7f090018;
-        public static final int alert_msg_NetworkPresent=0x7f090019;
-        public static final int alert_wifi_settings=0x7f09001c;
+        public static final int alert_msg_LocationSettings_WIFI=0x7f090019;
+        public static final int alert_msg_NetworkPresent=0x7f09001a;
+        public static final int alert_wifi_settings=0x7f09001d;
+        public static final int app_logo=0x7f09000f;
         public static final int app_name=0x7f09000d;
-        public static final int bt_Location=0x7f090012;
+        public static final int bt_Location=0x7f090013;
         /**  Buttons labels 
  Buttons labels 
          */
-        public static final int bt_counter=0x7f09000f;
-        public static final int bt_minus=0x7f090011;
-        public static final int bt_resetCounter=0x7f090010;
-        public static final int bugfix=0x7f090032;
-        public static final int counter_msg=0x7f090026;
-        public static final int counter_reseted_msg=0x7f090025;
-        public static final int email=0x7f09002f;
-        public static final int exit_msg=0x7f090024;
-        public static final int icon=0x7f090031;
-        public static final int last_day=0x7f09002c;
-        public static final int last_month=0x7f09002a;
-        public static final int last_week=0x7f090029;
-        public static final int last_year=0x7f09002b;
-        public static final int menu_about=0x7f090016;
-        public static final int menu_addBeer=0x7f090015;
+        public static final int bt_counter=0x7f090010;
+        public static final int bt_minus=0x7f090012;
+        public static final int bt_resetCounter=0x7f090011;
+        public static final int bugfix=0x7f090033;
+        public static final int counter_msg=0x7f090027;
+        public static final int counter_reseted_msg=0x7f090026;
+        public static final int email=0x7f090030;
+        public static final int exit_msg=0x7f090025;
+        public static final int icon=0x7f090032;
+        public static final int last_day=0x7f09002d;
+        public static final int last_month=0x7f09002b;
+        public static final int last_week=0x7f09002a;
+        public static final int last_year=0x7f09002c;
+        public static final int menu_about=0x7f090017;
+        public static final int menu_addBeer=0x7f090016;
         /**  Action bar labels 
  Action bar labels 
          */
-        public static final int menu_exit=0x7f090013;
-        public static final int menu_history=0x7f090014;
-        public static final int msg_about=0x7f090027;
+        public static final int menu_exit=0x7f090014;
+        public static final int menu_history=0x7f090015;
+        public static final int msg_about=0x7f090028;
         /**  About activity 
          */
-        public static final int msg_current_version=0x7f09002d;
-        public static final int msg_email=0x7f090030;
-        public static final int search_hint=0x7f090017;
-        public static final int search_not_find=0x7f090023;
-        public static final int share_msg1=0x7f09001f;
-        public static final int share_msg2=0x7f090020;
-        public static final int top_ten=0x7f090028;
-        public static final int web_link=0x7f09002e;
+        public static final int msg_current_version=0x7f09002e;
+        public static final int msg_email=0x7f090031;
+        public static final int search_hint=0x7f090018;
+        public static final int search_not_find=0x7f090024;
+        public static final int share_msg1=0x7f090020;
+        public static final int share_msg2=0x7f090021;
+        public static final int top_ten=0x7f090029;
+        public static final int web_link=0x7f09002f;
     }
     public static final class style {
         public static final int ActionBar_Solid_Drunkershelper=0x7f0a005c;

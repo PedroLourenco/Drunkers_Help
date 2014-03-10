@@ -30,8 +30,8 @@
 
         <ScrollView
             android:id="@+id/scrollView1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_above="@+id/current_version"
             android:layout_below="@+id/msg_about"
             android:layout_gravity="center"
@@ -40,15 +40,17 @@
             android:layout_marginRight="15dp"
             android:padding="8dp" >
 
-              <TextView
+           
+                <TextView
                     android:id="@+id/txt_version3"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
                     android:gravity="center"
                     android:paddingTop="8dp"
-                    android:text="@string/bugfix"/>
-               
-            
+                    android:text="@string/bugfix" />
+             
         </ScrollView>
 
             <TextView

@@ -1,17 +1,7 @@
 package com.drunkers_helper.datasource;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
-import com.drunkers_helper.datasource.BeersDBHelper;
-
-
-
-
-import com.drunkers_helper.util.Globalconstant;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -20,6 +10,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
+
+import com.drunkers_helper.util.Globalconstant;
 
 public class BeersDataSource {
 
@@ -31,7 +23,7 @@ public class BeersDataSource {
 	
 	private String[] Column_Counter = { BeersDBHelper.COL_COUNTER };
 	private String[] Column_Name = { BeersDBHelper.COL_NAME };
-	private String[] Column_LAT = { BeersDBHelper.COL_LAT };
+	//private String[] Column_LAT = { BeersDBHelper.COL_LAT };
 	
 	
 	
@@ -448,8 +440,6 @@ public class BeersDataSource {
 	 */
 	public Cursor getLastMonthBeers() {
 		
-		String where= "DATE('now', '-30' days)";
-		
 		Cursor cursor = this.db.rawQuery(
 				"select " + BeersDBHelper.COL_NAME + ",count(*) as _id  from "
 						+ BeersDBHelper.BEER_HISTORY_TABLE + " WHERE " + BeersDBHelper.COL_DATE + " BETWEEN datetime('now', 'start of month') AND datetime('now', 'localtime') group by " + BeersDBHelper.COL_NAME + " order by _id DESC",
@@ -467,8 +457,6 @@ public class BeersDataSource {
 	 * @return			Number of beers if not exist return 0
 	 */
 	public String getLastMonthBeersTotal() {
-		
-		String where= "DATE('now', '-30' days)";
 		
 		Cursor cursor = this.db.rawQuery(
 				"select " +  "count(*)  from "
@@ -528,48 +516,6 @@ public class BeersDataSource {
 		return result;
 	}
 	
-	
-	
-	/**
-	 * Find resgiters without city name on table Beer History
-	 * 
-	 * @return  Cursor with all afected registers
-	 */
-	 
-	public Map<String, String> getRegistersWithoutLocation(){
-		
-		Map<String,String> coordenadas = new HashMap<String,String>();
-		Cursor cursor = this.db.rawQuery("select " + BeersDBHelper.COL_LAT + ", " + BeersDBHelper.COL_LONG + " from " + BeersDBHelper.BEER_HISTORY_TABLE + " where " + BeersDBHelper.COL_LOCATION + " is null",new String[] {});
-		
-		
-		
-		String result="";
-		if ( cursor.getCount() == 0){
-			
-		}
-	
-		if (cursor.moveToFirst()) {
-
-			do {
-				
-				coordenadas.put(cursor.getString(0).toString(), cursor.getString(1).toString());
-				
-				result += cursor.getString(0).toString() +"|";
-				System.out.println("RESULT: " + result);
-
-			} while (cursor.moveToNext());
-		}
-		
-		
-		Iterator it = coordenadas.entrySet().iterator();
-	    while (it.hasNext()) {
-	        Map.Entry pairs = (Map.Entry)it.next();
-	        System.out.println(pairs.getKey() + " = " + pairs.getValue());
-	        //it.remove(); // avoids a ConcurrentModificationException
-	    }
-		return coordenadas;		
-		
-	}
 	
 	
 	
