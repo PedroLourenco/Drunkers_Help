@@ -40,92 +40,15 @@
             android:layout_marginRight="15dp"
             android:padding="8dp" >
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"                
-                android:orientation="vertical"
-                android:layout_gravity="center" >
-
-                <TextView
+              <TextView
                     android:id="@+id/txt_version3"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
                     android:gravity="center"
                     android:paddingTop="8dp"
-                    android:textStyle="bold"
-                    android:text="@string/version3" />
-                
-                <TextView
-                    android:id="@+id/msg_bugfix3"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_below="@+id/txt_version3"
-                    android:text="@string/msg_bug_fix3" >
-                </TextView>
-                
-                <TextView
-                    android:id="@+id/txt_version2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/version2"
-                    android:paddingTop="8dp"
-                    android:textStyle="bold"
-                    android:layout_below="@+id/msg_bugfix3" >
-                </TextView>
-
-                <TextView
-                    android:id="@+id/msg_bugfix2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/msg_bug_fix2"
-                    android:layout_below="@+id/txt_version2" >
-                </TextView>
-                
-                <TextView
-                    android:id="@+id/txt_version1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/version1"
-                    android:paddingTop="8dp"
-                    android:textStyle="bold"
-                    android:layout_below="@+id/msg_bugfix2" >
-                </TextView>
-
-                <TextView
-                    android:id="@+id/msg_bugfix1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/msg_bug_fix1"
-                    android:layout_below="@+id/txt_version1" >
-                    </TextView>
-                    <TextView
-                    android:id="@+id/txt_version"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/version"
-                    android:paddingTop="8dp"
-                    android:textStyle="bold"
-                    android:layout_below="@+id/msg_bugfix1" >
-                </TextView>
-
-                <TextView
-                    android:id="@+id/msg_bugfix"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/msg_bug_fix"
-                    android:layout_below="@+id/txt_version" >
-             
-                </TextView>
-             </RelativeLayout>
+                    android:text="@string/bugfix"/>
+               
+            
         </ScrollView>
 
             <TextView

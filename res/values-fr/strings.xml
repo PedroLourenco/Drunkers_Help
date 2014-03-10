@@ -41,21 +41,13 @@
     
     
     <string name="msg_about">Gardez une trace de votre consommation de bière!</string>
-    <string name="version">Version 1.0.0 (Septembre, 2013)</string>
-    <string name="msg_bug_fix">Version initiale.</string>
-    <string name="version1">Version 1.1.0 (Octobre, 2013)</string>
-    <string name="msg_bug_fix1">Ajout de la traduction française</string>
-    <string name="version2">Version 1.1.1 (Octobre, 2013)</string>
-    <string name="msg_bug_fix2">Correction de bugs</string>
-       
-    <string name="version3"><b>Version 1.2.0 (Février 2014)</b></string>
-    <string name="msg_bug_fix3">Nouvelles fonctionnalités, glissez menu de droite sur l\'écran initial</string>
-    
     <string name="msg_current_version">Drunker\'s Helper 1.2.0</string>
     <string name="web_link">http://drunkers-helper.herokuapp.com/</string>
     <string name="email">pdrolourenco@gmail.com</string>
     <string name="msg_email">"Adresse email "</string>
     <string name="icon">icon</string>
+    
+    <string name="bugfix"><b>Version 1.2.1 (Mars, 2014)</b> \n Améliorer la fonction de localisation \n\n <b>Version 1.2.0 (Février 2014)</b> \n Nouvelles fonctionnalités, glissez menu de droite sur l\'écran initial \n\n <b>Version 1.1.1 (Octobre, 2013)</b> \n Correction de bugs \n\n <b>Version 1.1.0 (Octobre, 2013)</b> \n Ajout de la traduction française \n\n <b>Version 1.0.0 (Septembre, 2013))</b> \n Version initiale.</string>
 
 
 </resources>
