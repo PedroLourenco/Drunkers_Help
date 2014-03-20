@@ -57,7 +57,6 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	TextView mSearchText;
 	private Context mcontext;
 	private BeersDataSource mbeer_datasource;;
-	protected ListFragment mFrag;
 	MyLocation mMyLocation = new MyLocation();
 	private long mLastPressedTime;
 	private static final int PERIOD = 2000;
