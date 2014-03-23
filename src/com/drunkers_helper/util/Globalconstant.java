@@ -2,13 +2,13 @@ package com.drunkers_helper.util;
 
 import com.drunkers_help.R;
 
-public final class globalconstant {
+public final class Globalconstant {
 	
 	//log variables
-	public static final boolean LOG = false;
+	public static final boolean LOG = true;
     public static String TAG = "Drunker's Helper";
 
-	public static double lat, lon;
+	public static double latitude, longitude;
 	
 	public static String cityName = null; 
 	
@@ -128,7 +128,7 @@ public final class globalconstant {
 			R.drawable.san_miguel, R.drawable.sol, R.drawable.stella_artois, R.drawable.strela,
 			R.drawable.tagus, R.drawable.tecate, R.drawable.victoria };
 
-	private globalconstant() {
+	private Globalconstant() {
 	}
 
 	public static class Config {

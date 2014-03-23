@@ -3,6 +3,7 @@
 
     <string name="app_name">Drunker\'s Helper</string>
     <string name="action_settings">Settings</string>
+    <string name="app_logo">App logo</string>
 
     <!-- Buttons labels -->
     <string name="bt_counter"> Day Counter </string>
@@ -42,19 +43,15 @@
     
     
     <!-- About activity -->
-    <string name="version"><b>Version 1.0.0 (September, 2013)</b> </string>
-    <string name="msg_bug_fix">Initial Version.</string>
-    <string name="version1"><b>Version 1.1.0 (October, 2013)</b></string>
-    <string name="msg_bug_fix1">Add French Translation</string>
-    <string name="version2"><b>Version 1.1.1 (October, 2013)</b></string>
-    <string name="msg_bug_fix2">Bug fixes</string>    
-    <string name="version3"><b>Version 1.2.0 (February, 2014)</b></string>
-    <string name="msg_bug_fix3">New features, swipe right menu on initial screen</string>
     
-    <string name="msg_current_version">Drunker\'s Helper  1.2.0</string>
+    <string name="msg_current_version">Drunker\'s Helper  1.2.1</string>
     <string name="web_link">http://drunkers-helper.herokuapp.com/</string>
     <string name="email">pdrolourenco@gmail.com</string>
     <string name="msg_email">"Contact: "</string>
     <string name="icon">icon</string>
+    
+    <string name="bugfix"><b>Version 1.2.1 (March, 2014)</b> \n Improve get location function. \n\n <b>Version 1.2.0 (February, 2014)</b> \n New features, swipe right menu on initial screen. \n\n <b>Version 1.1.1 (October, 2013)</b> \n Bug fixes. \n\n <b>Version 1.1.0 (October, 2013)</b> \n Add French Translation. \n\n <b>Version 1.0.0 (September, 2013)</b> \n Initial Version.</string>
+    
+    
 
 </resources>
