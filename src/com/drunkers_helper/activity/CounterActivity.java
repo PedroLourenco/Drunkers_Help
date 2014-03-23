@@ -20,20 +20,20 @@ import android.widget.TextView;
 
 public class CounterActivity extends Activity {
 
-	private Integer counterValue = 0;
-	private TextView counter;
-	private BeersDataSource beer_datasource;	
-	private String beerName;
-	private ImageView beerImage;
+	private Integer mCounterValue = 0;
+	private BeersDataSource mBeerDatasource;	
+	private String mBeerName;
+	private ImageView mBeerImage;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_counter);
 
-		beer_datasource = new BeersDataSource(this);
-		beer_datasource.open();
+		mBeerDatasource = new BeersDataSource(this);
+		mBeerDatasource.open();
 
+		final TextView mCounter;	
 		// get intent data
 		Intent i = getIntent();
 
@@ -41,28 +41,28 @@ public class CounterActivity extends Activity {
 		Integer aux_position = i.getExtras().getInt("id");
 
 		try {
-			beerImage = (ImageView) findViewById(R.id.mImgView1);
-			beerImage.setImageResource(Globalconstant.mThumbIds[aux_position]);
+			mBeerImage = (ImageView) findViewById(R.id.mImgView1);
+			mBeerImage.setImageResource(Globalconstant.mThumbIds[aux_position]);
 			Integer position = aux_position + 1;
-			beerName = beer_datasource.getBeerName(position.toString());
+			mBeerName = mBeerDatasource.getBeerName(position.toString());
 
 		} catch (ArrayIndexOutOfBoundsException e) {
-			beerImage.setImageResource(R.drawable.defaultb);
-			beerName = i.getExtras().getString("beerName");
+			mBeerImage.setImageResource(R.drawable.defaultb);
+			mBeerName = i.getExtras().getString("beerName");
 		}
 
 		TextView title = (TextView) findViewById(R.id.title);
-		counter = (TextView) findViewById(R.id.counter);
+		mCounter = (TextView) findViewById(R.id.counter);
 
-		title.setText(beerName);
+		title.setText(mBeerName);
 
-		counterValue = beer_datasource.getBeerNameCounter(beerName);
-		counter.setText(counterValue.toString());
+		mCounterValue = mBeerDatasource.getBeerNameCounter(mBeerName);
+		mCounter.setText(mCounterValue.toString());
 
-		beerImage.setOnClickListener(new OnClickListener() {
+		mBeerImage.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				counter.setText(beer_datasource.incrementCounter(beerName).toString());
+				mCounter.setText(mBeerDatasource.incrementCounter(mBeerName).toString());
 			}
 		});
 
@@ -71,7 +71,7 @@ public class CounterActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				counter.setText(beer_datasource.decrementCounter(beerName).toString());
+				mCounter.setText(mBeerDatasource.decrementCounter(mBeerName).toString());
 			}
 
 		});

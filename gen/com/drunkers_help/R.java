@@ -1421,20 +1421,11 @@ containing a value of this type.
         public static final int web_link=0x7f09002f;
     }
     public static final class style {
-        public static final int ActionBar_Solid_Drunkershelper=0x7f0a005c;
-        public static final int ActionBar_Transparent_Drunkershelper=0x7f0a005d;
-        public static final int ActionBarTabStyle_Drunkershelper=0x7f0a0060;
-        public static final int ActionButton_CloseMode_Drunkershelper=0x7f0a0063;
+        public static final int ActionBar_Solid_Drunkershelper=0x7f0a005a;
+        public static final int ActionBar_Transparent_Drunkershelper=0x7f0a005b;
+        public static final int ActionBarTabStyle_Drunkershelper=0x7f0a005e;
+        public static final int ActionButton_CloseMode_Drunkershelper=0x7f0a0061;
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -1446,15 +1437,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0a0059;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
-         */
-        public static final int AppTheme=0x7f0a005a;
-        public static final int DropDownListView_Drunkershelper=0x7f0a005f;
-        public static final int DropDownNav_Drunkershelper=0x7f0a0061;
-        public static final int PopupMenu_Drunkershelper=0x7f0a005e;
-        public static final int ProgressBar_Drunkershelper=0x7f0a0062;
+        public static final int AppBaseTheme=0x7f0a0063;
+        public static final int DropDownListView_Drunkershelper=0x7f0a005d;
+        public static final int DropDownNav_Drunkershelper=0x7f0a005f;
+        public static final int PopupMenu_Drunkershelper=0x7f0a005c;
+        public static final int ProgressBar_Drunkershelper=0x7f0a0060;
         public static final int Sherlock___TextAppearance_Small=0x7f0a0046;
         public static final int Sherlock___Theme=0x7f0a0051;
         public static final int Sherlock___Theme_DarkActionBar=0x7f0a0053;
@@ -1492,10 +1479,10 @@ containing a value of this type.
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Large=0x7f0a0040;
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Small=0x7f0a0042;
         public static final int TextAppearance_Sherlock_Widget_TextView_SpinnerItem=0x7f0a0044;
-        public static final int Theme_Drunkershelper=0x7f0a005b;
+        public static final int Theme_Drunkershelper=0x7f0a0059;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
          */
-        public static final int Theme_Drunkershelper_Widget=0x7f0a0064;
+        public static final int Theme_Drunkershelper_Widget=0x7f0a0062;
         public static final int Theme_Sherlock=0x7f0a0054;
         public static final int Theme_Sherlock_Light=0x7f0a0055;
         public static final int Theme_Sherlock_Light_DarkActionBar=0x7f0a0056;

@@ -13,22 +13,22 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.widget.ListView;
 
 /**
- * @author PedroLourenco
+ * @author Pedro Lourenco
  * 
  */
 
 public class HistoryActivity extends Activity {
 
-	private BeersDataSource beer_datasource; 
+	private BeersDataSource mBeerDatasource; 
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_history);
 
-		beer_datasource = new BeersDataSource(this);
-		beer_datasource.open();
+		mBeerDatasource = new BeersDataSource(this);
+		mBeerDatasource.open();
 
-		Cursor listcounter = beer_datasource.selectAllHistory();
+		Cursor listcounter = mBeerDatasource.selectAllHistory();
 
 		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
 				android.R.layout.simple_list_item_2, listcounter, new String[] {

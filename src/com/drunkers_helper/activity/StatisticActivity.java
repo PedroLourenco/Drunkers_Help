@@ -13,14 +13,13 @@ import com.drunkers_helper.datasource.BeersDataSource;
 import com.drunkers_helper.util.Globalconstant;
 
 /**
- * @author PedroLourenco
+ * @author Pedro Lourenco
  * 
  */
 
 public class StatisticActivity extends Activity { 
 
-	private String TAG = "StatisticActivity"; 
-	private BeersDataSource beer_datasource;
+	private BeersDataSource mBeerDatasource;
 	private String total = "0";
 	String[] fields = new String[]  { "Beer_Name", "_id" };
     int[] views = new int[] { R.id.text1, R.id.text2};
@@ -30,8 +29,8 @@ public class StatisticActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activiy_statistic);
 		
-		beer_datasource = new BeersDataSource(this);
-		beer_datasource.open();
+		mBeerDatasource = new BeersDataSource(this);
+		mBeerDatasource.open();
 		
 		Cursor listcounter = null;
 		Intent intent = getIntent();
@@ -43,34 +42,34 @@ public class StatisticActivity extends Activity {
 			
 		
 		if(option == 1) {
-			listcounter = beer_datasource.getTopTenBeerss();
+			listcounter = mBeerDatasource.getTopTenBeerss();
 			total = "N/A";
 			
 			
 		}else if (option == 2){
-			listcounter = beer_datasource.getLastDayBeers();
-			total = beer_datasource.getLastDayBeersTotal();
+			listcounter = mBeerDatasource.getLastDayBeers();
+			total = mBeerDatasource.getLastDayBeersTotal();
 		}
 		
 		else if (option == 3){
-			listcounter = beer_datasource.getLastWeekBeers();
-			total = beer_datasource.getLastWeekBeersTotal();
+			listcounter = mBeerDatasource.getLastWeekBeers();
+			total = mBeerDatasource.getLastWeekBeersTotal();
 		}
 		else if (option == 4){
 			
-			listcounter = beer_datasource.getLastMonthBeers();
-			total = beer_datasource.getLastMonthBeersTotal();
+			listcounter = mBeerDatasource.getLastMonthBeers();
+			total = mBeerDatasource.getLastMonthBeersTotal();
 			
 		}
 		else if (option == 5){
-			listcounter = beer_datasource.getLastYearBeers();
-			total = beer_datasource.getLastYearBeersTotal();
+			listcounter = mBeerDatasource.getLastYearBeers();
+			total = mBeerDatasource.getLastYearBeersTotal();
 		}
 		
 		
 		}catch(Exception e){
 			if (Globalconstant.LOG)
-				Log.d(TAG, "No Records!");
+				Log.d(Globalconstant.TAG, "No Records!");
 			
 		}
 		

@@ -3,6 +3,7 @@
 
     <string name="app_name">Drunker\'s Helper</string>
     <string name="action_settings">Réglage</string>
+    <string name="app_logo">App logo</string>
 
     <!-- Buttons labels -->
     <string name="bt_counter"> Compte des jours </string>

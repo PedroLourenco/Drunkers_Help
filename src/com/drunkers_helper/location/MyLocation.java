@@ -12,6 +12,11 @@ import android.util.Log;
 
 import com.drunkers_helper.util.Globalconstant;
 
+/**
+ * @author Pedro Lourenco
+ * 
+ */
+
 public class MyLocation {
 
 	private static final long ONE_MIN = 1000 * 60;

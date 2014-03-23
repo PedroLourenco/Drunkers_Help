@@ -13,7 +13,6 @@ import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -56,7 +55,7 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	
 	TextView mSearchText;
 	private Context mcontext;
-	private BeersDataSource mbeer_datasource;;
+	private BeersDataSource mBeerDatasource;;
 	MyLocation mMyLocation = new MyLocation();
 	private long mLastPressedTime;
 	private static final int PERIOD = 2000;
@@ -92,16 +91,18 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 			Log.d(Globalconstant.TAG, "APP started!");
 
 			imageLoader.init(ImageLoaderConfiguration.createDefault(this));
-			mbeer_datasource = new BeersDataSource(this);
-			mbeer_datasource.open();
+			mBeerDatasource = new BeersDataSource(this);
+			mBeerDatasource.open();
 			mcontext = MainActivity.this;
 
 			//universal image loader lib
 			mOptions = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.ic_stub)
 				.showImageForEmptyUri(R.drawable.ic_empty)
-				.showImageOnFail(R.drawable.ic_error).cacheInMemory(true)
-				.cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+				.showImageOnFail(R.drawable.ic_error)
+				.cacheInMemory(true)
+				.cacheOnDisc(true)
+				.bitmapConfig(Bitmap.Config.RGB_565)
+				.build();
 
 		        
 			//Fragment
@@ -167,7 +168,7 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 			@Override
 			public void onClick(View v) {
 				
-				String msg = mbeer_datasource.selectAllBeerCounter();
+				String msg = mBeerDatasource.selectAllBeerCounter();
 				
 				if(!msg.isEmpty()){
 
@@ -189,14 +190,13 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 			@Override
 			public void onClick(View v) {
 
-				mbeer_datasource.resetCounterTable();
+				mBeerDatasource.resetCounterTable();
 				Toast.makeText(getApplicationContext(), getResources().getString(R.string.counter_reseted_msg),
 						Toast.LENGTH_SHORT).show();
 			}
 		});
 		
-		//findCurrentLocation();
-	
+		
 	}
 
 	
@@ -276,7 +276,7 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 			switch (event.getAction()) {
 			case KeyEvent.ACTION_DOWN:
 				if (event.getDownTime() - mLastPressedTime < PERIOD) {
-					mbeer_datasource.resetCounterTable();
+					mBeerDatasource.resetCounterTable();
 					Globalconstant.cityName = null;
 					Globalconstant.count = 0;
 					finish();
@@ -335,7 +335,7 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	//Search 
 	public boolean onQueryTextSubmit(String query) {
 
-		int result = mbeer_datasource.getBeerId(query);
+		int result = mBeerDatasource.getBeerId(query);
 
 		if (result != -1) {
 			Intent is = new Intent(getApplicationContext(),	CounterActivity.class);

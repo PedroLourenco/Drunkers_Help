@@ -11,10 +11,13 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 
-
+/**
+ * @author Pedro Lourenco
+ * 
+ */
 
 public class BaseActivity extends SlidingFragmentActivity {
-SlidingMenu menu;
+
 private int mTitleRes;
 protected ListFragment mFrag;
 

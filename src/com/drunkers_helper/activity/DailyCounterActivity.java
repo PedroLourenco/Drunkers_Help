@@ -16,12 +16,13 @@ import com.drunkers_help.R;
 import com.drunkers_helper.datasource.BeersDataSource;
 
 /**
- * @author PedroLourenco
+ * @author Pedro Lourenco
  * 
  */
+
 public class DailyCounterActivity extends Activity {
 
-	private BeersDataSource beer_datasource;
+	private BeersDataSource mBeerDatasource;
 	private ShareActionProvider myShareActionProvider;
 	
 
@@ -29,9 +30,9 @@ public class DailyCounterActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dailycounter);
 
-		beer_datasource = new BeersDataSource(this);
-		beer_datasource.open();
-		Cursor listcounter = beer_datasource.selectCounterBeers();		
+		mBeerDatasource = new BeersDataSource(this);
+		mBeerDatasource.open();
+		Cursor listcounter = mBeerDatasource.selectCounterBeers();		
 				
 		ListView list = (ListView) findViewById(R.id.dailyListView);
 				

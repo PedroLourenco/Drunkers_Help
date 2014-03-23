@@ -13,13 +13,18 @@ import android.util.Log;
 
 import com.drunkers_helper.util.Globalconstant;
 
+/**
+ * @author Pedro Lourenco
+ * 
+ */
+
 public class BeersDataSource {
 
 
 	
 	private SQLiteDatabase db;
 	
-	private BeersDBHelper beer_db_helper;
+	private BeersDBHelper mBeerDatasource;
 	
 	private String[] Column_Counter = { BeersDBHelper.COL_COUNTER };
 	private String[] Column_Name = { BeersDBHelper.COL_NAME };
@@ -29,17 +34,17 @@ public class BeersDataSource {
 	
 
 	public BeersDataSource(Context context) {
-		beer_db_helper = new BeersDBHelper(context);	
+		mBeerDatasource = new BeersDBHelper(context);	
 	}
 
 		
 	public void open() throws SQLException {
 		
-		db = beer_db_helper.getWritableDatabase();
+		db = mBeerDatasource.getWritableDatabase();
 	}
 
 	public void close() {
-		beer_db_helper.close();
+		mBeerDatasource.close();
 	}
 	
 	

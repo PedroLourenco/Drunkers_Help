@@ -13,6 +13,12 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
 import com.drunkers_help.R;
+
+/**
+ * @author Pedro Lourenco
+ * 
+ */
+
 public class AboutActivity extends Activity{
 
 

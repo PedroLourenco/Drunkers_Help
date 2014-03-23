@@ -16,20 +16,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /**
- * @author mejaime
+ * @author Pedro Lourenco
  * 
  */
+
 public class AddBeerActivity extends Activity {
 
-	private BeersDataSource beer_datasource;
+	private BeersDataSource mBeerDatasource;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_addbeer);
 
-		beer_datasource = new BeersDataSource(this);
-		beer_datasource.open();
+		mBeerDatasource = new BeersDataSource(this);
+		mBeerDatasource.open();
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -42,7 +43,7 @@ public class AddBeerActivity extends Activity {
 			if (new_beer.getText().toString().isEmpty()) {
 				Toast.makeText(getApplicationContext(), getResources().getString(R.string.add_beer),Toast.LENGTH_SHORT).show();
 			} else {
-				beer_datasource.addNewBeer(new_beer.getText().toString());
+				mBeerDatasource.addNewBeer(new_beer.getText().toString());
 				Intent i_main = new Intent(getApplicationContext(),	MainActivity.class);
 				// clear all the activities on top of home
 				i_main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
