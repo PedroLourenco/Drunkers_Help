@@ -47,7 +47,7 @@
     <string name="msg_email">"Adresse email "</string>
     <string name="icon">icon</string>
     
-    <string name="bugfix"><b>Version 1.2.1 (Mars, 2014)</b> \n Améliorer la fonction de localisation \n\n <b>Version 1.2.0 (Février 2014)</b> \n Nouvelles fonctionnalités, glissez menu de droite sur l\'écran initial \n\n <b>Version 1.1.1 (Octobre, 2013)</b> \n Correction de bugs \n\n <b>Version 1.1.0 (Octobre, 2013)</b> \n Ajout de la traduction française \n\n <b>Version 1.0.0 (Septembre, 2013))</b> \n Version initiale.</string>
+    <string name="bugfix"><b>Version 1.2.2 (Juin, 2014)</b> \n Correction de bugs \n\n <b>Version 1.2.1 (Mars, 2014)</b> \n Améliorer la fonction de localisation \n\n <b>Version 1.2.0 (Février 2014)</b> \n Nouvelles fonctionnalités, glissez menu de droite sur l\'écran initial \n\n <b>Version 1.1.1 (Octobre, 2013)</b> \n Correction de bugs \n\n <b>Version 1.1.0 (Octobre, 2013)</b> \n Ajout de la traduction française \n\n <b>Version 1.0.0 (Septembre, 2013))</b> \n Version initiale.</string>
 
 
 </resources>

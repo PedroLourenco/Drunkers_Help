@@ -353,7 +353,7 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 	protected void onResume() {
 		super.onResume();
 		//Get location updates
-		mMyLocation.onResume();
+		//mMyLocation.onResume();
 	}
 	
 	@Override
@@ -527,9 +527,9 @@ public class MainActivity extends BaseActivity implements OnQueryTextListener {
 				}
 			} else {
 
-					if(mGps.connectivityStatus(mcontext))
-				Toast.makeText(mcontext, getResources().getString(R.string.City_msg1),
-						Toast.LENGTH_SHORT).show();
+					//if(mGps.connectivityStatus(mcontext))
+				//Toast.makeText(mcontext, getResources().getString(R.string.City_msg1),
+					//	Toast.LENGTH_SHORT).show();
 			}
 
 		};
